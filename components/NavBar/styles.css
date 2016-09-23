@@ -100,11 +100,11 @@
   }
 }
 .panelPrimary {
-  background: #673AB7;
+  background: #ACDFD2;
   color: #fff;
 }
 .panelPrimary .ripple {
-  background: #FFEB3B;
+  background: white;
 }
 .panelPrimary .navTab li {
   color: rgba(255, 255, 255, 0.6);
@@ -113,5 +113,5 @@
   color: #FFF;
 }
 .panelPrimary .marker {
-  background: #E91E63;
+  background: #DCDA98;
 }
