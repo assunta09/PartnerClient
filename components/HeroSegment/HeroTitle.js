@@ -6,7 +6,7 @@ class HeroTitle extends React.Component {
 
   render() {
     return (
-    	<div>
+    	<div className={s.TitleContainer}>
     		<h1>The Partner</h1>
     	</div>
     );

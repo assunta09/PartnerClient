@@ -9,7 +9,10 @@
 	background-color: peru;
 	margin: 0 auto;
 	height: 100vh;
-	text-align: center;
 	display: flex;
 	justify-content: center;
+}
+
+.TitleContainer h1 {
+	color: blue;
 }
