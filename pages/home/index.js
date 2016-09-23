@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import s from './styles.css';
 
 import HeroSegment from '../../components/HeroSegment';
+import NavBar from '../../components/NavBar';
 
 
 
@@ -13,9 +14,10 @@ class HomePage extends React.Component {
 
   render() {
     return (
-    	<div>
- 				<HeroSegment />
- 			</div>	
+      <div>
+   			<HeroSegment />
+        <NavBar />
+      </div>
     );
   }
 
