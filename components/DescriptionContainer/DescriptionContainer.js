@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import Description from './Description.js'
 
 var DescriptionContainer = React.createClass({
 	
@@ -13,7 +14,7 @@ var DescriptionContainer = React.createClass({
 
 		return (
 			<div style={divStyle}>
-			yo
+				<Description/>
 			</div>
 		);
 	}
