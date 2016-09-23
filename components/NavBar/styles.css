@@ -16,3 +16,102 @@
 	color: #5B5B5B;
 	margin: 0 auto;
 }
+
+.navTab {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  display: table;
+  width: 100%;
+}
+.navTab li {
+  display: table-cell;
+  text-align: center;
+}
+.navTab li a {
+  display: block;
+  padding: 10px 15px;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.marker {
+  position: absolute;
+  height: 3px;
+  background: #000;
+  width: 5px;
+  display: inline-block;
+  left: 0;
+  top: 100%;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin-top: -3px;
+}
+
+.ripple {
+  width: 0;
+  height: 0;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  position: absolute;
+  opacity: 1;
+}
+
+.rippleEffect {
+  -moz-animation: rippleDrop 0.6s ease-in;
+  -webkit-animation: rippleDrop 0.6s ease-in;
+  animation: rippleDrop 0.6s ease-in;
+}
+
+.btn .rippleEffect {
+  -moz-animation-duration: 0.3s;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+
+@-moz-keyframes rippleDrop {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rippleDrop {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+@keyframes rippleDrop {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+.panelPrimary {
+  background: #673AB7;
+  color: #fff;
+}
+.panelPrimary .ripple {
+  background: #FFEB3B;
+}
+.panelPrimary .navTab li {
+  color: rgba(255, 255, 255, 0.6);
+}
+.panelPrimary .navTab li.active {
+  color: #FFF;
+}
+.panelPrimary .marker {
+  background: #E91E63;
+}

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import s from './styles.css';
 
 import NavTitle from './NavTitle.js'
-// import NavTabBar from './NavTabBar.js'
+import NavTabBar from './NavTabBar.js'
 
 class NavBar extends React.Component {
 
@@ -10,6 +10,7 @@ class NavBar extends React.Component {
     return (
     	<div className={s.NavBarContainer}>
     		<NavTitle />
+    		<NavTabBar />
     	</div>
     );
   }
