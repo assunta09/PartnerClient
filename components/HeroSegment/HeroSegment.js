@@ -13,7 +13,7 @@ class HeroSegment extends React.Component {
 	    	<div className={s.HeroContainer}>
 	    		<HeroTitle/>
 	    		<SearchBar/>
-          <DescriptionContainer width={'50%'} height={'100'} color={'red'}/>
+          <DescriptionContainer width={'50%'} height={100} color={'red'}/>
 	    	</div>
     	</div>
     );
