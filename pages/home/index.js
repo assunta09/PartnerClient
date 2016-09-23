@@ -15,11 +15,9 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
+   			<HeroSegment />
         <NavBar />
       </div>
-    	<div>
- 				<HeroSegment />
- 			</div>
     );
   }
 
