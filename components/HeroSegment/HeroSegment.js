@@ -3,6 +3,7 @@ import s from './styles.css';
 
 import HeroTitle from './HeroTitle.js'
 import SearchBar from '../SearchBar';
+import DescriptionContainer from '../DescriptionContainer'
 
 class HeroSegment extends React.Component {
 
@@ -12,6 +13,7 @@ class HeroSegment extends React.Component {
 	    	<div className={s.HeroContainer}>
 	    		<HeroTitle/>
 	    		<SearchBar/>
+          <DescriptionContainer width={'50%'} height={'100'} color={'red'}/>
 	    	</div>
     	</div>
     );
