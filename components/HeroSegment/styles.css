@@ -1,21 +1,19 @@
 .HeroBackground {
 	width: 100%;
-	background-color: blue;
+	background-color: red;
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url("../../public/assets/pig.jpeg");
+	/*background-image: url("../../public/assets/pig.jpeg");*/
 	background-size: cover;
 }
 
 .HeroContainer {
 	width: 70%;
-	background-color: peru;
 	max-width: 60%;
 	text-align: center;
 }
-
 
 .TitleContainer h1 {
 	color: blue;
