@@ -1,0 +1,7 @@
+.SearchBarContainer {
+	border-radius: 10px;
+	border-style: none;
+	width: 200px;
+	height: 30px;
+	font-size: 1.5em;
+}
