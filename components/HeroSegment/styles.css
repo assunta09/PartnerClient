@@ -1,11 +1,11 @@
 .HeroBackground {
 	width: 100%;
-	background-color: red;
+	background-color: 'gray';
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/*background-image: url("../../public/assets/pig.jpeg");*/
+	background-image: url("../../public/assets/pig.jpeg");
 	background-size: cover;
 }
 
