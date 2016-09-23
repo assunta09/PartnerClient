@@ -17,7 +17,9 @@ var SearchBar = React.createClass({
 					type="text"
 					value={this.state.value}
 					onChange={this.handleChange}
+					className={s.SearchBarContainer}
 				/>
+				{console.log(this.state.value)}
 			</div>
 		);
 	}
