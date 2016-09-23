@@ -1,4 +1,4 @@
-# React Static Boilerplate 
+# The Partner - Client
 
 ### Description
 
