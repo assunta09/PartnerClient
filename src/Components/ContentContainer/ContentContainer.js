@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
-
 import NavBar from '../NavBar/NavBar.js'
+
 
 var ContentContainer = React.createClass ({
 
@@ -12,7 +12,6 @@ var ContentContainer = React.createClass ({
     	</div>
     );
   }
-
 });
 
 export default ContentContainer;
