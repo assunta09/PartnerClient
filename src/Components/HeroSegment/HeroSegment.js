@@ -19,8 +19,9 @@ var HeroSegment = React.createClass({
              make a type specimen book. It has survived not only five centuries, but also the leap into electronic 
              typesetting, remaining essentially`
           }/>
-	    	</div>
-    	</div>
+        {this.props.children}
+        </div>
+      </div>
     );
   }
 });
