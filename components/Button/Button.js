@@ -47,7 +47,7 @@ class Button extends React.Component {
       {
         ref: node => (this.root = node),
         className: cx(
-          'mdl-button mdl-js-button',
+          'mdl-button mdl-js-button color',
           type && `mdl-button--${type}`,
           {
             'mdl-button--colored': colored,
