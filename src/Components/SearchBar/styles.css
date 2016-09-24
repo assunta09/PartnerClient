@@ -1,0 +1,11 @@
+.SearchBarContainer {
+	background-color: 'gray';
+	border-radius: 10px;
+	border-style: solid;
+	width: 200px;
+	height: 20px;
+	font-size: 1.2em;
+	padding: 5px;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}

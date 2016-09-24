@@ -1,0 +1,20 @@
+.HeroBackground {
+	width: 100%;
+	background-color: 'gray';
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+}
+
+.HeroContainer {
+	width: 70%;
+	max-width: 60%;
+	text-align: center;
+}
+
+.TitleContainer h1 {
+	color: blue;
+	margin: 0 auto;
+}
