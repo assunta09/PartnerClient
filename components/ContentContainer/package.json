@@ -1,0 +1,6 @@
+{
+  "name": "ContentContainer",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ContentContainer.js"
+}

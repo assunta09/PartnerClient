@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import s from './styles.css';
 
 import HeroSegment from '../../components/HeroSegment';
-import NavBar from '../../components/NavBar';
-
+import ContentContainer from '../../components/ContentContainer';
 
 
 class HomePage extends React.Component {
@@ -16,7 +15,7 @@ class HomePage extends React.Component {
     return (
       <div>
    			<HeroSegment />
-        <NavBar />
+        <ContentContainer />
       </div>
     );
   }
