@@ -1,7 +1,7 @@
 import React from 'react';
 var PieChart = require('react-chartjs').Pie;
 
-var Graph = React.createClass ({
+var Pie = React.createClass ({
 	
 	getInitialState: function() {
 		return {
@@ -34,9 +34,10 @@ var Graph = React.createClass ({
 				<p>yoo</p>
 				<PieChart data={this.state.myData}/>
 				{console.log(this.state.myData)}
+				{console.log(this.props.obj)}
 			</div>
 		);
 	}
 });
 
-export default Graph
+export default Pie
