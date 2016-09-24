@@ -4,7 +4,6 @@ import NavBar from '../NavBar/NavBar.js'
 
 
 var ContentContainer = React.createClass ({
-
   render() {
     return (
     	<div className='ContentContainer'>

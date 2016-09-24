@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js'
-import ContentContainer from './Components/ContentContainer/ContentContainer.js';
 import ImpactSegment from './Components/ImpactSegment/ImpactSegment.js';
 
 import './index.css';

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js';
 

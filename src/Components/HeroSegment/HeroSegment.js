@@ -5,7 +5,6 @@ import DescriptionContainer from '../DescriptionContainer/DescriptionContainer.j
 import './styles.css';
 
 var HeroSegment = React.createClass({
-
   render() {
     return (
     	<div className="HeroBackground"> 
