@@ -1,6 +1,5 @@
 .SearchBarContainer {
 	background-color: 'gray';
-	border-radius: 10px;
 	border-style: none;
 	width: 200px;
 	height: 20px;
@@ -8,4 +7,5 @@
 	padding: 5px;
 	margin-top: 10%;
 	margin-bottom: 10%;
+	opacity: 0.5;
 }
