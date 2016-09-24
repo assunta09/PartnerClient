@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import NavBar from '../NavBar/NavBar.js';
+import PieChart from '../GraphContainer/Graph.js';
 
 var ImpactSegment = React.createClass ({
 	getInitialState: function() {
@@ -25,6 +26,7 @@ var ImpactSegment = React.createClass ({
 		return (
 			<div>
 				<NavBar />
+				<PieChart />
 			</div>
 		);
 	}
