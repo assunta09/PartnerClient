@@ -4,7 +4,7 @@ var Description = React.createClass ({
 	render () {
 		return (
 			<div>
-				add the markdown for the static text
+				<p>{this.props.content}</p>
 			</div>
 		);
 	}

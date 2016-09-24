@@ -15,7 +15,7 @@ var DescriptionContainer = React.createClass({
 
 		return (
 			<div style={divStyle}>
-				<Description/>
+				<Description content={this.props.content}/>
 			</div>
 		);
 	}

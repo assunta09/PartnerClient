@@ -6,6 +6,7 @@
 	align-items: center;
 	justify-content: center;
 	background-size: cover;
+	background-image: url('../../../public/background.jpeg');
 }
 
 .HeroContainer {
