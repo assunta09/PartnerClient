@@ -1,14 +1,27 @@
+.NavBarContainer {
+  position: relative;
+  z-index: 9999;
+  background: #ACDFD2;
+  top: 0;
+}
+
 .NavTitleContainer {
   width: 100vw;
   display: flex;
-  background: #ACDFD2;
+  position: relative;
 }
 
 .NavTitleContainer h1 {
 	color: #5B5B5B;
 	margin: 0 auto;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 24%;
+  padding-bottom: 1%;
+}
+
+.TabBarContainer {
+  width: 100vw;
+  position: relative;
+  bottom: 0;
 }
 
 .navTab {
@@ -25,7 +38,7 @@
 }
 
 .active {
-	color: red;
+  border-bottom: solid 5px #F27A63;
 }
 
 .navTab li a {
@@ -52,70 +65,4 @@
   -webkit-transition: 0.3s;
   transition: 0.3s;
   margin-top: -3px;
-}
-
-.ripple {
-  width: 0;
-  height: 0;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.15);
-  -moz-transform: scale(0, 0);
-  -ms-transform: scale(0, 0);
-  -webkit-transform: scale(0, 0);
-  transform: scale(0, 0);
-  position: absolute;
-  opacity: 1;
-}
-
-.rippleEffect {
-  -moz-animation: rippleDrop 0.6s ease-in;
-  -webkit-animation: rippleDrop 0.6s ease-in;
-  animation: rippleDrop 0.6s ease-in;
-}
-
-.btn .rippleEffect {
-  -moz-animation-duration: 0.3s;
-  -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s;
-}
-
-@-moz-keyframes rippleDrop {
-  to {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes rippleDrop {
-  to {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-@keyframes rippleDrop {
-  to {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-.panelPrimary {
-  background: #ACDFD2;
-  color: #fff;
-}
-.panelPrimary .ripple {
-  background: white;
-}
-.panelPrimary .navTab li {
-  color: rgba(255, 255, 255, 0.6);
-}
-.panelPrimary .navTab li.active {
-  color: #FFF;
-}
-.panelPrimary .marker {
-  background: #DCDA98;
-}
-
-.active {
-  color: 'red';
 }

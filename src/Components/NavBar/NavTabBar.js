@@ -12,9 +12,9 @@ var NavTabBar = React.createClass({
     this.setState({activeTab: event.target.id});
   },
 
-  render() {  
+  render() {
     return (
-      <div className='panel panelPrimary'>
+      <div className='TabBarContainer'>
         <ul className='navTab'>
           <li><a id='tab1' className={(this.state.activeTab === 'tab1') ? 'active ripple rippleEffect' : ''} onClick={this.handleTap}>One</a></li>
           <li><a id='tab2' className={(this.state.activeTab === 'tab2') ? 'active' : ''} onClick={this.handleTap}>Two</a></li>
