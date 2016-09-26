@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import {
   SELECT_ORG, INVALIDATE_ORG,
-  REQUEST_POSTS, RECEIVE_POSTS
+  REQUEST_REPORTS, RECEIVE_REPORTS
 } from '../Actions/actions'
 
 function selectedOrg(state = 'org', action) {
@@ -13,7 +13,7 @@ function selectedOrg(state = 'org', action) {
   }
 }
 
-function posts(state = {
+function reports(state = {
   isFetching: false,
   didInvalidate: false,
   items: []
@@ -23,16 +23,16 @@ function posts(state = {
       return Object.assign({}, state, {
         didInvalidate: true
       })
-    case REQUEST_POSTS:
+    case REQUEST_REPORTS:
       return Object.assign({}, state, {
         isFetching: true,
         didInvalidate: false
       })
-    case RECEIVE_POSTS:
+    case RECEIVE_REPORTS:
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: action.posts,
+        items: action.reports,
         lastUpdated: action.receivedAt
       })
     default:
@@ -40,13 +40,13 @@ function posts(state = {
   }
 }
 
-function postsByOrg(state = {}, action) {
+function reportsByOrg(state = {}, action) {
   switch (action.type) {
     case INVALIDATE_ORG:
-    case RECEIVE_POSTS:
-    case REQUEST_POSTS:
+    case RECEIVE_REPORTS:
+    case REQUEST_REPORTS:
       return Object.assign({}, state, {
-        [action.org]: posts(state[action.org], action)
+        [action.org]: reports(state[action.org], action)
       })
     default:
       return state
@@ -54,7 +54,7 @@ function postsByOrg(state = {}, action) {
 }
 
 const rootReducer = combineReducers({
-  postsByOrg,
+  reportsByOrg,
   selectedOrg
 })
 

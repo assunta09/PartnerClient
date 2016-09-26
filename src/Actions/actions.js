@@ -18,29 +18,29 @@ export function invalidateOrg(org) {
   }
 }
 
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export function requestPosts(org) {
+export const REQUEST_REPORTS = 'REQUEST_REPORTS'
+export function requestReports(org) {
   return {
-    type: REQUEST_POSTS,
+    type: REQUEST_REPORTS,
     org
   }
 }
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export function receivePosts(org, json) {
+export const RECEIVE_REPORTS = 'RECEIVE_REPORTS'
+export function receiveReports(org, json) {
   return {
-    type: RECEIVE_POSTS,
+    type: RECEIVE_REPORTS,
     org,
-    posts: json,
+    reports: json,
     receivedAt: Date.now()
   }
 }
 
 // Meet our first thunk action creator!
 // Though its insides are different, you would use it just like any other action creator:
-// store.dispatch(fetchPosts('reactjs'))
+// store.dispatch(fetchReports('reactjs'))
 
-export function fetchPosts(org) {
+export function fetchReports(org) {
 
   // Thunk middleware knows how to handle functions.
   // It passes the dispatch method as an argument to the function,
@@ -51,7 +51,7 @@ export function fetchPosts(org) {
     // First dispatch: the app state is updated to inform
     // that the API call is starting.
 
-    dispatch(requestPosts(org))
+    dispatch(requestReports(org))
 
     // The function called by the thunk middleware can return a value,
     // that is passed on as the return value of the dispatch method.
@@ -66,7 +66,7 @@ export function fetchPosts(org) {
         // We can dispatch many times!
         // Here, we update the app state with the results of the API call.
 
-        dispatch(receivePosts(org, json))
+        dispatch(receiveReports(org, json))
       )
 
       // In a real world app, you also want to

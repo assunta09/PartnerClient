@@ -10,7 +10,7 @@ import DoughnutChart from './Components/GraphContainer/DoughnutChart.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import ExpenseContainer from './Components/ExpenseSegment/ExpenseContainer.js';
 
-import { selectOrg, fetchPosts } from './Actions/actions.js'
+import { selectOrg, fetchReports } from './Actions/actions.js'
 import {rootReducers} from './Reducers/reducers.js';
 
 import './index.css';
@@ -26,7 +26,7 @@ const store = createStore(
 )
 
 store.dispatch(selectOrg('1'))
-store.dispatch(fetchPosts('1')).then(() =>
+store.dispatch(fetchReports('1')).then(() =>
   console.log(store.getState())
 )
 
