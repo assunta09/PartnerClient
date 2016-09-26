@@ -2,22 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import App from './App';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js'
 import DoughnutChart from './Components/GraphContainer/DoughnutChart.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import ExpenseContainer from './Components/ExpenseSegment/ExpenseContainer.js';
 
-import reducers from './Reducers/index.js';
+import { selectOrg, fetchReports } from './Actions/actions.js'
+import {rootReducers} from './Reducers/reducers.js';
 
 import './index.css';
 
 const store = createStore(
   combineReducers({
-    ...reducers,
+    ...rootReducers,
     routing: routerReducer
-  })
+  }),
+  applyMiddleware(
+  	thunkMiddleware,
+  )
+)
+
+store.dispatch(selectOrg('1'))
+store.dispatch(fetchReports('1')).then(() =>
+  console.log(store.getState())
 )
 
 // Create an enhanced history that syncs navigation events with the store
