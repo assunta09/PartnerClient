@@ -5,8 +5,8 @@ var DescTitle = React.createClass({
 	render () {
 
 		return (
-			<div className='DescTitle'>
-        <h2 className='DescriptionTitle'>Reveune</h2>
+			<div className='DescTitle1'>
+        <h2 className='DescriptionTitle1'>Reveune</h2>
 			</div>
 		);
 	}

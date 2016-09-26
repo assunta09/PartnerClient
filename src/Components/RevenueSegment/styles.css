@@ -1,0 +1,39 @@
+.RevenueSegment1 {
+	width: 100%;
+	height: 100vh;
+	background-color: #ACDFD2;
+	text-align: left;
+  border-bottom: solid 1px #E8E9E8;
+}
+
+.EDescription1 {
+	font-size: 1.2em;
+}
+
+.DescriptionTitle1 {
+
+}
+
+.GraphContainer1 {
+	width: 50%;
+	height: 60vh;
+	background: #F1F1F1;
+	float: left;
+	margin-top: 8.5em;
+	margin-left: 7%;
+	  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+}
+
+.GraphDescContainer1 {
+	width: 100%;
+}
+
+.DescTitleContainer1 {
+	float: right;
+	width: 30%;
+	margin-right: 7%;
+	margin-top: 8.5em;
+  background: #F1F1F1;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+  padding: 20px;
+}
