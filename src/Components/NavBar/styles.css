@@ -3,6 +3,7 @@
   z-index: 9999;
   background: #ACDFD2;
   top: 0;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
 }
 
 .NavTitleContainer {
@@ -14,8 +15,8 @@
 .NavTitleContainer h1 {
 	color: #5B5B5B;
 	margin: 0 auto;
-  padding-top: 2%;
-  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-bottom: 0;
 }
 
 .TabBarContainer {

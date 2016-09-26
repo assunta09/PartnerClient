@@ -7,7 +7,6 @@ var ArticleSegment = React.createClass({
   render() {
     return (
       <div className='ArticleSegment'>
-        <ArticleContainer />
       </div>
     );
   }

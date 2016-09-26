@@ -6,7 +6,6 @@ var ArticleContainer = React.createClass({
   render() {
     return (
       <div className='ArticleContainer'>
-
       </div>
     );
   }

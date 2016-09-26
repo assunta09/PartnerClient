@@ -2,12 +2,12 @@ import React from 'react'
 import Description from './Description.js'
 
 var DescriptionContainer = React.createClass({
-	
+
 	render () {
 		var divStyle = {
 			width: this.props.width,
 			height: this.props.height,
-			maring: 0,
+			color: 'white',
 			margin: 'auto',
 			marginTop: '5%',
 			marginBottom: '5%'
@@ -23,4 +23,3 @@ var DescriptionContainer = React.createClass({
 
 
 export default DescriptionContainer;
-

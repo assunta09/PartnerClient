@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { StickyContainer, Sticky } from 'react-sticky';
 import './App.css';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js';
-import ContentContainer from './Components/ContentContainer/ContentContainer.js';
-import ArticleContainer from './Components/ArticleSegment/ArticleSegment.js';
+import ExpenseSegment from './Components/ExpenseSegment/ExpenseSegment.js';
+import ArticleSegment from './Components/ArticleSegment/ArticleSegment.js';
 
 class App extends Component {
   render() {
@@ -11,8 +11,8 @@ class App extends Component {
       <div className="App">
         <HeroSegment />
         <StickyContainer>
-          <ContentContainer />
-          <ArticleContainer />
+          <ExpenseSegment />
+          <ArticleSegment />
         </StickyContainer>
 	      {console.log(this.props)}
       </div>
