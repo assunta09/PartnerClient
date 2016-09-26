@@ -7,6 +7,7 @@ import App from './App';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js'
 import DoughnutChart from './Components/GraphContainer/DoughnutChart.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import ExpenseContainer from './Components/ExpenseSegment/ExpenseContainer.js';
 
 import reducers from './Reducers/index.js';
 
@@ -26,8 +27,9 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path='/' component={App}/>
-			<Route path='organisation' component={DoughnutChart}/>
-			<Route path='organisation/:id' component={DoughnutChart}/>
+			<Route path='/organisations' component={App}>
+				<Route path='/organisations/:orgID' component={ExpenseContainer}/>
+			</Route>	
 		</Router>
 	</Provider>,
 	document.getElementById('root')
