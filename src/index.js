@@ -9,13 +9,13 @@ import DoughnutChart from './Components/GraphContainer/DoughnutChart.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import ExpenseContainer from './Components/ExpenseSegment/ExpenseContainer.js';
 
-import reducers from './Reducers/index.js';
+import {rootReducers} from './Reducers/reducers.js';
 
 import './index.css';
 
 const store = createStore(
   combineReducers({
-    ...reducers,
+    ...rootReducers,
     routing: routerReducer
   })
 )
