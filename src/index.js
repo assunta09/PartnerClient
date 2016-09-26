@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import App from './App';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js'
-import ImpactSegment from './Components/ImpactSegment/ImpactSegment.js';
+import DoughnutChart from './Components/GraphContainer/DoughnutChart.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 import reducers from './Reducers/index.js';
@@ -26,8 +26,8 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path='/' component={App}/>
-			<Route path='organisation' component={HeroSegment}/>
-			<Route path='organisation/:id' component={ImpactSegment}/>
+			<Route path='organisation' component={DoughnutChart}/>
+			<Route path='organisation/:id' component={DoughnutChart}/>
 		</Router>
 	</Provider>,
 	document.getElementById('root')
