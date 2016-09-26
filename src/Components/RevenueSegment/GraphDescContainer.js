@@ -1,14 +1,14 @@
 import React from 'react'
 import DescTitle from './DescTitleContainer.js'
-import Graph from './ExpenseGraphContainer.js'
+import Graph from './RevenueGraphContainer.js'
 
 var GraphDescContainer = React.createClass({
 
 	render () {
 
 		return (
-			<div className='GraphDescContainer'>
-        <DescTitle title="Expense"/>
+			<div className='GraphDescContainer1'>
+        <DescTitle />
         <Graph />
 			</div>
 		);

@@ -39,7 +39,7 @@ ReactDOM.render(
 			<Route path='/' component={App}/>
 			<Route path='/organisations' component={App}>
 				<Route path='/organisations/:orgID' component={ExpenseContainer}/>
-			</Route>	
+			</Route>
 		</Router>
 	</Provider>,
 	document.getElementById('root')
