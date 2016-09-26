@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT'
 
 export function selectSubreddit(subreddit) {
