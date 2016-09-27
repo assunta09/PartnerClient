@@ -4,6 +4,8 @@ import '../../App.css';
 import ExpenseSegment from './ExpenseSegment.js';
 import ArticleSegment from '../ArticleSegment/ArticleSegment.js';
 
+
+
 class ExpenseContainer extends Component {
   render() {
     return (
