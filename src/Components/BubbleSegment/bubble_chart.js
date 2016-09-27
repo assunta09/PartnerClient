@@ -1,7 +1,8 @@
 
 var d3 = require('d3'); 
 
-function bubbleChart() {
+
+var bubbleChart = {
   // Constants for sizing
   var width = 940;
   var height = 600;
@@ -44,7 +45,7 @@ function bubbleChart() {
   // Charge is negative because we want nodes to repel.
   // Dividing by 8 scales down the charge to be
   // appropriate for the visualization dimensions.
-  function charge(d) {
+  charge: function(d) {
     return -Math.pow(d.radius, 2.0) / 8;
   }
 
@@ -82,7 +83,7 @@ function bubbleChart() {
    * This function returns the new node array, with a node in that
    * array for each element in the rawData input.
    */
-  function createNodes(rawData) {
+   createNodes: function(rawData) {
     // Use map() to convert raw data into node data.
     // Checkout http://learnjsdata.com/ for more on
     // working with data.
@@ -119,7 +120,7 @@ function bubbleChart() {
    * rawData is expected to be an array of data objects as provided by
    * a d3 loading function like d3.csv.
    */
-  var chart = function chart(selector, rawData) {
+  chart: function (selector, rawData) {
     // Use the max total_amount in the data as the max in the scale's domain
     // note we have to ensure the total_amount is a number by converting it
     // with `+`.
@@ -169,7 +170,7 @@ function bubbleChart() {
    * tick function is set to move all nodes to the
    * center of the visualization.
    */
-  function groupBubbles() {
+  groupBubbles: function() {
     hideYears();
 
     force.on('tick', function (e) {
@@ -195,7 +196,7 @@ function bubbleChart() {
    * its destination, and so allows other forces like the
    * node's charge force to also impact final location.
    */
-  function moveToCenter(alpha) {
+  moveToCenter: function(alpha) {
     return function (d) {
       d.x = d.x + (center.x - d.x) * damper * alpha;
       d.y = d.y + (center.y - d.y) * damper * alpha;
@@ -208,7 +209,7 @@ function bubbleChart() {
    * tick function is set to move nodes to the
    * yearCenter of their data's year.
    */
-  function splitBubbles() {
+   splitBubbles: function() {
     showYears();
 
     force.on('tick', function (e) {
@@ -234,7 +235,7 @@ function bubbleChart() {
    * its destination, and so allows other forces like the
    * node's charge force to also impact final location.
    */
-  function moveToYears(alpha) {
+   moveToYears: function(alpha) {
     return function (d) {
       var target = yearCenters[d.year];
       d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
@@ -245,14 +246,14 @@ function bubbleChart() {
   /*
    * Hides Year title displays.
    */
-  function hideYears() {
+   hideYears: function() {
     svg.selectAll('.year').remove();
   }
 
   /*
    * Shows Year title displays.
    */
-  function showYears() {
+   showYears: function() {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
     var yearsData = d3.keys(yearsTitleX);
@@ -272,7 +273,7 @@ function bubbleChart() {
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
    */
-  function showDetail(d) {
+   showDetail: function(d) {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
@@ -291,7 +292,7 @@ function bubbleChart() {
   /*
    * Hides tooltip
    */
-  function hideDetail(d) {
+   hideDetail: function(d) {
     // reset outline
     d3.select(this)
       .attr('stroke', d3.rgb(fillColor(d.group)).darker());
@@ -306,81 +307,25 @@ function bubbleChart() {
    *
    * displayName is expected to be a string and either 'year' or 'all'.
    */
+   // I may or may not have to change 
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'year') {
       splitBubbles();
     } else {
       groupBubbles();
     }
-  };
+  }; 
 
-
+  // Load the data 
+  d3.csv('data/gates_money.csv', display);
   // return the chart function from closure.
   return chart;
-}
+};
 
+
+export default bubbleChart;
 /*
  * Below is the initialization code as well as some helper functions
  * to create a new bubble chart instance, load the data, and display it.
  */
-
-var myBubbleChart = bubbleChart();
-
-/*
- * Function called once data is loaded from CSV.
- * Calls bubble chart function to display inside #vis div.
- */
-function display(error, data) {
-  if (error) {
-    console.log(error);
-  }
-
-  myBubbleChart('#vis', data);
-}
-
-/*
- * Sets up the layout buttons to allow for toggling between view modes.
- */
-function setupButtons() {
-  d3.select('#toolbar')
-    .selectAll('.button')
-    .on('click', function () {
-      // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
-      // Find the button just clicked
-      var button = d3.select(this);
-
-      // Set it as the active button
-      button.classed('active', true);
-
-      // Get the id of the button
-      var buttonId = button.attr('id');
-
-      // Toggle the bubble chart based on
-      // the currently clicked button.
-      myBubbleChart.toggleDisplay(buttonId);
-    });
-}
-
-/*
- * Helper function to convert a number into a string
- * and add commas to it to improve presentation.
- */
-function addCommas(nStr) {
-  nStr += '';
-  var x = nStr.split('.');
-  var x1 = x[0];
-  var x2 = x.length > 1 ? '.' + x[1] : '';
-  var rgx = /(\d+)(\d{3})/;
-  while (rgx.test(x1)) {
-    x1 = x1.replace(rgx, '$1' + ',' + '$2');
-  }
-
-  return x1 + x2;
-}
-
-// Load the data.
-d3.csv('data/gates_money.csv', display);
-
-// setup the buttons.
-setupButtons();
+// Make sure to call setup buttons 
