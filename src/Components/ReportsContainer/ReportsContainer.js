@@ -2,7 +2,10 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
+import { StickyContainer, Sticky } from 'react-sticky';
+import NavBar from '../NavBar/NavBar.js'
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
+import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -36,7 +39,13 @@ componentWillMount: function () {
 render() {
     return (
       <div>
-      	<ExpenseContainer reports={this.state.reports}/>
+      	<StickyContainer>
+      	  <Sticky>
+          	<NavBar />
+        	</Sticky>
+	      	<RevenueContainer />
+	      	<ExpenseContainer reports={this.state.reports}/>
+      	</StickyContainer>
       </div>
     );
   }
