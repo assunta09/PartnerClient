@@ -3,9 +3,11 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
+import { StickyContainer, Sticky } from 'react-sticky';
+import Scroll from 'react-scroll';
+import NavBar from '../NavBar/NavBar.js'
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
-import NavBar from '../NavBar/NavBar.js';
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -16,11 +18,14 @@ const mapDispatchToProps = dispatch => ({
 	fetchReports: org => dispatch(fetchReports(org)),
 });
 
+const Element = Scroll.Element;
+
 const ReportsContainer = React.createClass({
 
 getInitialState () {
   return {
-    reports: this.props.reports
+    reports: this.props.reports,
+    activeTab: ''
   }
 },
 
@@ -36,16 +41,24 @@ componentWillMount: function () {
 		)
 },
 
+handleTap: function(event) {
+  this.setState({activeTab: event.target.id});
+},
+
 render() {
     return (
       <div>
-				<StickyContainer>
-					<Sticky>
-          	<NavBar />
+      	<StickyContainer>
+      	  <Sticky>
+      	  	<NavBar />
         	</Sticky>
-      		<ExpenseContainer title='Expense Breakdown' reports={this.state.reports}/>
-      		<RevenueContainer reports={this.state.reports}/>
-				</StickyContainer>
+        	<Element name="test1" className="element">
+	      		<RevenueContainer />
+	      	</Element>
+	      	<Element name="test2" className="element">
+	      		<ExpenseContainer reports={this.state.reports}/>
+	      	</Element>
+      	</StickyContainer>
       </div>
     );
   }
