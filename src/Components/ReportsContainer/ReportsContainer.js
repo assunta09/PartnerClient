@@ -1,8 +1,11 @@
 import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
+import { StickyContainer, Sticky } from 'react-sticky';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
+import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
+import NavBar from '../NavBar/NavBar.js';
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -24,9 +27,9 @@ getInitialState () {
 componentWillMount: function () {
 	var that = this;
 	this.props.fetchReports(this.props.routeParams.orgID)
-		.then((response) => 
-			that.setState( 
-			  {	
+		.then((response) =>
+			that.setState(
+			  {
 					reports: response
 				}
 			)
@@ -36,7 +39,13 @@ componentWillMount: function () {
 render() {
     return (
       <div>
-      	<ExpenseContainer reports={this.state.reports}/>
+				<StickyContainer>
+					<Sticky>
+          	<NavBar />
+        	</Sticky>
+      		<ExpenseContainer title='Expense Breakdown' reports={this.state.reports}/>
+      		<RevenueContainer reports={this.state.reports}/>
+				</StickyContainer>
       </div>
     );
   }
