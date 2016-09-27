@@ -1,11 +1,36 @@
-.SearchBarContainer {
+.SearchBarContainer input {
 	background-color: 'gray';
 	border-style: none;
 	width: 200px;
 	height: 20px;
 	font-size: 1.2em;
 	padding: 5px;
-	margin-top: 10%;
-	margin-bottom: 10%;
+	margin-top: 2%;
 	opacity: 0.5;
+}
+
+.typeahead-selector {
+	line-height: 25px;
+	margin: 0 auto	;
+	width: 200px;
+	background: #E8E9E8;
+	text-align: left;
+	padding: 5px;
+}
+
+.typeahead-selector a:link {
+	text-decoration: none;
+	color: #5B5B5B;
+}
+.typeahead-selector a:visited {
+	text-decoration: none;
+	color: #5B5B5B;
+}
+.typeahead-selector a:hover {
+	text-decoration: none;
+	color: black;
+}
+.typeahead-selector a:active {
+	text-decoration: none;
+	color: #5B5B5B;
 }
