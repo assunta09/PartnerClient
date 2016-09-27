@@ -8,7 +8,7 @@ var GraphDescContainer = React.createClass({
 
 		return (
 			<div className='GraphDescContainer'>
-        <DescTitle title="Expense"/>
+        <DescTitle />
         <Graph />
 			</div>
 		);
