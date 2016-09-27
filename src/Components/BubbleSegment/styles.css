@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.BubbleSegment {
+  width: 100%;
+  height: 100vh;
+  background-color: #F29885;
+  border-bottom: solid 1px #5B5B5B;
+}
+
+.BubbleContainer {
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
+  background: #5B5B5B;
+}
+
+
+.EDescription {
+  font-size: 1.2em;
+}
+
+.DescriptionTitle {
+
+}
+
+.GraphContainer {
+  width: 100%;
+  height: 60vh;
+  background: #F1F1F1;
+  margin-top: 8.5em;
+  margin-right: 7%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+}
+
+.GraphDescContainer {
+  width: 100%;
+}
+
+.DescTitleContainer {
+  float: left;
+  width: 30%;
+  height: 55vh;
+  margin-left: 7%;
+  margin-top: 8.5em;
+  background: #F1F1F1;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+  padding: 20px;
+}
+
+
+.Description {
+  letter-spacing: 3px;
+}

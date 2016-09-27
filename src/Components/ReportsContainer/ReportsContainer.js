@@ -3,11 +3,12 @@ import './styles.css';
 import { connect } from 'react-redux';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
-import { StickyContainer, Sticky } from 'react-sticky';
 import Scroll from 'react-scroll';
 import NavBar from '../NavBar/NavBar.js'
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
+import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
+
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -57,6 +58,9 @@ render() {
 	      	</Element>
 	      	<Element name="test2" className="element">
 	      		<ExpenseContainer reports={this.state.reports}/>
+	      	</Element>
+	      	<Element name="test3" className="element">
+	      		<BubbleSegment reports={this.state.reports}/>
 	      	</Element>
       	</StickyContainer>
       </div>
