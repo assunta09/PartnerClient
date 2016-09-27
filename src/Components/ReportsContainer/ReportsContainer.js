@@ -17,11 +17,7 @@ const mapDispatchToProps = dispatch => ({
 	fetchReports: org => dispatch(fetchReports(org)),
 });
 
-const Element    = Scroll.Element;
-
-var durationFn = function(deltaTop) {
-    return deltaTop;
-};
+const Element = Scroll.Element;
 
 const ReportsContainer = React.createClass({
 
@@ -45,12 +41,8 @@ componentWillMount: function () {
 },
 
 handleTap: function(event) {
-	console.log("tabbbs")
-	console.log(event.target.id)
   this.setState({activeTab: event.target.id});
 },
-
-// 
 
 render() {
     return (
