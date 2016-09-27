@@ -7,6 +7,7 @@ var ArticleSegment = React.createClass({
   render() {
     return (
       <div className='ArticleSegment'>
+      <h1>This is the test bubble segment</h1>
       </div>
     );
   }
