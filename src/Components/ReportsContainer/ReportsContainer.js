@@ -23,7 +23,7 @@ getInitialState () {
 componentWillMount: function () {
 	console.log(this.state)
 	var that = this;
-	this.props.fetchReports('1')
+	this.props.fetchReports(this.props.routeParams.orgID)
 		.then((response) => 
 			that.setState( 
 			  {	
@@ -36,7 +36,6 @@ componentWillMount: function () {
 render() {
     return (
       <div>
-   			<p>yo</p>
       	{console.log(this.state)}
       </div>
     );
