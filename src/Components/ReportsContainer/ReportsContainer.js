@@ -35,7 +35,7 @@ const ReportsContainer = React.createClass({
 getInitialState () {
   return {
     reports: this.props.reports,
-    activeTab: 'tab1'
+    activeTab: ''
   }
 },
 
@@ -101,8 +101,12 @@ render() {
 				      </div>
           	</div>
         	</Sticky>
-	      	<RevenueContainer />
-	      	<ExpenseContainer reports={this.state.reports}/>
+        	<Element name="test1" className="element">
+	      		<RevenueContainer />
+	      	</Element>
+	      	<Element name="test2" className="element">
+	      		<ExpenseContainer reports={this.state.reports}/>
+	      	</Element>
       	</StickyContainer>
       </div>
     );
