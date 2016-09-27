@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
+import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -37,6 +38,7 @@ render() {
     return (
       <div>
       	{console.log(this.state)}
+      	<ExpenseContainer reports={this.state.reports}/>
       </div>
     );
   }
