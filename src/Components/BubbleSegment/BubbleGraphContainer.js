@@ -1,15 +1,12 @@
 import React from 'react';
-import bubbleChart from './bubble_chart.js';
-import bubbleHelper from './bubble_helpers.js';
-import floatingTooltip from './tooltip.js';
+// import bubbleChart from './bubble_chart.js';
+// import bubbleHelper from './bubble_helpers.js';
+// import floatingTooltip from './tooltip.js';
+
+var bubbleChart = require('./bubble_chart.js');
+// var bubbleHelper = require('./bubble_helpers.js');
 
 var GraphContainer = React.createClass({
-
-  bubbleHelper.setupButtons();
-
-  getInitialState: function() {
-    return {data: {}}
-  },
 
 
   render () {

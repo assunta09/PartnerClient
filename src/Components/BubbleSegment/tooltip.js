@@ -1,4 +1,4 @@
-'use strict';
+
 
 function floatingTooltip(tooltipId, width) {
   // Local variable to hold tooltip div for

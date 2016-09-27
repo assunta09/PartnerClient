@@ -1,6 +1,7 @@
 import React from 'react';
 import DescTitle from './DescTitle.js';
-import GraphContainer from './BubbleGraphContainer';
+import GraphContainer from './BubbleGraphContainer.js';
+// var GraphContainer = require('./BubbleGraphContainer.js');
 
 var BubbleGraphDescContainer = React.createClass({
 

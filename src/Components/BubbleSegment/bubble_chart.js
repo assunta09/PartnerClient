@@ -1,6 +1,7 @@
 
 var d3 = require('d3'); 
 
+// Beginning of bubble chart display 
 
 var bubbleChart = {
   // Constants for sizing
@@ -307,6 +308,7 @@ var bubbleChart = {
    *
    * displayName is expected to be a string and either 'year' or 'all'.
    */
+
    // I may or may not have to change 
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'year') {
@@ -316,16 +318,148 @@ var bubbleChart = {
     }
   }; 
 
+  // Below are the helper methods for the bubble configuration: 
+  // floatingTooltip 
+
+
+  floatingTooltip: function(tooltipId, width) {
+  // Local variable to hold tooltip div for
+  // manipulation in other functions.
+  var tt = d3.select('body')
+    .append('div')
+    .attr('class', 'tooltip')
+    .attr('id', tooltipId)
+    .style('pointer-events', 'none');
+
+  // Set a width if it is provided.
+  if (width) {
+    tt.style('width', width);
+  }
+
+  // Initially it is hidden.
+  hideTooltip();
+
+  /*
+   * Display tooltip with provided content.
+   *
+   * content is expected to be HTML string.
+   *
+   * event is d3.event for positioning.
+   */
+  function showTooltip(content, event) {
+    tt.style('opacity', 1.0)
+      .html(content);
+
+    updatePosition(event);
+  }
+
+  /*
+   * Hide the tooltip div.
+   */
+  function hideTooltip() {
+    tt.style('opacity', 0.0);
+  }
+
+  /*
+   * Figure out where to place the tooltip
+   * based on d3 mouse event.
+   */
+  function updatePosition(event) {
+    var xOffset = 20;
+    var yOffset = 10;
+
+    var ttw = tt.style('width');
+    var tth = tt.style('height');
+
+    var wscrY = window.scrollY;
+    var wscrX = window.scrollX;
+
+    var curX = (document.all) ? event.clientX + wscrX : event.pageX;
+    var curY = (document.all) ? event.clientY + wscrY : event.pageY;
+    var ttleft = ((curX - wscrX + xOffset * 2 + ttw) > window.innerWidth) ?
+                 curX - ttw - xOffset * 2 : curX + xOffset;
+
+    if (ttleft < wscrX + xOffset) {
+      ttleft = wscrX + xOffset;
+    }
+
+    var tttop = ((curY - wscrY + yOffset * 2 + tth) > window.innerHeight) ?
+                curY - tth - yOffset * 2 : curY + yOffset;
+
+    if (tttop < wscrY + yOffset) {
+      tttop = curY + yOffset;
+    }
+
+    tt.style({ top: tttop + 'px', left: ttleft + 'px' });
+  }
+
+  return {
+    showTooltip: showTooltip,
+    hideTooltip: hideTooltip,
+    updatePosition: updatePosition
+  };
+}
+
+// End of tooltip module 
+
+// Helper display methods 
+ display: function(error, data) {
+  if (error) {
+    console.log(error);
+  }
+
+  myBubbleChart('#vis', data);
+}
+
+/*
+ * Sets up the layout buttons to allow for toggling between view modes.
+ */
+ setupButtons: function() {
+  d3.select('#toolbar')
+    .selectAll('.button')
+    .on('click', function () {
+      // Remove active class from all buttons
+      d3.selectAll('.button').classed('active', false);
+      // Find the button just clicked
+      var button = d3.select(this);
+
+      // Set it as the active button
+      button.classed('active', true);
+
+      // Get the id of the button
+      var buttonId = button.attr('id');
+
+      // Toggle the bubble chart based on
+      // the currently clicked button.
+      myBubbleChart.toggleDisplay(buttonId);
+    });
+}
+
+/*
+ * Helper function to convert a number into a string
+ * and add commas to it to improve presentation.
+ */
+  addCommas: function(nStr) {
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+      x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+
+
+    return x1 + x2;
+  }
+
+  setupButtons();
   // Load the data 
   d3.csv('data/gates_money.csv', display);
   // return the chart function from closure.
   return chart;
+  // End of bubblechart 
 };
 
 
 export default bubbleChart;
-/*
- * Below is the initialization code as well as some helper functions
- * to create a new bubble chart instance, load the data, and display it.
- */
-// Make sure to call setup buttons 
