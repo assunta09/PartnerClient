@@ -1,0 +1,12 @@
+.BubbleSegment {
+  width: 100%;
+  height: 100vh;
+  background: #A4A8A4;
+}
+
+.BubbleContainer {
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
+  background: #5B5B5B;
+}
