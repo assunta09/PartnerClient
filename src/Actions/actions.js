@@ -1,6 +1,9 @@
 import fetch from 'isomorphic-fetch'
 
 export const SELECT_ORG = 'SELECT_ORG'
+export const INVALIDATE_ORG = 'INVALIDATE_ORG'
+export const REQUEST_REPORTS = 'REQUEST_REPORTS'
+export const RECEIVE_REPORTS = 'RECEIVE_REPORTS'
 
 export function selectOrg(org) {
   return {
@@ -9,8 +12,6 @@ export function selectOrg(org) {
   }
 }
 
-export const INVALIDATE_ORG = 'INVALIDATE_ORG'
-
 export function invalidateOrg(org) {
   return {
     type: INVALIDATE_ORG,
@@ -18,7 +19,6 @@ export function invalidateOrg(org) {
   }
 }
 
-export const REQUEST_REPORTS = 'REQUEST_REPORTS'
 export function requestReports(org) {
   return {
     type: REQUEST_REPORTS,
@@ -26,7 +26,6 @@ export function requestReports(org) {
   }
 }
 
-export const RECEIVE_REPORTS = 'RECEIVE_REPORTS'
 export function receiveReports(org, json) {
   return {
     type: RECEIVE_REPORTS,
@@ -71,5 +70,24 @@ export function fetchReports(org) {
 
       // In a real world app, you also want to
       // catch any error in the network call.
+  }
+}
+
+function shouldFetchReports(state, org) {
+  const reports = state.reportsByOrg[org]
+  if (!reports) {
+    return true
+  } else if (reports.isFetching) {
+    return false
+  } else {
+    return reports.didInvalidate
+  }
+}
+
+export function fetchReportsIfNeeded(org) {
+  return (dispatch, getState) => {
+    if (shouldFetchReports(getState(), org)) {
+      return dispatch(fetchReports(org))
+    }
   }
 }

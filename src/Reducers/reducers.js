@@ -55,7 +55,7 @@ function reportsByOrg(state = {}, action) {
 
 const rootReducer = combineReducers({
   reportsByOrg,
-  selectedOrg
+  selectedOrg,
 })
 
 export default rootReducer
