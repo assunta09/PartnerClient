@@ -14,6 +14,14 @@ var SearchBar = React.createClass({
 		this.setState({value: event.target.value});
 	},
 
+	handleSelection: function(event) {
+		this.setState({value: event})
+	},
+
+	handleClick: function(event) {
+		console.log(this.state)
+	},
+
 	componentWillMount: function() {
     return fetch('https://partner-api.herokuapp.com/organisations')
       .then((response) => response.json())
@@ -36,8 +44,13 @@ var SearchBar = React.createClass({
 				<Typeahead className={'SearchBarContainer'}
 			    options={this.state.chartData}
 			    maxVisible={5}
+			    onOptionSelected={this.handleSelection}
+			    onChange={this.handleChange}
 			  />
 				{console.log(this.state.value)}
+				<div>
+					<button className="btn" onClick={this.handleClick}>Search</button>
+				</div>
 			</div>
 		);
 	}
