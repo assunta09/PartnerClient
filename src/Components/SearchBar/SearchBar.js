@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router'
 import './styles.css';
 var Typeahead = require('react-typeahead').Typeahead;
 
@@ -6,7 +7,8 @@ var SearchBar = React.createClass({
 	getInitialState: function() {
 		return {
 			value: '',
-			chartData: [1]
+			chartData: [1],
+			data: {}
 		};
 	},
 
@@ -14,14 +16,28 @@ var SearchBar = React.createClass({
 		this.setState({value: event.target.value});
 	},
 
+	handleSelection: function(event) {
+		this.setState({value: event})
+	},
+
+	handleClick: function(event) {
+		var org = this.state.value
+		var data = this.state.data
+		var routeID = data[org]
+
+		if (routeID) {
+			browserHistory.push(`/organisations/${routeID}`);
+		}
+	},
+
 	componentWillMount: function() {
     return fetch('https://partner-api.herokuapp.com/organisations')
       .then((response) => response.json())
       .then((Data) => {
-        console.log(Data)
 			var list = (Data.organisations)
         this.setState({
-          chartData: Object.keys(list)
+          chartData: Object.keys(list),
+          data: list
         });
       })
       .catch((error) => {
@@ -32,12 +48,15 @@ var SearchBar = React.createClass({
 	render () {
 		return (
 			<div>
-			{console.log(this.state.chartData)}
 				<Typeahead className={'SearchBarContainer'}
 			    options={this.state.chartData}
 			    maxVisible={5}
+			    onOptionSelected={this.handleSelection}
+			    onChange={this.handleChange}
 			  />
-				{console.log(this.state.value)}
+				<div>
+					<button className="btn" onClick={this.handleClick}>Search</button>
+				</div>
 			</div>
 		);
 	}

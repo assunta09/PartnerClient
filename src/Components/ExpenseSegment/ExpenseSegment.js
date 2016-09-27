@@ -13,7 +13,7 @@ var ExpenseSegment = React.createClass ({
         <Sticky>
           <NavBar />
         </Sticky>
-        <GraphDesc />
+        <GraphDesc reports={this.props.reports}/>
     	</div>
     );
   }

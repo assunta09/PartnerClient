@@ -4,20 +4,15 @@ import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
+// import createLogger from 'redux-logger';
 import App from './App';
-import HeroSegment from './Components/HeroSegment/HeroSegment.js'
-import DoughnutChart from './Components/GraphContainer/DoughnutChart.js';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
-import ExpenseContainer from './Components/ExpenseSegment/ExpenseContainer.js';
 import ReportsContainer from './Components/ReportsContainer/ReportsContainer.js'
-
-import { selectOrg, fetchReports } from './Actions/actions.js'
 import {rootReducers} from './Reducers/reducers.js';
 
 import './index.css';
 
-const loggerMiddleware = createLogger()
+// const loggerMiddleware = createLogger()
 
 const store = createStore(
   combineReducers({
