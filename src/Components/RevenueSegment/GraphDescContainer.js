@@ -1,45 +1,39 @@
 import React from 'react'
 import DescTitle from './DescTitleContainer.js'
 import Graph from './RevenueGraphContainer.js'
-import ScrollReveal from 'scrollreveal'
-
-
 
 var GraphDescContainer = React.createClass({
-		
 	componentDidMount: function () {
     const config = {
       origin: 'right',
-      duration: 500,
-      delay: 100,
-      distance: '100px',
+      duration: 700,
+      delay: 200,
+      distance: '50px',
       scale: 1,
       easing: 'ease',
-      reset: true,
+      reset: true
     }
 
     const config2 = {
       origin: 'left',
-      duration: 500,
-      delay: 100,
-      distance: '100px',
+      duration: 700,
+      delay: 200,
+      distance: '50px',
       scale: 1,
       easing: 'ease',
-      reset: true,
+      reset: true
     }
-    var sr = ScrollReveal();
-    sr.reveal(this.refs.box1, config)
-    sr.reveal(this.refs.box2, config2)
+    
+    this.props.sr.reveal(this.refs.box1, config)
+    this.props.sr.reveal(this.refs.box2, config2)
   },
-
 	render () {
-
 		return (
 			<div className='GraphDescContainer1'>
-        <div ref='box1'>
+        <div ref='box1' className="scrollbox">
         	<DescTitle/>
         </div>
-        <div ref='box2'>
+        <div ref='box2' className="scrollbox">
         	<Graph/>
         </div>
 			</div>

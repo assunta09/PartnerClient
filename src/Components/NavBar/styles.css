@@ -1,6 +1,6 @@
 .NavBarContainer {
   position: relative;
-  z-index: 9999;
+  z-index: 1000;
   background: #E8E9E8;
   top: 0;
   box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
