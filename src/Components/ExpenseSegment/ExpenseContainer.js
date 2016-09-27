@@ -11,7 +11,7 @@ class ExpenseContainer extends Component {
     return (
       <div className="App">
         <StickyContainer>
-          <ExpenseSegment />
+          <ExpenseSegment reports={this.props.reports}/>
           <ArticleSegment />
         </StickyContainer>
       </div>

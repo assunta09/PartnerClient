@@ -22,7 +22,6 @@ getInitialState () {
 },
 
 componentWillMount: function () {
-	console.log(this.state)
 	var that = this;
 	this.props.fetchReports(this.props.routeParams.orgID)
 		.then((response) => 
@@ -37,7 +36,6 @@ componentWillMount: function () {
 render() {
     return (
       <div>
-      	{console.log(this.state)}
       	<ExpenseContainer reports={this.state.reports}/>
       </div>
     );

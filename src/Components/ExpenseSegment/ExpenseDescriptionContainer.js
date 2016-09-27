@@ -12,7 +12,7 @@ var ExpenseDescriptionContainer = React.createClass({
 
 		return (
 			<div className={'EDescription'} style={divStyle}>
-				<Description />
+				<Description reports={this.props.reports}/>
 			</div>
 		);
 	}

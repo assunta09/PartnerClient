@@ -9,42 +9,58 @@ var PolarArea = React.createClass({
     }
   },
 
-  componentWillMount: function() {
-    return fetch('https://partner-api.herokuapp.com/organisations/2')
-      .then((response) => response.json())
-      .then((Data) => {
-        console.log(Data)
-        var expenses = (Data.generalExpensesOverview)
-        this.setState({
-          chartData: [
-            {
-              color: "#ACDFD2",
-              highlight: "#ACDFD2",
-              label: "Salaries",
-              value: (expenses.salaries * 100),
-            },
-            {
-              color: "#DCDA98",
-              highlight: "#DCDA98",
-              label: "Other",
-              value: (expenses.other * 100),
-            },
-            {
-              color: "#F29885",
-              highlight: "#F29885",
-              label: "Fundraising",
-              value: (expenses.fundraising_fees * 100),
-            },
-          ],
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  componentWillReceiveProps: function(nextProps) {
+    var data = nextProps.reports
+    var reports = data.reports
+    var expense = reports.generalExpensesAbsolutes
+    var grants = expense.grants
+    var member = expense.member_benefits
+    var salaries = expense.salaries
+    var fundraising = expense.fundraising_fees
+    var other = expense.other
+    console.log(other)
+    this.setState({
+      chartData: [
+        {
+          color: "#ACDFD2",
+          highlight: "#ACDFD2",
+          label: "Grants",
+          value: grants,
+        },
+        {
+          color: "#DCDA98",
+          highlight: "#DCDA98",
+          label: "Member Fees",
+          value: member,
+        },
+        {
+          color: "#F29885",
+          highlight: "#F29885",
+          label: "Salaries",
+          value: salaries,
+        },
+        {
+          color: "#F27A63",
+          highlight: "#F27A63",
+          label: "Fundrasing",
+          value: fundraising,
+        },
+        {
+          color: "#A4A8A4",
+          highlight: "#A4A8A4",
+          label: "Other",
+          value: other,
+        },
+      ],
+    });
   },
 
   render () {
-    return <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData} />
+    return (
+      <div>
+        <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData} />
+      </div>
+    )
   }
 });
 
