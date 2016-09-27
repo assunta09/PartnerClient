@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { StickyContainer, Sticky } from 'react-sticky';
 import './App.css';
 import HeroSegment from './Components/HeroSegment/HeroSegment.js';
 

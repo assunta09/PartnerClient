@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
@@ -23,7 +23,7 @@ getInitialState () {
 componentWillMount: function () {
 	console.log(this.state)
 	var that = this;
-	var reports = this.props.fetchReports('1')
+	this.props.fetchReports('1')
 		.then((response) => 
 			that.setState( 
 			  {	
