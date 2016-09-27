@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
+import { StickyContainer, Sticky } from 'react-sticky';
 import { selectOrg, fetchReports } from '../../Actions/actions.js';
 import { StickyContainer, Sticky } from 'react-sticky';
 import Scroll from 'react-scroll';
@@ -31,9 +32,9 @@ getInitialState () {
 componentWillMount: function () {
 	var that = this;
 	this.props.fetchReports(this.props.routeParams.orgID)
-		.then((response) => 
-			that.setState( 
-			  {	
+		.then((response) =>
+			that.setState(
+			  {
 					reports: response
 				}
 			)

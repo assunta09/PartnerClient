@@ -16,7 +16,7 @@
 	color: #5B5B5B;
 	margin: 0 auto;
   padding-top: 1%;
-  padding-bottom: 0;
+  padding-bottom: 5px;;
 }
 
 .TabBarContainer {
@@ -36,6 +36,7 @@
 .navTab li {
   display: table-cell;
   text-align: center;
+  font-size: 13px;
 }
 
 .active {
@@ -44,7 +45,6 @@
 
 .navTab li a {
   display: block;
-  padding: 10px 15px;
   white-space: nowrap;
   text-decoration: none;
   text-transform: uppercase;
