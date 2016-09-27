@@ -1,13 +1,6 @@
 
+var d3 = require('d3'); 
 
-/* bubbleChart creation function. Returns a function that will
- * instantiate a new bubble chart given a DOM element to display
- * it in and a dataset to visualize.
- *
- * Organization and style inspired by:
- * https://bost.ocks.org/mike/chart/
- *
- */
 function bubbleChart() {
   // Constants for sizing
   var width = 940;
