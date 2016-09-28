@@ -116,8 +116,8 @@ function bubbleChart() {
 
   // X locations of the group titles.
   var groupsTitleX = {
-    Grants: 200,
-    Revenues: width / 2,
+    Fundraising: 200,
+    Cumulative: width / 2,
     Expenses: width - 200
   };
 
@@ -459,11 +459,28 @@ var theChart = bubbleChart();
 // console.log(bubbleChart);
 var GraphContainer = React.createClass({
 
+// Sample code for API call 
+
   // getInitialState: function() {
-  //       return {
-  //           hover: false
-  //       };
-  //   },
+  //   return {
+  //     data: {},
+  //     allRevenues: " ", 
+  //     allExpenses: " "
+  //   };
+  // },
+
+  // componentWillMount: function() {
+  //   return fetch('https://partner-api.herokuapp.com/organisations/1')
+  //     .then((response) => response.json())
+  //     .then((Data) => {
+  //       var Revenue = (Data.allRevenues)
+  //       var Expenses = (Data.allExpenses)
+  //       this.setState({data: Data, allRevenues: Revenue, allExpenses: Expenses});
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // },
 
   componentDidMount: function() {
      var el = ReactDOM.findDOMNode(this);

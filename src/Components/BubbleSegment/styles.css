@@ -101,4 +101,9 @@ button {
   box-shadow: 0 2px #999;
 }
 
-
+.group { 
+color: green;
+background-color: red;
+text-shadow: #474747 3px 5px 2px;
+border: black;
+}

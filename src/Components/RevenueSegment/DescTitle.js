@@ -12,5 +12,4 @@ var DescTitle = React.createClass({
 	}
 });
 
-
 export default DescTitle;
