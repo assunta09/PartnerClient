@@ -1,19 +1,55 @@
 .SearchBarContainer input {
 	background-color: 'gray';
 	border-style: none;
-	width: 200px;
-	height: 20px;
+	width: 400px;
+	height: 30px;
 	font-size: 1.2em;
 	padding: 5px;
-	margin-top: 2%;
-	opacity: 0.5;
+	opacity: 0.8;
+	margin-left: 14%;
+	display: inline-block;
+	border: solid 2px #F27A63;
+}
+
+.SearchContent {
+	width: 100%;
+	display: inline;
+}
+
+.btn {
+	height: 40px;
+	border: solid 2px #F27A63;
+}
+
+.SearchBtnContainer {
+	display: inline-block;
+	position: absolute;
+	top: 44%;
+	height: 30px;
+	right: 90px;
+	width: 10%;
+}
+
+.SearchBarContainer {
+	width: 400px;
+}
+
+.typeahead {
+	margin: 0;
+}
+
+
+.SearchTitle {
+	font-size: 2em;
+	color: #EEEEEE;
 }
 
 .typeahead-selector {
 	line-height: 25px;
-	margin: 0 auto	;
-	width: 200px;
-	background: #E8E9E8;
+	margin: 0 auto;
+	margin-left: 14%;
+	width: 405px;
+	background: white;
 	text-align: left;
 	padding: 5px;
 }

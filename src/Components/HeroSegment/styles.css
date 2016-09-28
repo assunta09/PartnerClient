@@ -1,32 +1,70 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+
 .HeroBackground {
 	width: 100%;
 	background-color: 'gray';
 	height: 100vh;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-size: cover;
-	background-image: url('../../../public/background-1.jpg');
+	background-size: contain;
+	background-image: url('../../../public/pic.jpg');
+}
+
+.HeroBackground h3 {
+	font-size: 1.5em;
+	padding-bottom: 12px;
+	color: #EEEEEE;
+	margin: 0 auto;
+	margin-top: 15%;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #EEEEEE;
+	width: 82%;
 }
 
 .HeroContainer {
-	width: 70%;
-	max-width: 60%;
+	width: 45%;
+	position: absolute;
+	top: 35%;
+	right: 0;
+	height: 65%;
 	text-align: center;
+	font-size: 1.5em;
+	background: #F27A63;
+	/*box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);*/
+
+}
+
+.TitleContainer {
+	width: 45%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 35%;
+	text-align: center;
+	background: #EEEEEE;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+	z-index: 2;
 }
 
 .TitleContainer h1 {
 	color: #F27A63;
-	margin: 0 auto;
-	font-size: 3.0em;
-	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+	font-size: 3em;
+	padding: 0;
+	padding-left: 12px;
+	margin-left: 12px;
+	padding-top: 5%;
+	height: 87px;
+	margin: 0;
+	font-family: 'Open Sans Condensed';
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	word-spacing: 6px;
 }
 
 .btn {
 	background-color: #F27A63;
   border:none;
   font-size:0.8em;
-  color:white;
+  color: white;
 	margin-top: 3%;
   width: 100px;
   height: 30px;
