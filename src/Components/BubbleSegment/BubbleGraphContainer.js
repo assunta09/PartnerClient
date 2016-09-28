@@ -112,11 +112,11 @@ function bubbleChart() {
     3: { x: 2 * width / 3, y: height / 2 }
   };
 
-  // X locations of the year titles.
+  // X locations of the group titles.
   var groupsTitleX = {
-    Grants: 160,
+    Grants: 200,
     Revenues: width / 2,
-    Expenses: width - 160
+    Expenses: width - 200
   };
 
   // Used when setting up force and
@@ -143,9 +143,7 @@ function bubbleChart() {
 
   // Here we create a force layout and
   // configure it to use the charge function
-  // from above. This also sets some contants
-  // to specify how the force layout should behave.
-  // More configuration is done below.
+
   var force = d3.layout.force()
     .size([width, height])
     .charge(charge)
@@ -168,6 +166,8 @@ function bubbleChart() {
     // Use map() to convert raw data into node data.
     // Checkout http://learnjsdata.com/ for more on
     // working with data.
+    // Available groups: Revenues, Expenses, Grants 
+
     var myNodes = rawData.map(function (d) {
       return {
         id: d.id,
@@ -187,21 +187,7 @@ function bubbleChart() {
     return myNodes;
   }
 
-  /*
-   * Main entry point to the bubble chart. This function is returned
-   * by the parent closure. It prepares the rawData for visualization
-   * and adds an svg element to the provided selector and starts the
-   * visualization creation process.
-   *
-   * selector is expected to be a DOM element or CSS selector that
-   * points to the parent element of the bubble chart. Inside this
-   * element, the code will add the SVG continer for the visualization.
-   *
-   * rawData is expected to be an array of data objects as provided by
-   * a d3 loading function like d3.csv.
-   */
-  
-
+// Main entry point to chart 
 
   var chart = function chart(selector, rawData) {
     // Use the max total_amount in the data as the max in the scale's domain
@@ -249,12 +235,12 @@ function bubbleChart() {
 
   /*
    * Sets visualization in "single group mode".
-   * The year labels are hidden and the force layout
+   * The group labels are hidden and the force layout
    * tick function is set to move all nodes to the
    * center of the visualization.
    */
   function groupBubbles() {
-    hideYears();
+    hideGroups();
 
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
@@ -287,16 +273,16 @@ function bubbleChart() {
   }
 
   /*
-   * Sets visualization in "split by year mode".
-   * The year labels are shown and the force layout
+   * Sets visualization in "split by group mode".
+   * The group labels are shown and the force layout
    * tick function is set to move nodes to the
-   * yearCenter of their data's year.
+   * yearCenter of their data's group.
    */
   function splitBubbles() {
-    showYears();
+    showGroups();
 
     force.on('tick', function (e) {
-      bubbles.each(moveToYears(e.alpha))
+      bubbles.each(moveToGroups(e.alpha))
         .attr('cx', function (d) { return d.x; })
         .attr('cy', function (d) { return d.y; });
     });
@@ -305,10 +291,10 @@ function bubbleChart() {
   }
 
   /*
-   * Helper function for "split by year mode".
+   * Helper function for "split by group mode".
    * Returns a function that takes the data for a
    * single node and adjusts the position values
-   * of that node to move it the year center for that
+   * of that node to move it the group center for that
    * node.
    *
    * Positioning is adjusted by the force layout's
@@ -318,7 +304,7 @@ function bubbleChart() {
    * its destination, and so allows other forces like the
    * node's charge force to also impact final location.
    */
-  function moveToYears(alpha) {
+  function moveToGroups(alpha) {
     return function (d) {
 
       console.log(d);      
@@ -329,24 +315,24 @@ function bubbleChart() {
   }
 
   /*
-   * Hides Year title displays.
+   * Hides group title displays.
    */
-  function hideYears() {
-    svg.selectAll('.year').remove();
+  function hideGroups() {
+    svg.selectAll('.group').remove();
   }
 
   /*
-   * Shows Year title displays.
+   * Shows group title displays.
    */
-  function showYears() {
+  function showGroups() {
     // Another way to do this would be to create
-    // the year texts once and then just hide them.
-    var yearsData = d3.keys(groupsTitleX);
-    var years = svg.selectAll('.year')
-      .data(yearsData);
+    // the group texts once and then just hide them.
+    var groupsData = d3.keys(groupsTitleX);
+    var years = svg.selectAll('.group')
+      .data(groupsData);
 
     years.enter().append('text')
-      .attr('class', 'year')
+      .attr('class', 'group')
       .attr('x', function (d) { return groupsTitleX[d]; })
       .attr('y', 40)
       .attr('text-anchor', 'middle')
@@ -368,8 +354,8 @@ function bubbleChart() {
                   '<span class="name">Amount: </span><span class="value">$' +
                   addCommas(d.value) +
                   '</span><br/>' +
-                  '<span class="name">Year: </span><span class="value">' +
-                  d.year +
+                  '<span class="name">group: </span><span class="value">' +
+                  d.group +
                   '</span>';
    tooltip.showTooltip(content, d3.event);
   }
@@ -388,12 +374,12 @@ function bubbleChart() {
   /*
    * Externally accessible function (this is attached to the
    * returned chart function). Allows the visualization to toggle
-   * between "single group" and "split by year" modes.
+   * between "single group" and "split by group" modes.
    *
-   * displayName is expected to be a string and either 'year' or 'all'.
+   * displayName is expected to be a string and either 'group' or 'all'.
    */
   chart.toggleDisplay = function (displayName) {
-    if (displayName === 'year') {
+    if (displayName === 'group') {
       splitBubbles();
     } else {
       groupBubbles();
@@ -405,32 +391,7 @@ function bubbleChart() {
   return chart;
 }
 
-/*
- * Below is the initialization code as well as some helper functions
- * to create a new bubble chart instance, load the data, and display it.
- */
 
-// var myBubbleChart = bubbleChart();
-
-/*
- * Function called once data is loaded from CSV.
- * Calls bubble chart function to display inside #vis div.
- */
-// function display(error, data) {
-//   if (error) {
-//     console.log(error);
-//   }
-//   console.log("Display***********************");
-//   console.log("data on display", data);
-
-//   myBubbleChart('#vis', data);
-
-// }
-
-/*
- * Sets up the layout buttons to allow for toggling between view modes.
- */
-// var node = ReactDOM.findDOMNode('BubbleGraphContainer');
 
 function setupButtons() {
   var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
@@ -490,8 +451,7 @@ function addCommas(nStr) {
    {id: 15, total_amount: 59098, _title: "C", group: "thirdgroup", group_coef: 1},
    {id: 16, total_amount: 207889, _title: "C", group: "somegroup", group_coef: 2 },
    {id: 17, total_amount: 206776, _title: "C", group: "secondgroup", group_coef: 3 },
-
-   ];
+];
 
 var theChart = bubbleChart();
 
@@ -511,7 +471,7 @@ var GraphContainer = React.createClass({
   },
 
   handleClick: function(event) {
-    theChart.toggleDisplay('year');
+    theChart.toggleDisplay('group');
   },
 
   otherClick: function(event) { 
@@ -534,7 +494,7 @@ var GraphContainer = React.createClass({
       <div className='BubbleGraphContainer' >
        <div id="toolbar">
           <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
-          <button id="year" className="button" onClick={this.handleClick} >Separate View</button>
+          <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
       </div>
       </div>
     );
