@@ -39,6 +39,7 @@ function floatingTooltip(tooltipId, width) {
    * event is d3.event for positioning.
    */
   function showTooltip(content, event) {
+    console.log(tt);
     tt.style('opacity', 1.0)
       .html(content);
 
@@ -57,6 +58,7 @@ function floatingTooltip(tooltipId, width) {
    * based on d3 mouse event.
    */
   function updatePosition(event) {
+    // console.log("update")
     var xOffset = 20;
     var yOffset = 10;
 
@@ -100,7 +102,7 @@ function bubbleChart() {
   var height = 600;
 
   // tooltip for mouseover functionality
-  var tooltip = floatingTooltip('gates_tooltip', 240);
+  var tooltip = floatingTooltip('tooltip', 240);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
@@ -305,9 +307,7 @@ function bubbleChart() {
    * node's charge force to also impact final location.
    */
   function moveToGroups(alpha) {
-    return function (d) {
-
-      console.log(d);      
+    return function (d) {     
       var target = groupCenters[d.group_coef];
       d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
       d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
@@ -345,18 +345,19 @@ function bubbleChart() {
    * details of a bubble in the tooltip.
    */
   function showDetail(d) {
-    // change outline to indicate hover state.
+    // console.log("Hit");
     d3.select(this).attr('stroke', 'black');
 
     var content = '<span class="name">Title: </span><span class="value">' +
-                  d.name +
+                  d._title +
                   '</span><br/>' +
                   '<span class="name">Amount: </span><span class="value">$' +
-                  addCommas(d.value) +
+                  addCommas(d.total_amount) +
                   '</span><br/>' +
                   '<span class="name">group: </span><span class="value">' +
                   d.group +
                   '</span>';
+    console.log(d3.event);
    tooltip.showTooltip(content, d3.event);
   }
 
