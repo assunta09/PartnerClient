@@ -106,17 +106,17 @@ function bubbleChart() {
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
-  var yearCenters = {
-    2008: { x: width / 3, y: height / 2 },
-    2009: { x: width / 2, y: height / 2 },
-    2010: { x: 2 * width / 3, y: height / 2 }
+  var groupCenters = {
+    1: { x: width / 3, y: height / 2 },
+    2: { x: width / 2, y: height / 2 },
+    3: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
-  var yearsTitleX = {
-    2008: 160,
-    2009: width / 2,
-    2010: width - 160
+  var groupsTitleX = {
+    Grants: 160,
+    Revenues: width / 2,
+    Expenses: width - 160
   };
 
   // Used when setting up force and
@@ -163,37 +163,6 @@ function bubbleChart() {
     .exponent(0.5)
     .range([2, 85]);
 
-  /*
-   * This data manipulation function takes the raw data from
-   * the CSV file and converts it into an array of node objects.
-   * Each node will store data and visualization values to visualize
-   * a bubble.
-   *
-   * rawData is expected to be an array of data objects, read in from
-   * one of d3's loading functions like d3.csv.
-   *
-   * This function returns the new node array, with a node in that
-   * array for each element in the rawData input.
-   */
-
-//    grant_title,id,organization,total_amount,group,Grant start date,start_month,start_day,start_year
-// New Mexico Business Roundtable,1,New Mexico Business Roundtable for Educational Excellence,5000,low,2/4/2010,2,4,2010
-// LA NSC Match,2,Trustees of Dartmouth College,27727,low,8/3/2009,8,3,2009
-// Mathematics Assessment for Learning Phase One RFP,3,Denver School of Science and Technology Inc.,36018,low,11/12/2009,11,12,2009
-// Convening of Stakeholder Planning Committee for the Institute for Local Innovation in Teaching and Learning,4,The NEA Foundation for the Improvement of Education,38420,low,3/11/2010,3,11,2010
-// Conference Support,5,New Schools for New Orleans,50000,low,10/12/2009,10,12,2009
-// Conference Support Grant on differentiated compensation symposium,6,Battelle For Kids,50000,low,6/30/2009,6,30,2009
-// Conference Support On School Turnaround Issues,7,FSG Social Impact Advisors,50000,low,9/24/2009,9,24,2009
-// City Based Proposal for What Works Fund - Aspire Public Schools,8,Aspire Public Schools,51500,low,10/29/2009,10,29,2009
-
-
-   // var rawData = [ 
-   // {id: 1, total_amount: 5000, grant_title: "Hey", organization: "Mine", group: "somegroup", start_year: 2016 },
-   // {id: 2, total_amount: 20000, grant_title: "A", organization: "Mine", group: "somegroup", start_year: 2016 },
-   // {id: 3, total_amount: 50000, grant_title: "B", organization: "Mine", group: "somegroup", start_year: 2016 },
-   // {id: 4, total_amount: 500000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2016 }
-
-   // ];
 
   function createNodes(rawData) {
     // Use map() to convert raw data into node data.
@@ -204,10 +173,9 @@ function bubbleChart() {
         id: d.id,
         radius: radiusScale(+d.total_amount),
         value: d.total_amount,
-        name: d.grant_title,
-        org: d.organization,
+        name: d._title,
         group: d.group,
-        year: d.start_year,
+        group_coef: d.group_coef,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -354,7 +322,7 @@ function bubbleChart() {
     return function (d) {
 
       console.log(d);      
-      var target = yearCenters[d.year];
+      var target = groupCenters[d.group_coef];
       d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
       d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
     };
@@ -373,13 +341,13 @@ function bubbleChart() {
   function showYears() {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
-    var yearsData = d3.keys(yearsTitleX);
+    var yearsData = d3.keys(groupsTitleX);
     var years = svg.selectAll('.year')
       .data(yearsData);
 
     years.enter().append('text')
       .attr('class', 'year')
-      .attr('x', function (d) { return yearsTitleX[d]; })
+      .attr('x', function (d) { return groupsTitleX[d]; })
       .attr('y', 40)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
@@ -426,9 +394,7 @@ function bubbleChart() {
    */
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'year') {
-      console.log("Hit");
       splitBubbles();
-      console.log("After");
     } else {
       groupBubbles();
     }
@@ -507,23 +473,23 @@ function addCommas(nStr) {
  
 
  var rawData = [ 
-   {id: 1, total_amount: 5000, grant_title: "Hey", organization: "Mine", group: "somegroup", start_year: 2008 },
-   {id: 2, total_amount: 20000, grant_title: "A", organization: "Mine", group: "somegroup", start_year: 2010 },
-   {id: 3, total_amount: 50000, grant_title: "B", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 4, total_amount: 500000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 5, total_amount: 500, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
-   {id: 6, total_amount: 3000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
-   {id: 7, total_amount: 800000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 8, total_amount: 200000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 9, total_amount: 34353, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 10, total_amount: 24545, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
-   {id: 11, total_amount: 2003240, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
-   {id: 12, total_amount: 200234, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 13, total_amount: 2002342, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
-   {id: 14, total_amount: 20, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
-   {id: 15, total_amount: 59098, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
-   {id: 16, total_amount: 207889, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
-   {id: 17, total_amount: 206776, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
+   {id: 1, total_amount: 5000, _title: "Hey", group: "somegroup", group_coef: 1 },
+   {id: 2, total_amount: 20000, _title: "A", group: "secondgroup", group_coef: 2 },
+   {id: 3, total_amount: 50000, _title: "B", group: "thirdgroup", group_coef: 3},
+   {id: 4, total_amount: 500000, _title: "C", group: "somegroup", group_coef: 1},
+   {id: 5, total_amount: 500, _title: "C", group: "secondgroup", group_coef: 1},
+   {id: 6, total_amount: 3000, _title: "C", group: "thirdgroup", group_coef: 3 },
+   {id: 7, total_amount: 800000, _title: "C", group: "somegroup", group_coef: 2 },
+   {id: 8, total_amount: 200000, _title: "C", group: "secondgroup", group_coef: 1 },
+   {id: 9, total_amount: 34353, _title: "C", group: "thirdgroup", group_coef: 3},
+   {id: 10, total_amount: 24545, _title: "C", group: "somegroup", group_coef: 3},
+   {id: 11, total_amount: 2003240, _title: "C", group: "secondgroup", group_coef: 2},
+   {id: 12, total_amount: 200234, _title: "C", group: "thirdgroup", group_coef: 3 },
+   {id: 13, total_amount: 2002342, _title: "C", group: "somegroup", group_coef: 2},
+   {id: 14, total_amount: 20, _title: "C", group: "secondgroup", group_coef: 3 },
+   {id: 15, total_amount: 59098, _title: "C", group: "thirdgroup", group_coef: 1},
+   {id: 16, total_amount: 207889, _title: "C", group: "somegroup", group_coef: 2 },
+   {id: 17, total_amount: 206776, _title: "C", group: "secondgroup", group_coef: 3 },
 
    ];
 
@@ -531,12 +497,17 @@ var theChart = bubbleChart();
 
 // console.log(bubbleChart);
 var GraphContainer = React.createClass({
+
+  // getInitialState: function() {
+  //       return {
+  //           hover: false
+  //       };
+  //   },
+
   componentDidMount: function() {
-    // d3.csv('../../src/Components/BubbleSegment/gates_money.csv', display);
      var el = ReactDOM.findDOMNode(this);
      theChart(el, rawData);
      setupButtons();
-// setup the buttons.
   },
 
   handleClick: function(event) {
@@ -544,16 +515,26 @@ var GraphContainer = React.createClass({
   },
 
   otherClick: function(event) { 
-    console.log("Hit");
     theChart.toggleDisplay('all');
+  },
+
+  onMouseEnterHandler: function() {
+       
+      console.log('hover');
+  
+      theChart.showDetail('.bubble');
+  },
+
+  onMouseLeaveHandler: function() {
+        
   },
 
   render () {
     return (
-      <div className='BubbleGraphContainer'>
+      <div className='BubbleGraphContainer' >
        <div id="toolbar">
-          <button id="all" className="button active" onClick={this.otherClick}>All Grants</button>
-          <button id="year" className="button" onClick={this.handleClick}>Grants By Year</button>
+          <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
+          <button id="year" className="button" onClick={this.handleClick} >Separate View</button>
       </div>
       </div>
     );

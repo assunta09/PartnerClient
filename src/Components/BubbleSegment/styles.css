@@ -54,7 +54,51 @@
   letter-spacing: 3px;
 }
 
-.button.active {
+/*.button.active {
     color: rgb(255, 255, 255);
     background: rgb(0, 0, 0);
 }
+*/
+
+.button.active {
+  display: inline-block;
+  padding: 5px 10px 5px;
+  margin: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #e2e2e2;
+  border: none;
+  /*border-radius: 10px;*/
+  box-shadow: 0 2px #999;
+}
+
+.button:hover {background-color: #bcbcbc}
+
+.button:active {
+  background-color: #F1F1F1;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+button {
+  display: inline-block;
+  padding: 5px 10px 5px;
+  margin: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #e2e2e2;
+  border: none;
+  /*border-radius: 10px;*/
+  box-shadow: 0 2px #999;
+}
+
+
