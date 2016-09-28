@@ -35,7 +35,7 @@ var GraphDescContainer = React.createClass({
 				</div>
 				<div ref='box4'>
 	        <Graph reports={this.props.reports}/>
-				</div>
+				</div>  
 			</div>
 		);
 	}

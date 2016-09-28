@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 var PolarAreaChart = require("react-chartjs").PolarArea;
 
-var PolarArea = React.createClass({
+var PolarAreaChartExpense = React.createClass({
   getInitialState () {
     return {
       chartData: []
@@ -10,6 +10,7 @@ var PolarArea = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
+    console.log("yo")
     var data = nextProps.reports
     var reports = data.reports
     var expense = reports.generalExpensesAbsolutes
@@ -63,4 +64,4 @@ var PolarArea = React.createClass({
   }
 });
 
-export default PolarArea
+export default PolarAreaChartExpense

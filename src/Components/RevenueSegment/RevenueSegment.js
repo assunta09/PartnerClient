@@ -8,7 +8,7 @@ var RevenueSegment = React.createClass ({
   render() {
     return (
     	<div className='RevenueSegment1'>
-        <GraphDesc sr={this.props.sr}/>
+        <GraphDesc reports={this.props.reports} sr={this.props.sr}/>
     	</div>
     );
   }

@@ -1,7 +1,5 @@
 .PolarChart {
-  width: 90%;
-  height: 90%;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 3%;
+	width: 50%;
+	height: 50%;
+  padding: 20px;
 }
