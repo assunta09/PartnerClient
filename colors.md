@@ -12,3 +12,4 @@
 #48E86F: boldgreen
 #7FDD98: lightgreen
 #5E5FFF: blue
+#f9f9f9: light light gray

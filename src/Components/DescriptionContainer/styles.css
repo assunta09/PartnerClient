@@ -1,6 +1,7 @@
 .Description {
 	font-size: 0.8em;
 }
- p {
+.Description p {
 	 margin: 0;
- }
+	 color: #5B5B5B;
+}
