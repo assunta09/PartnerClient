@@ -11,7 +11,7 @@ var GraphDescContainer = React.createClass({
       distance: '50px',
       scale: 1,
       easing: 'ease',
-      reset: true
+
     }
 
     const config2 = {
@@ -21,7 +21,7 @@ var GraphDescContainer = React.createClass({
       distance: '50px',
       scale: 1,
       easing: 'ease',
-      reset: true
+      
     }
     
     this.props.sr.reveal(this.refs.box1, config)

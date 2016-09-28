@@ -40,7 +40,7 @@ var PolarArea = React.createClass({
     });
   },
   render () {
-    return <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData}/>
+    return <PolarAreaChart className="PolarChart" width="200" height="200" data={this.state.chartData} options={{responsive: true}}/>
   }
 });
 

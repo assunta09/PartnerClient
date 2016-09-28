@@ -5,15 +5,18 @@ var PolarAreaChart = require("react-chartjs").PolarArea;
 var PolarArea = React.createClass({
   getInitialState () {
     return {
-      chartData: []
+      chartData: [],
+      height: 300,
+      width: 300
     }
   },
 
   componentWillReceiveProps: function(nextProps) {
+    console.log(nextProps)
     var data = nextProps.reports
     var reports = data.reports
     var expense = reports.generalExpensesAbsolutes
-    var grants = expense.grants
+    var grants = expense.grant
     var member = expense.member_benefits
     var salaries = expense.salaries
     var fundraising = expense.fundraising_fees
@@ -57,7 +60,7 @@ var PolarArea = React.createClass({
   render () {
     return (
       <div>
-        <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData} />
+        <PolarAreaChart className="PolarChart" width='200' height='200' data={this.state.chartData} options={{responsive: true}}/>
       </div>
     )
   }

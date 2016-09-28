@@ -17,12 +17,12 @@
 }
 
 .GraphContainer2 {
-	width: 45%;
-	height: 60vh;
+	width: 27%;
+	padding-top: 1%;
 	background: #F1F1F1;
 	float: right;
 	margin-top: 8.5em;
-	margin-right: 7%;
+	margin-right: 15%;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
 }
 

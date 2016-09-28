@@ -1,6 +1,6 @@
 import React from 'react'
 import DescTitle from './DescTitleContainer.js'
-import Graph from './ExpenseGraphContainer.js'
+import ExpenseGraphContainer from './ExpenseGraphContainer.js'
 
 
 var GraphDescContainer = React.createClass({
@@ -12,7 +12,6 @@ var GraphDescContainer = React.createClass({
       distance: '50px',
       scale: 1,
       easing: 'ease',
-      reset: true
     }
 
     const config2 = {
@@ -22,7 +21,6 @@ var GraphDescContainer = React.createClass({
       distance: '50px',
       scale: 1,
       easing: 'ease',
-      reset: true
     }
     this.props.sr.reveal(this.refs.box4, config)
     this.props.sr.reveal(this.refs.box3, config2)
@@ -34,7 +32,7 @@ var GraphDescContainer = React.createClass({
 	        <DescTitle reports={this.props.reports}/>
 				</div>
 				<div ref='box4'>
-	        <Graph reports={this.props.reports}/>
+	        <ExpenseGraphContainer reports={this.props.reports}/>
 				</div>  
 			</div>
 		);
