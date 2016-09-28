@@ -461,13 +461,13 @@ var GraphContainer = React.createClass({
 
 // Sample code for API call 
 
-  // getInitialState: function() {
-  //   return {
-  //     data: {},
-  //     allRevenues: " ", 
-  //     allExpenses: " "
-  //   };
-  // },
+  getInitialState: function() {
+    return {
+      data: {},
+      allRevenues: [], 
+      allExpenses: []
+    };
+  },
 
   // componentWillMount: function() {
   //   return fetch('https://partner-api.herokuapp.com/organisations/1')
