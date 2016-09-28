@@ -27,7 +27,7 @@ function floatingTooltip(tooltipId, width) {
   if (width) {
     tt.style('width', width);
   }
-
+  // console.log(tt);
   // Initially it is hidden.
   hideTooltip();
 
@@ -345,7 +345,7 @@ function bubbleChart() {
    * details of a bubble in the tooltip.
    */
   function showDetail(d) {
-    // console.log("Hit");
+    console.log(this);
     d3.select(this).attr('stroke', 'black');
 
     var content = '<span class="name">Title: </span><span class="value">' +
