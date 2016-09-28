@@ -514,7 +514,16 @@ function addCommas(nStr) {
    {id: 5, total_amount: 500, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
    {id: 6, total_amount: 3000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
    {id: 7, total_amount: 800000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
-   {id: 8, total_amount: 200000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 }
+   {id: 8, total_amount: 200000, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
+   {id: 9, total_amount: 34353, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
+   {id: 10, total_amount: 24545, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
+   {id: 11, total_amount: 2003240, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
+   {id: 12, total_amount: 200234, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
+   {id: 13, total_amount: 2002342, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
+   {id: 14, total_amount: 20, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
+   {id: 15, total_amount: 59098, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2010 },
+   {id: 16, total_amount: 207889, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2008 },
+   {id: 17, total_amount: 206776, grant_title: "C", organization: "Mine", group: "somegroup", start_year: 2009 },
 
    ];
 
