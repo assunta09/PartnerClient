@@ -5,7 +5,8 @@
 	background-color: 'gray';
 	height: 100vh;
 	display: flex;
-	background-size: contain;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-image: url('../../../public/pic.jpg');
 }
 
