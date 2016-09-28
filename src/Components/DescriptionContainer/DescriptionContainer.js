@@ -8,9 +8,7 @@ var DescriptionContainer = React.createClass({
 			width: this.props.width,
 			height: this.props.height,
 			color: 'white',
-			margin: 'auto',
-			marginTop: '5%',
-			marginBottom: '5%'
+			margin: '0 auto'
 		}
 
 		return (
