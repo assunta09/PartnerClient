@@ -525,22 +525,25 @@ var GraphContainer = React.createClass({
   componentDidMount: function() {
     // d3.csv('../../src/Components/BubbleSegment/gates_money.csv', display);
      var el = ReactDOM.findDOMNode(this);
-     console.log(el);
      theChart(el, rawData);
      setupButtons();
 // setup the buttons.
   },
 
   handleClick: function(event) {
-    console.log(theChart);
     theChart.toggleDisplay('year');
+  },
+
+  otherClick: function(event) { 
+    console.log("Hit");
+    theChart.toggleDisplay('all');
   },
 
   render () {
     return (
       <div className='BubbleGraphContainer'>
        <div id="toolbar">
-          <button id="all" className="button active" onClick={this.handleClick}>All Grants</button>
+          <button id="all" className="button active" onClick={this.otherClick}>All Grants</button>
           <button id="year" className="button" onClick={this.handleClick}>Grants By Year</button>
       </div>
       </div>
