@@ -17,7 +17,6 @@ var Description = React.createClass ({
 		return (
 			<div className="Description">
 				<ul>
-					
           <li><i className="material-icons li1">network_cell</i>{`Grants $${this.state.data.grants}`}</li>
           <li><i className="material-icons li2">network_cell</i>{`Member Benefits $${this.state.data.member_benefits}`}</li>
           <li><i className="material-icons li3">network_cell</i>{`Salaries $${this.state.data.salaries}`}</li>

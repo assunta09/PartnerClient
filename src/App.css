@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+
 .App {
   text-align: center;
-  font-family: 'Muli', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .App-logo {

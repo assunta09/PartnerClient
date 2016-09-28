@@ -24,7 +24,8 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
-    "require-csv": "0.0.1"
+    "require-csv": "0.0.1",
+    "scrollreveal": "^3.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

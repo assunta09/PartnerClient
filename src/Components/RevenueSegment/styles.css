@@ -17,13 +17,13 @@
 }
 
 .GraphContainer1 {
-	width: 50%;
-	height: 60vh;
+	width: 27%;
+	padding-top: 1%;
 	background: #F1F1F1;
 	float: left;
 	margin-top: 8.5em;
-	margin-left: 7%;
-	  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+	margin-left: 15%;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
 }
 
 .GraphDescContainer1 {
@@ -64,4 +64,8 @@ ul {
 
 .Description {
 	letter-spacing: 3px;
+}
+
+.scrollbox {
+	z-index: 2
 }
