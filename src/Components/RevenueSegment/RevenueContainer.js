@@ -6,7 +6,7 @@ class RevenueContainer extends Component {
   render() {
     return (
       <div className="App">
-        <RevenueSegment sr={this.props.sr}/>
+        <RevenueSegment reports={this.props.reports} sr={this.props.sr}/>
       </div>
     );
   }

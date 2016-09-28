@@ -9,42 +9,38 @@ var PolarArea = React.createClass({
     }
   },
 
-  componentWillMount: function() {
-    return fetch('https://partner-api.herokuapp.com/organisations/2')
-      .then((response) => response.json())
-      .then((Data) => {
-        console.log(Data)
-        var expenses = (Data.generalExpensesOverview)
-        this.setState({
-          chartData: [
-            {
-              color: "#ACDFD2",
-              highlight: "#ACDFD2",
-              label: "Salaries",
-              value: (expenses.salaries * 100),
-            },
-            {
-              color: "#DCDA98",
-              highlight: "#DCDA98",
-              label: "Other",
-              value: (expenses.other * 100),
-            },
-            {
-              color: "#F29885",
-              highlight: "#F29885",
-              label: "Fundraising",
-              value: (expenses.fundraising_fees * 100),
-            },
-          ],
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  componentWillReceiveProps: function(nextProps) {
+    var data = nextProps.reports
+    var reports = data.reports
+    var rev = reports.generalRevenueAbsolutes
+    var service_rev = rev.service_revenue
+    var investments = rev.investments
+    var other = rev.other
+    this.setState({
+      chartData: [
+        {
+          color: "#ACDFD2",
+          highlight: "#ACDFD2",
+          label: "Service",
+          value: service_rev,
+        },
+        {
+          color: "#DCDA98",
+          highlight: "#DCDA98",
+          label: "Investments",
+          value: investments,
+        },
+        {
+          color: "#F29885",
+          highlight: "#F29885",
+          label: "other",
+          value: other,
+        },
+      ],
+    });
   },
-
   render () {
-    return <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData} />
+    return <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData}/>
   }
 });
 

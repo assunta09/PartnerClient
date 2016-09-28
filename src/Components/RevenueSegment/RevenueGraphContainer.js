@@ -7,7 +7,7 @@ var GraphContainer = React.createClass({
 
 		return (
 			<div className='GraphContainer1'>
-				<PolarArea />
+				<PolarArea reports={this.props.reports}/>
 			</div>
 		);
 	}
