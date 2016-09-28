@@ -7,6 +7,7 @@ var HeroSegment = React.createClass({
   render() {
     return (
     	<div className="HeroBackground">
+        <div className="Logo"></div>
         <HeroTitle/>
 	    	<div className="HeroContainer">
           <h3>Our Mission</h3>

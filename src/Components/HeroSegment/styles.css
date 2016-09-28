@@ -1,18 +1,29 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
 
+.Logo {
+	background-image: url('../../../public/icon.png');
+	height: 80px;
+	width: 400px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
 .HeroBackground {
 	width: 100%;
 	background-color: 'gray';
 	height: 100vh;
 	display: flex;
-	background-size: contain;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-image: url('../../../public/pic.jpg');
 }
 
 .HeroBackground h3 {
 	font-size: 1.5em;
 	padding-bottom: 12px;
-	color: #EEEEEE;
+	color: #5B5B5B;
 	margin: 0 auto;
 	margin-top: 15%;
 	margin-bottom: 20px;
@@ -22,31 +33,37 @@
 
 .HeroContainer {
 	width: 45%;
+	min-width: 550px;
+	color: #5B5B5B;
 	position: absolute;
-	top: 35%;
+	top: 266px;
 	right: 0;
-	height: 65%;
+	height: 75%;
 	text-align: center;
 	font-size: 1.5em;
-	background: #F27A63;
+	background-color: #F9F9F9;
 	/*box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);*/
 
 }
 
 .TitleContainer {
 	width: 45%;
+	min-width: 550px;
+	min-height: 260px;
 	position: absolute;
 	top: 0;
 	right: 0;
 	height: 35%;
 	text-align: center;
-	background: #EEEEEE;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+	background: #FFCFA1;
+	opacity: 0.8;
+	border-top-left-radius: 2em;
+	/*box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);*/
 	z-index: 2;
 }
 
 .TitleContainer h1 {
-	color: #F27A63;
+	color: #5B5B5B;
 	font-size: 3em;
 	padding: 0;
 	padding-left: 12px;
@@ -61,7 +78,7 @@
 }
 
 .btn {
-	background-color: #F27A63;
+	background-color: #5E5FFF;
   border:none;
   font-size:0.8em;
   color: white;
