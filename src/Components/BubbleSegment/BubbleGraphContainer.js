@@ -100,7 +100,7 @@ function bubbleChart() {
   var height = 600;
 
   // tooltip for mouseover functionality
-  // var tooltip = floatingTooltip('gates_tooltip', 240);
+  var tooltip = floatingTooltip('gates_tooltip', 240);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
@@ -401,7 +401,7 @@ function bubbleChart() {
                   '<span class="name">Year: </span><span class="value">' +
                   d.year +
                   '</span>';
-   floatingTooltip.showTooltip(content, d3.event);
+   tooltip.showTooltip(content, d3.event);
   }
 
   /*
@@ -412,7 +412,7 @@ function bubbleChart() {
     d3.select(this)
       .attr('stroke', d3.rgb(fillColor(d.group)).darker());
 
-    floatingTooltip.hideTooltip();
+    tooltip.hideTooltip();
   }
 
   /*
@@ -460,8 +460,11 @@ function bubbleChart() {
 /*
  * Sets up the layout buttons to allow for toggling between view modes.
  */
-function setupButtons(chart) {
-  d3.select('#toolbar')
+// var node = ReactDOM.findDOMNode('BubbleGraphContainer');
+
+function setupButtons() {
+  var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
+  d3.select(node)
     .selectAll('.button')
     .on('click', function () {
       // Remove active class from all buttons
@@ -512,21 +515,29 @@ function addCommas(nStr) {
    ];
 
 var theChart = bubbleChart();
-console.log(theChart);
+
 // console.log(bubbleChart);
 var GraphContainer = React.createClass({
   componentDidMount: function() {
     // d3.csv('../../src/Components/BubbleSegment/gates_money.csv', display);
      var el = ReactDOM.findDOMNode(this);
      theChart(el, rawData);
+     setupButtons();
 // setup the buttons.
-      display(rawData);
-      setupButtons();
+  },
+
+  handleClick: function(event) {
+    event.preventDefault();
+    theChart.toggleDisplay();
   },
 
   render () {
     return (
       <div className='BubbleGraphContainer'>
+       <div id="toolbar">
+          <a href="#" id="all" className="button active" onClick={this.handleClick}>All Grants</a>
+          <a href="#" id="year" className="button" onClick={this.handleClick}>Grants By Year</a>
+      </div>
       </div>
     );
   }
