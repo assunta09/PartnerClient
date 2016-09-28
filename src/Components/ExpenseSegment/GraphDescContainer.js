@@ -4,7 +4,7 @@ import ExpenseGraphContainer from './ExpenseGraphContainer.js'
 
 
 var GraphDescContainer = React.createClass({
-  	componentDidMount: function () {
+	componentDidMount: function () {
     const config = {
       origin: 'right',
       duration: 700,

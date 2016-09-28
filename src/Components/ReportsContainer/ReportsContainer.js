@@ -53,7 +53,7 @@ render() {
       <div>
       	<StickyContainer>
       	  <Sticky>
-      	  	<NavBar />
+      	  	<NavBar sr={this.state.sr}/>
         	</Sticky>
         	<Element name="test1" className="element">
 	      		<RevenueContainer reports={this.state.reports} sr={this.state.sr}/>
