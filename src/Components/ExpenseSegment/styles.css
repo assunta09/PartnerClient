@@ -27,8 +27,8 @@
 .GraphContainer2 {
 	height: 85%;
 	width: 65%;
-	margin-top: 3%;
-	margin-right: 5%;
+	margin: 0 auto;
+	margin-top: 30px;
 }
 
 .CanvasContainer {
