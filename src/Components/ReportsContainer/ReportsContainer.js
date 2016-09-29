@@ -7,6 +7,7 @@ import Scroll from 'react-scroll';
 import NavBar from '../NavBar/NavBar.js'
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
+import BubbleSegment    from '../BubbleSegment/BubbleSegment.js';
 // import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
 import AboutContainer  from '../AboutSegment/AboutContainer.js';
 import ScrollReveal from 'scrollreveal';
@@ -62,6 +63,9 @@ render() {
 	      	<Element name="test2" className="element">
 	      		<ExpenseContainer reports={this.state.reports} sr={this.state.sr}/>
 	      	</Element>
+          <Element name="testbubble" className="element">
+            <BubbleSegment reports={this.state.reports} sr={this.state.sr}/>
+          </Element> 
 	      	<Element>
 	      		<AboutContainer name="test3" className="element" reports={this.state.reports} sr={this.state.sr}/>
 	      	</Element>
