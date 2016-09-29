@@ -4,13 +4,6 @@ import d3 from '../../../public/js/d3-min.js';
 import ReactDOM from 'react-dom';
 // var data = require('./gates_money.csv');
 
-// console.log(d3);
-// import bubbleChart from './bubble_chart.js';
-// import bubbleHelper from './bubble_helpers.js';
-// import floatingTooltip from './tooltip.js';
-// var bubbleChart = require('./bubble_chart.js');
-// var bubbleHelper = require('./bubble_helpers.js');
-
 // Tooltip module 
 
 function floatingTooltip(tooltipId, width) {
@@ -31,13 +24,8 @@ function floatingTooltip(tooltipId, width) {
   // Initially it is hidden.
   hideTooltip();
 
-  /*
-   * Display tooltip with provided content.
-   *
-   * content is expected to be HTML string.
-   *
-   * event is d3.event for positioning.
-   */
+  // Tooltip module 
+
   function showTooltip(content, event) {
     // console.log(tt);
     tt.style('opacity', 1.0)
@@ -106,19 +94,18 @@ function bubbleChart() {
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: width / 2, y: height / 2 };
+  var center = { x: width / 2, y: height / 3 };
 
   var groupCenters = {
-    1: { x: width / 3, y: height / 2 },
-    2: { x: 2 * width / 3, y: height / 2 }
+    1: { x: width / 3, y: height / 3 },
+    2: { x: 2 * width / 3, y: height / 3 }
     // 3: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the group titles.
   var groupsTitleX = {
-    Fundraising: 200,
-    Cumulative: width / 2,
-    Expenses: width - 200
+    Revenues: 250,
+    Expenses: width - 250
   };
 
   // Used when setting up force and
@@ -150,7 +137,7 @@ function bubbleChart() {
     .size([width, height])
     .charge(charge)
     .gravity(-0.01)
-    .friction(0.95);
+    .friction(.95);
 
 
   // Nice looking colors - no reason to buck the trend
@@ -163,12 +150,8 @@ function bubbleChart() {
     .exponent(0.5)
     .range([2, 85]);
 
-
+ // Available groups: Revenues, Expenses, Grants 
   function createNodes(rawData) {
-    // Use map() to convert raw data into node data.
-    // Checkout http://learnjsdata.com/ for more on
-    // working with data.
-    // Available groups: Revenues, Expenses, Grants 
 
     var myNodes = rawData.map(function (d) {
       return {
@@ -339,7 +322,6 @@ function bubbleChart() {
       .text(function (d) { return d; });
   }
 
-
   /*
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
@@ -393,7 +375,6 @@ function bubbleChart() {
 }
 
 
-
 function setupButtons() {
   var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
   d3.select(node)
@@ -433,44 +414,8 @@ function addCommas(nStr) {
   return x1 + x2;
 }
 
-// theData = [{
-//   member_benefits: 0,
-//   fundraising_fees: 210665,
-//   officers_and_key_employees: 139937,
-//   general_salaries_and_wages: 110120,
-//   employee_benefits: 24121,
-//   payroll_taxes: 17458,
-//   pension_plan_accruals: 5156,
-//   disqual_persons: 0,
-//   domestic_organisations: 905931,
-//   domestic_individuals: 0,
-//   foreign_entities: 0,
-//   lobbying: 0,
-//   advertising_promotion: 22910,
-//   travel: 1306,
-//   entertainment: 0,
-//   insurance: 4688,
-//   management: 0,
-//   legal_fees: 0,
-//   accounting: 17635,
-//   office_expenses: 6543,
-//   information_technology: 0,
-//   royalties: 0,
-//   conventions_and_meetings: 0,
-//   occupancy: 29947
-//   },
-// {
-//   service_revenue: 0,
-//   investments: 1152,
-//   other: 1459057,
-//   campaigns: 42209,
-//   fundraising: 210665,
-//   other_gifts_or_donations: 1379763
-// }
-// ];
-// var expenseValues = Object.keys(theData[0]).map(k => theData[0][k]);
-// console.log(expenseValues);
-
+// Helper method for parsing the data from the API into a workable format 
+// for node creation 
 
 function parseData(theData) { 
   console.log(theData);
@@ -501,12 +446,13 @@ function parseData(theData) {
     group_coef: 2
     })
   }
-  console.log(newData);
+  // console.log(newData);
+
   return newData;
 };
 
 
-
+// Sample data 
 
 //  var rawData = [ 
 //    {id: 1, total_amount: 5000, _title: "Hey", group: "somegroup", group_coef: 1 },
@@ -528,54 +474,13 @@ function parseData(theData) {
 //    {id: 17, total_amount: 206776, _title: "C", group: "secondgroup", group_coef: 3 },
 // ];
 
+// Creation of chart instance 
+
 var theChart = bubbleChart();
 
-// console.log(bubbleChart);
+// Creation of GraphContainer component containing bubble chart 
+
 var GraphContainer = React.createClass({
-
-// getInitialState: function () {
-//     return {
-//       chartData: []
-//     }
-//   },
-// Sample code for API call 
-
-  // componentWillMount: function() {
-  //   return fetch('https://partner-api.herokuapp.com/organisations/1')
-  //     .then((response) => response.json())
-  //     .then((Data) => {
-  //       var theData = [Data.allExpenses, Data.allRevenues];
-  //       var rawData = parseData(theData); 
-  //       console.log(rawData);
-  //     this.setState({
-  //       chartData: [rawData]
-  //     })
-  //   })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // },
-  // componentWillReceiveProps: function(nextProps) {
-
-  //   var data = nextProps.reports
-  //   // console.log(data);
-  //   var reports = data.reports
-  //   // console.log(reports);
-  //   this.setState({
-  //     chartData: reports,
-  //   });
-  // },
-
-  // componentDidMount: function() {
-  //    var el = ReactDOM.findDOMNode(this);
-  //    var data = this.state.chartData;
-  //    console.log(data);
-  //    var data2 = [data.allExpenses, data.allRevenues];
-  //    var data3 = parseData(data3);
-  //    rawData = data3;
-  //    theChart(el, rawData);
-  //    setupButtons();
-  // },
 
   componentWillReceiveProps: function(nextProps) {
 
@@ -602,10 +507,8 @@ var GraphContainer = React.createClass({
   },
 
   onMouseEnterHandler: function() {
-       
-      console.log('hover');
-  
-      theChart.showDetail('.bubble');
+    console.log('hover');
+    theChart.showDetail('.bubble');
   },
 
   onMouseLeaveHandler: function() {
