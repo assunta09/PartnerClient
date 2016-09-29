@@ -97,8 +97,8 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 3 };
 
   var groupCenters = {
-    1: { x: width / 3, y: height / 3 },
-    2: { x: 2 * width / 3, y: height / 3 }
+    2: { x: width / 3, y: height / 3 },
+    1: { x: 2 * width / 3, y: height / 3 }
     // 3: { x: 2 * width / 3, y: height / 2 }
   };
 
@@ -143,7 +143,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['low', 'medium', 'high'])
-    .range(['#d84b2a', '#beccae', '#7aa25c']);
+    .range(['#beccae', '#d84b2a', '#7aa25c']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
