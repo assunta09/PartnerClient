@@ -53,7 +53,7 @@ export default class AboutMeMaps extends Component {
   };
 
 componentWillReceiveProps(nextProps) {
-    console.log(nextProps.reports.reports.organisation)
+    // console.log(nextProps.reports.reports.organisation)
     var data = nextProps.reports.reports.organisation
     var name = data.address
     // var reports = data.reports

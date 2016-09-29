@@ -4,7 +4,7 @@ import AboutMissionProgram from './AboutMissionProgram.js';
 
 var AboutInfo = React.createClass ({
 	componentWillReceiveProps: function(nextProps){
-		console.log(nextProps)
+	
 	},
 	render () {
 		return (
