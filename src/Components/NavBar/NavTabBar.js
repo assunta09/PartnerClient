@@ -10,7 +10,7 @@ var scrollSpy  = Scroll.scrollSpy;
 var NavTabBar = React.createClass({
 
   getInitialState: function() {
-    return {activeTab: 'tab2'};
+    return {activeTab: ''};
   },
 
   handleTap: function(event) {
@@ -44,10 +44,11 @@ var NavTabBar = React.createClass({
     return (
       <div className='TabBarContainer'>
         <ul className='navTab'>
-          <li><Link activeClass="active" className={(this.state.activeTab === 'tab1') ? 'test1 active' : 'test1'} id="tab1" to="test1" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Revenue</Link></li>
+          <li><Link activeClass="active" className={(this.state.activeTab === 'tab1') ? 'test1 active' : 'test1'} id="tab1" to="test1" spy={true} smooth={true} duration={500} onClick={this.handleTap}>About</Link></li>
           <li><Link activeClass="active" className={(this.state.activeTab === 'tab2') ? 'test2 active' : 'test2'} id="tab2" to="test2" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Expense</Link></li>
-          <li><Link activeClass="active" className={(this.state.activeTab === 'tab3') ? 'test3 active' : 'test3'} id="tab3" to="test3" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Net</Link></li>
-          <li><Link activeClass="active" className={(this.state.activeTab === 'tab4') ? 'test4 active' : 'test4'} id="tab4" to="test4" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Mission</Link></li>
+          <li><Link activeClass="active" className={(this.state.activeTab === 'tab3') ? 'test3 active' : 'test3'} id="tab3" to="test3" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Revenue</Link></li>
+          <li><Link activeClass="active" className={(this.state.activeTab === 'tab4') ? 'test4 active' : 'test4'} id="tab4" to="test4" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Net</Link></li>
+          
         </ul>
       </div>
     );

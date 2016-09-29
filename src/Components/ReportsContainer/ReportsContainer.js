@@ -56,8 +56,8 @@ render() {
       	  <Sticky>
       	  	<NavBar sr={this.state.sr}/>
         	</Sticky>
-        	<Element>
-	      		<AboutContainer name="test1" className="element" reports={this.state.reports} sr={this.state.sr}/>
+        	<Element name="test1" className="element">
+	      		<AboutContainer reports={this.state.reports} sr={this.state.sr}/>
 	      	</Element>
         	<Element name="test2" className="element">
 	      		<RevenueContainer reports={this.state.reports} sr={this.state.sr}/>
