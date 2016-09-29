@@ -47,14 +47,14 @@ var SearchBar = React.createClass({
 
 	render () {
 		return (
-			<div>
+			<div className='SearchContent'>
 				<Typeahead className={'SearchBarContainer'}
 			    options={this.state.chartData}
-			    maxVisible={5}
+			    maxVisible={3}
 			    onOptionSelected={this.handleSelection}
 			    onChange={this.handleChange}
 			  />
-				<div>
+				<div className="SearchBtnContainer">
 					<button className="btn" onClick={this.handleClick}>Search</button>
 				</div>
 			</div>
