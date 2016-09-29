@@ -1,5 +1,5 @@
 import React from 'react';
-import PolarArea from '../GraphContainer/PolarAreaChart.js';
+import PolarArea from '../GraphContainer/PolarAreaChartExpense.js';
 
 var ExpenseGraphContainer = React.createClass({
 
