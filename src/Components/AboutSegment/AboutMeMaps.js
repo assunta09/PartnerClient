@@ -45,7 +45,7 @@ const styles = {
 export default class AboutMeMaps extends Component {
 
   state = {
-    center: [-122.4194, 37.7749],
+    center: [-86.40937079999999, 35.8293468],
     zoom: [11],
     skip: 0,
     stations: new Map(),

@@ -30,7 +30,7 @@ function floatingTooltip(tooltipId, width) {
 
   function showTooltip(content, event) {
     // var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
-    console.log()
+    // console.log()
     tt.style('opacity', 1.0)
       .append(content);
   
@@ -299,7 +299,7 @@ function bubbleChart() {
   function showDetail(d) {
     
     d3.select(this).attr('stroke', 'black');
-    console.log('hit');
+    // console.log('hit');
     // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
     var content = React.createElement("div", {class: "name"}, d.name + " " + d.value + " " + d.group);
 
