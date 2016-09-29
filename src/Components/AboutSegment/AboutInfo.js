@@ -19,9 +19,7 @@ var AboutInfo = React.createClass ({
 		return (
 			<div className="AboutInfoContainer">
 				<div>
-					{console.log(this.state.report)}
 					<h1>{this.state.report.name}</h1>
-					
 				</div>
 				<div className="YearAndWebsiteContainer">
 					<div className="AboutYearContainer">

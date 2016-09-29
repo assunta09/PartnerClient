@@ -11,7 +11,7 @@ const { accessToken, style } = config;
 
 const containerStyle = {
   height: "100vh",
-  width: "100%"
+  width: "102%"
 };
 
 const styles = {
