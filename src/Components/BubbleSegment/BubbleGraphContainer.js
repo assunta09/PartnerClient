@@ -117,13 +117,7 @@ function bubbleChart() {
   var bubbles = null;
   var nodes = [];
 
-  // Charge function that is called for each node.
-  // Charge is proportional to the diameter of the
-  // circle (which is stored in the radius attribute
-  // of the circle's associated data.
-  // This is done to allow for accurate collision
-  // detection with nodes of different sizes.
-  // Charge is negative because we want nodes to repel.
+  
   // Dividing by 8 scales down the charge to be
   // appropriate for the visualization dimensions.
   function charge(d) {
@@ -236,20 +230,8 @@ function bubbleChart() {
     force.start();
   }
 
-  /*
-   * Helper function for "single group mode".
-   * Returns a function that takes the data for a
-   * single node and adjusts the position values
-   * of that node to move it toward the center of
-   * the visualization.
-   *
-   * Positioning is adjusted by the force layout's
-   * alpha parameter which gets smaller and smaller as
-   * the force layout runs. This makes the impact of
-   * this moving get reduced as each node gets closer to
-   * its destination, and so allows other forces like the
-   * node's charge force to also impact final location.
-   */
+  // Helper method to move bubbles to center of the page 
+
   function moveToCenter(alpha) {
     return function (d) {
       d.x = d.x + (center.x - d.x) * damper * alpha;
@@ -259,10 +241,8 @@ function bubbleChart() {
 
   /*
    * Sets visualization in "split by group mode".
-   * The group labels are shown and the force layout
-   * tick function is set to move nodes to the
-   * yearCenter of their data's group.
    */
+
   function splitBubbles() {
     showGroups();
 
@@ -275,20 +255,8 @@ function bubbleChart() {
     force.start();
   }
 
-  /*
-   * Helper function for "split by group mode".
-   * Returns a function that takes the data for a
-   * single node and adjusts the position values
-   * of that node to move it the group center for that
-   * node.
-   *
-   * Positioning is adjusted by the force layout's
-   * alpha parameter which gets smaller and smaller as
-   * the force layout runs. This makes the impact of
-   * this moving get reduced as each node gets closer to
-   * its destination, and so allows other forces like the
-   * node's charge force to also impact final location.
-   */
+// Helper for moving bubbles to respective groups 
+
   function moveToGroups(alpha) {
     return function (d) {     
       var target = groupCenters[d.group_coef];
@@ -355,11 +323,7 @@ function bubbleChart() {
   }
 
   /*
-   * Externally accessible function (this is attached to the
-   * returned chart function). Allows the visualization to toggle
-   * between "single group" and "split by group" modes.
-   *
-   * displayName is expected to be a string and either 'group' or 'all'.
+   Toggle display for splitting and grouping bubbles 
    */
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'group') {
@@ -374,6 +338,7 @@ function bubbleChart() {
   return chart;
 }
 
+//Setup functions for rendering the buttons  
 
 function setupButtons() {
   var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
