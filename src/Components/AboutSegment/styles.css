@@ -3,4 +3,43 @@
 	height: 100vh;
 	text-align: left;
 	border-bottom: solid 1px #5B5B5B;
+	display: inline-block;
+}
+
+.MapBoxContainer {
+	margin: 0;
+	width: 30%;
+	float: left;
+}
+
+.AboutDescriptionContainer {
+	background-color: gray;
+	width: 70%;
+	height: 100%;
+	float:right;
+}
+
+.mapboxgl-map {
+	margin: 0;
+}
+
+.AboutInfoContainer {
+	text-align: center;
+}
+
+.YearAndWebsiteContainer {
+	width: 70%;
+	display: inline-block;
+}
+
+.AboutYearContainer {
+	margin: 0;
+	float: left;
+	width: 40%;
+}
+
+.AboutWebsiteContainer {
+	margin: 0;
+	float: right;
+	width: 40%;
 }
