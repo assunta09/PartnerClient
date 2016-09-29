@@ -7,6 +7,22 @@ import config from "./config.json";
 
 const { accessToken, style } = config;
 
+const obj = [{
+  id: ["1"],
+  installDate: ["1278947280000"],
+  installed: ["true"],
+  lat: ["51.52916347"],
+  locked: ["false"],
+  long: ["-0.109970527"],
+  name: ["River Street , Clerkenwell"],
+  nbBikes: ["14"],
+  nbDocks: ["19"],
+  nbEmptyDocks: ["5"],
+  removalDate: [""],
+  temporary: ["false"],
+  terminalName: ["001023"]
+}]
+
 function getCycleStations() {
   return fetch("https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml")
     .then(res => res.text())
@@ -25,7 +41,7 @@ function getCycleStations() {
 
 const containerStyle = {
   height: "100vh",
-  width: "45vw"
+  width: "100vw"
 };
 
 const styles = {
@@ -55,6 +71,7 @@ const maxBounds = [
       [0.23441119994140536,51.654967740310525], // North East
 ];
 
+
 export default class LondonCycle extends Component {
 
   state = {
@@ -62,13 +79,12 @@ export default class LondonCycle extends Component {
     zoom: [11],
     skip: 0,
     stations: new Map(),
-    popupShowLabel: true,
+    popupShowLabel: true
   };
 
   componentWillMount() {
-    getCycleStations().then(res => {
-      this.setState(({ stations }) => ({
-        stations: stations.merge(res.reduce((acc, station) => {
+    this.setState(({ stations }) => ({
+        stations: stations.merge(obj.reduce((acc, station) => {
           return acc.set(station.id[0], new Map({
             id: station.id[0],
             name: station.name[0],
@@ -77,8 +93,7 @@ export default class LondonCycle extends Component {
             slots: parseInt(station.nbDocks[0])
           }))
         }, new Map()))
-      }));
-    });
+    }));
   };
 
   _markerClick = (station, { feature }) => {
@@ -178,6 +193,7 @@ export default class LondonCycle extends Component {
         {
           station && end && (
             <div style={styles.stationDescription}>
+              {console.log(station)}
               <p>{ station.get("name") }</p>
               <p>{ station.get("bikes") } bikes / { station.get("slots") } slots</p>
             </div>

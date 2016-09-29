@@ -7,7 +7,7 @@ import Scroll from 'react-scroll';
 import NavBar from '../NavBar/NavBar.js'
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
-import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
+// import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
 import AboutContainer  from '../AboutSegment/AboutContainer.js';
 import ScrollReveal from 'scrollreveal';
 
