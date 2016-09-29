@@ -68,7 +68,7 @@ render() {
 	      	</Element>
           <Element name="test4" className="element">
             <BubbleSegment reports={this.state.reports} sr={this.state.sr}/>
-          </Element> å
+          </Element>
       	</StickyContainer>
       </div>
     );
