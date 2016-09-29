@@ -25,7 +25,7 @@ function getCycleStations() {
 
 const containerStyle = {
   height: "100vh",
-  width: "100vw"
+  width: "45vw"
 };
 
 const styles = {
@@ -62,7 +62,7 @@ export default class LondonCycle extends Component {
     zoom: [11],
     skip: 0,
     stations: new Map(),
-    popupShowLabel: true
+    popupShowLabel: true,
   };
 
   componentWillMount() {
