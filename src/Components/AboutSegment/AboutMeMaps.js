@@ -180,16 +180,6 @@ componentWillReceiveProps(nextProps) {
             )
           }
         </ReactMapboxGl>
-
-        {
-          station && end && (
-            <div style={styles.stationDescription}>
-              {console.log(this.state.obj)}
-              <p>{ station.get("name") }</p>
-              <p>{ station.get("bikes") } bikes / { station.get("slots") } slots</p>
-            </div>
-          )
-        }
       </div>
     )
   }
