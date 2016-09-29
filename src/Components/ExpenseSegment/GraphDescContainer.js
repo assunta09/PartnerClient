@@ -1,5 +1,6 @@
 import React from 'react'
 import DescTitle from './DescTitleContainer.js'
+import SalaryTitle from './SalariesDescContainer.js'
 import CanvasContainer from './CanvasContainer.js'
 
 
@@ -30,6 +31,7 @@ var GraphDescContainer = React.createClass({
 			<div className='GraphDescContainer2'>
 				<div ref='box3'>
 	        <DescTitle reports={this.props.reports}/>
+	        <SalaryTitle reports={this.props.reports}/>
 				</div>
 				<div ref='box4'>
 	        <CanvasContainer reports={this.props.reports}/>
