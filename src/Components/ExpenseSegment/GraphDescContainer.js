@@ -1,6 +1,6 @@
 import React from 'react'
 import DescTitle from './DescTitleContainer.js'
-import ExpenseGraphContainer from './ExpenseGraphContainer.js'
+import CanvasContainer from './CanvasContainer.js'
 
 
 var GraphDescContainer = React.createClass({
@@ -32,8 +32,8 @@ var GraphDescContainer = React.createClass({
 	        <DescTitle reports={this.props.reports}/>
 				</div>
 				<div ref='box4'>
-	        <ExpenseGraphContainer reports={this.props.reports}/>
-				</div>  
+	        <CanvasContainer reports={this.props.reports}/>
+				</div>
 			</div>
 		);
 	}

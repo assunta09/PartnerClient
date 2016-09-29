@@ -9,7 +9,6 @@ var NavBar = React.createClass ({
   render() {
     return (
       <div className='NavBarContainer'>
-        <NavTitle />
         <NavTabBar />
       </div>
     );

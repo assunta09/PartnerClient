@@ -38,7 +38,7 @@
 	position: absolute;
 	top: 260px;
 	right: 0;
-	height: 66%;
+	height: 70%;
 	text-align: center;
 	font-size: 1.5em;
 	background-color: #F9F9F9;
@@ -56,9 +56,6 @@
 	height: 35%;
 	text-align: center;
 	background: #FFCFA1;
-	opacity: 0.8;
-	border-top-left-radius: 2em;
-	/*box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);*/
 	z-index: 2;
 }
 
@@ -72,7 +69,6 @@
 	height: 87px;
 	margin: 0;
 	font-family: 'Open Sans Condensed';
-	text-transform: uppercase;
 	letter-spacing: 3px;
 	word-spacing: 6px;
 }
