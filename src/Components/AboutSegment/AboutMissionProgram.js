@@ -101,7 +101,6 @@ var AboutMissionProgram = React.createClass({
     	<div className="AboutSliderContainer">
 	      <Slider {...settings}>
 		     	<div>
-		     		{console.log(this.state.components[0])}
 		     		{this.state.components[0]}
 		     	</div>
 		     	<div>

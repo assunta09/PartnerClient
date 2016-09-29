@@ -3,21 +3,32 @@ import './styles.css';
 import AboutMissionProgram from './AboutMissionProgram.js';
 
 var AboutInfo = React.createClass ({
+	getInitialState: function() {
+		return {
+			report: {}
+		}
+	},
+
 	componentWillReceiveProps: function(nextProps){
-	
+		var report = nextProps.reports
+		this.setState({
+			report: report.reports.organisation
+		})
 	},
 	render () {
 		return (
 			<div className="AboutInfoContainer">
 				<div>
-					<h1>Name of Company</h1>
+					{console.log(this.state.report)}
+					<h1>{this.state.report.name}</h1>
+					
 				</div>
 				<div className="YearAndWebsiteContainer">
 					<div className="AboutYearContainer">
-						<h3>Year Formed: </h3>
+						<h3>Year Formed: {this.state.report.year_formed}</h3>
 					</div>
 					<div className="AboutWebsiteContainer">
-						<h3>Website: </h3> 
+						<h3>Website: {this.state.report.domain}</h3> 
 					</div>
 				</div>
 				<div>
