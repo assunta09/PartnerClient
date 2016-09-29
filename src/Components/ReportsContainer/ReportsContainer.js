@@ -63,7 +63,7 @@ render() {
 	      		<ExpenseContainer reports={this.state.reports} sr={this.state.sr}/>
 	      	</Element>
 	      	<Element>
-	      		<AboutContainer name="test3" className="element" sr={this.state.sr}/>
+	      		<AboutContainer name="test3" className="element" reports={this.state.reports} sr={this.state.sr}/>
 	      	</Element>
       	</StickyContainer>
       </div>

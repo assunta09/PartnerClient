@@ -6,7 +6,7 @@ var AboutContainer = React.createClass({
 	render () {
 		return (
 			<div className='App'> 
-				<AboutSegment/>
+				<AboutSegment reports={this.props.reports}/>
 			</div>
 		); 
 	}

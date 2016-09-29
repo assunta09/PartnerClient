@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles.css';
-import LondonCycle from './AboutMeMaps.js';
+import AboutMeMaps from './AboutMeMaps.js';
 
 var AboutSegment = React.createClass ({
   render() {
     return (
     	<div className='AboutSegment'>
-        <LondonCycle />
+        <AboutMeMaps reports={this.props.reports}/>
     	</div>
     );
   }

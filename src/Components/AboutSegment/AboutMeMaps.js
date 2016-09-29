@@ -11,9 +11,9 @@ const obj = [{
   id: ["1"],
   installDate: ["1278947280000"],
   installed: ["true"],
-  lat: ["51.52916347"],
+  lat: ["37.7749"],
   locked: ["false"],
-  long: ["-0.109970527"],
+  long: ["-122.4194"],
   name: ["River Street , Clerkenwell"],
   nbBikes: ["14"],
   nbDocks: ["19"],
@@ -23,25 +23,9 @@ const obj = [{
   terminalName: ["001023"]
 }]
 
-function getCycleStations() {
-  return fetch("https://tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml")
-    .then(res => res.text())
-    .then(data => {
-      return new Promise((resolve, reject) => {
-        parseString(data, (err, res) => {
-          if(!err) {
-            resolve(res.stations.station);
-          } else {
-            reject(err);
-          }
-        });
-      });
-    })
-}
-
 const containerStyle = {
-  height: "100vh",
-  width: "100vw"
+  height: "90vh",
+  width: "70vh"
 };
 
 const styles = {
@@ -66,20 +50,43 @@ const styles = {
   }
 }
 
-const maxBounds = [
-      [-0.481747846041145,51.3233379650232], // South West
-      [0.23441119994140536,51.654967740310525], // North East
-];
+//Add if you want to set bounds
+// const maxBounds = [
+//       [-0.481747846041145,51.3233379650232], // South West
+//       [0.23441119994140536,51.654967740310525], // North East
+// ];
 
-
-export default class LondonCycle extends Component {
+export default class AboutMeMaps extends Component {
 
   state = {
-    center: [-0.109970527, 51.52916347],
+    center: [-122.4194, 37.7749],
     zoom: [11],
     skip: 0,
     stations: new Map(),
-    popupShowLabel: true
+    popupShowLabel: true,
+  };
+
+componentWillReceiveProps(nextProps) {
+    // console.log(nextProps)
+    // var data = nextProps.reports
+    // var reports = data.reports
+    this.setState({
+      obj: [{
+          id: ["1"],
+          installDate: ["1278947280000"],
+          installed: ["true"],
+          lat: ["37.7749"],
+          locked: ["false"],
+          long: ["-122.4194"],
+          name: ["River Street , Clerkenwell"],
+          nbBikes: ["14"],
+          nbDocks: ["19"],
+          nbEmptyDocks: ["5"],
+          removalDate: [""],
+          temporary: ["false"],
+          terminalName: ["001023"]
+        }]
+    });
   };
 
   componentWillMount() {
@@ -131,7 +138,7 @@ export default class LondonCycle extends Component {
   }
 
   render() {
-    const { stations, station, skip, end, popupShowLabel } = this.state;
+    const { stations, station, skip, end, popupShowLabel, obj } = this.state;
 
     return (
       <div>
@@ -141,7 +148,7 @@ export default class LondonCycle extends Component {
           zoom={this.state.zoom}
           minZoom={8}
           maxZoom={15}
-          maxBounds={maxBounds}
+          // maxBounds={maxBounds}
           accessToken={accessToken}
           onDrag={this._onDrag}
           onMoveEnd={this._setMove.bind(this, true)}
@@ -193,7 +200,7 @@ export default class LondonCycle extends Component {
         {
           station && end && (
             <div style={styles.stationDescription}>
-              {console.log(station)}
+              {console.log(this.state.obj)}
               <p>{ station.get("name") }</p>
               <p>{ station.get("bikes") } bikes / { station.get("slots") } slots</p>
             </div>
