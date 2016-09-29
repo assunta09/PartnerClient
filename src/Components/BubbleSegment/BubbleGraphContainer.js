@@ -110,8 +110,8 @@ function bubbleChart() {
 
   var groupCenters = {
     1: { x: width / 3, y: height / 2 },
-    2: { x: width / 2, y: height / 2 },
-    3: { x: 2 * width / 3, y: height / 2 }
+    2: { x: 2 * width / 3, y: height / 2 }
+    // 3: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the group titles.
@@ -150,7 +150,7 @@ function bubbleChart() {
     .size([width, height])
     .charge(charge)
     .gravity(-0.01)
-    .friction(0.9);
+    .friction(0.95);
 
 
   // Nice looking colors - no reason to buck the trend
@@ -432,58 +432,165 @@ function addCommas(nStr) {
 
   return x1 + x2;
 }
- 
 
- var rawData = [ 
-   {id: 1, total_amount: 5000, _title: "Hey", group: "somegroup", group_coef: 1 },
-   {id: 2, total_amount: 20000, _title: "A", group: "secondgroup", group_coef: 2 },
-   {id: 3, total_amount: 50000, _title: "B", group: "thirdgroup", group_coef: 3},
-   {id: 4, total_amount: 500000, _title: "C", group: "somegroup", group_coef: 1},
-   {id: 5, total_amount: 500, _title: "C", group: "secondgroup", group_coef: 1},
-   {id: 6, total_amount: 3000, _title: "C", group: "thirdgroup", group_coef: 3 },
-   {id: 7, total_amount: 800000, _title: "C", group: "somegroup", group_coef: 2 },
-   {id: 8, total_amount: 200000, _title: "C", group: "secondgroup", group_coef: 1 },
-   {id: 9, total_amount: 34353, _title: "C", group: "thirdgroup", group_coef: 3},
-   {id: 10, total_amount: 24545, _title: "C", group: "somegroup", group_coef: 3},
-   {id: 11, total_amount: 2003240, _title: "C", group: "secondgroup", group_coef: 2},
-   {id: 12, total_amount: 200234, _title: "C", group: "thirdgroup", group_coef: 3 },
-   {id: 13, total_amount: 2002342, _title: "C", group: "somegroup", group_coef: 2},
-   {id: 14, total_amount: 20, _title: "C", group: "secondgroup", group_coef: 3 },
-   {id: 15, total_amount: 59098, _title: "C", group: "thirdgroup", group_coef: 1},
-   {id: 16, total_amount: 207889, _title: "C", group: "somegroup", group_coef: 2 },
-   {id: 17, total_amount: 206776, _title: "C", group: "secondgroup", group_coef: 3 },
-];
+// theData = [{
+//   member_benefits: 0,
+//   fundraising_fees: 210665,
+//   officers_and_key_employees: 139937,
+//   general_salaries_and_wages: 110120,
+//   employee_benefits: 24121,
+//   payroll_taxes: 17458,
+//   pension_plan_accruals: 5156,
+//   disqual_persons: 0,
+//   domestic_organisations: 905931,
+//   domestic_individuals: 0,
+//   foreign_entities: 0,
+//   lobbying: 0,
+//   advertising_promotion: 22910,
+//   travel: 1306,
+//   entertainment: 0,
+//   insurance: 4688,
+//   management: 0,
+//   legal_fees: 0,
+//   accounting: 17635,
+//   office_expenses: 6543,
+//   information_technology: 0,
+//   royalties: 0,
+//   conventions_and_meetings: 0,
+//   occupancy: 29947
+//   },
+// {
+//   service_revenue: 0,
+//   investments: 1152,
+//   other: 1459057,
+//   campaigns: 42209,
+//   fundraising: 210665,
+//   other_gifts_or_donations: 1379763
+// }
+// ];
+// var expenseValues = Object.keys(theData[0]).map(k => theData[0][k]);
+// console.log(expenseValues);
+
+
+function parseData(theData) { 
+  console.log(theData);
+  var newData = []; 
+  var expenseKeys = Object.keys(theData[0]); 
+  var revenueKeys = Object.keys(theData[1]);
+  var expenseValues = Object.keys(theData[0]).map(k => theData[0][k]);
+  var revenueValues = Object.keys(theData[1]).map(k => theData[1][k]);
+
+  for (var i = 0; i < expenseKeys.length; i++) {
+    newData.push({
+    id: i,
+    total_amount: expenseValues[i],
+    _title: expenseKeys[i], 
+    group: "expenses", 
+    group_coef: 1
+    })
+  }
+  
+  var cont = expenseKeys.length;
+  
+  for (var k = 0; k < revenueKeys.length; k++) {
+    newData.push({
+    id: k + cont,
+    total_amount: revenueValues[k],
+    _title: revenueKeys[k], 
+    group: "revenues", 
+    group_coef: 2
+    })
+  }
+  console.log(newData);
+  return newData;
+};
+
+
+
+
+//  var rawData = [ 
+//    {id: 1, total_amount: 5000, _title: "Hey", group: "somegroup", group_coef: 1 },
+//    {id: 2, total_amount: 20000, _title: "A", group: "secondgroup", group_coef: 2 },
+//    {id: 3, total_amount: 50000, _title: "B", group: "thirdgroup", group_coef: 3},
+//    {id: 4, total_amount: 500000, _title: "C", group: "somegroup", group_coef: 1},
+//    {id: 5, total_amount: 500, _title: "C", group: "secondgroup", group_coef: 1},
+//    {id: 6, total_amount: 3000, _title: "C", group: "thirdgroup", group_coef: 3 },
+//    {id: 7, total_amount: 800000, _title: "C", group: "somegroup", group_coef: 2 },
+//    {id: 8, total_amount: 200000, _title: "C", group: "secondgroup", group_coef: 1 },
+//    {id: 9, total_amount: 34353, _title: "C", group: "thirdgroup", group_coef: 3},
+//    {id: 10, total_amount: 24545, _title: "C", group: "somegroup", group_coef: 3},
+//    {id: 11, total_amount: 2003240, _title: "C", group: "secondgroup", group_coef: 2},
+//    {id: 12, total_amount: 200234, _title: "C", group: "thirdgroup", group_coef: 3 },
+//    {id: 13, total_amount: 2002342, _title: "C", group: "somegroup", group_coef: 2},
+//    {id: 14, total_amount: 20, _title: "C", group: "secondgroup", group_coef: 3 },
+//    {id: 15, total_amount: 59098, _title: "C", group: "thirdgroup", group_coef: 1},
+//    {id: 16, total_amount: 207889, _title: "C", group: "somegroup", group_coef: 2 },
+//    {id: 17, total_amount: 206776, _title: "C", group: "secondgroup", group_coef: 3 },
+// ];
 
 var theChart = bubbleChart();
 
 // console.log(bubbleChart);
 var GraphContainer = React.createClass({
 
+// getInitialState: function () {
+//     return {
+//       chartData: []
+//     }
+//   },
 // Sample code for API call 
 
-  // getInitialState: function() {
-  //   return {
-  //     theData: []
-  //   };
+  // componentWillMount: function() {
+  //   return fetch('https://partner-api.herokuapp.com/organisations/1')
+  //     .then((response) => response.json())
+  //     .then((Data) => {
+  //       var theData = [Data.allExpenses, Data.allRevenues];
+  //       var rawData = parseData(theData); 
+  //       console.log(rawData);
+  //     this.setState({
+  //       chartData: [rawData]
+  //     })
+  //   })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // },
+  // componentWillReceiveProps: function(nextProps) {
+
+  //   var data = nextProps.reports
+  //   // console.log(data);
+  //   var reports = data.reports
+  //   // console.log(reports);
+  //   this.setState({
+  //     chartData: reports,
+  //   });
   // },
 
-  componentWillMount: function() {
-    return fetch('https://partner-api.herokuapp.com/organisations/1')
-      .then((response) => response.json())
-      .then((Data) => {
-        var theData = [Data.allExpenses, Data.allRevenues]; 
-        // this.setState({theData: Data});
-        console.log(theData); 
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  },
+  // componentDidMount: function() {
+  //    var el = ReactDOM.findDOMNode(this);
+  //    var data = this.state.chartData;
+  //    console.log(data);
+  //    var data2 = [data.allExpenses, data.allRevenues];
+  //    var data3 = parseData(data3);
+  //    rawData = data3;
+  //    theChart(el, rawData);
+  //    setupButtons();
+  // },
 
-  componentDidMount: function() {
-     var el = ReactDOM.findDOMNode(this);
-     theChart(el, rawData);
-     setupButtons();
+  componentWillReceiveProps: function(nextProps) {
+
+    var data = nextProps.reports;
+    // console.log(data);
+    var reports = data.reports;
+    console.log(reports);
+    var el = ReactDOM.findDOMNode(this);
+    var data2 = [reports.allExpenses, reports.allRevenues];
+    console.log(data2);
+    var data3 = parseData(data2);
+    console.log(data3);
+    var rawData = data3;
+    theChart(el, rawData);
+    setupButtons();
   },
 
   handleClick: function(event) {
