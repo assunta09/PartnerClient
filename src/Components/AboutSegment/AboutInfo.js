@@ -1,5 +1,6 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './styles.css';
+import AboutMissionProgram from './AboutMissionProgram.js';
 
 var AboutInfo = React.createClass ({
 	componentWillReceiveProps: function(nextProps){
@@ -20,7 +21,7 @@ var AboutInfo = React.createClass ({
 					</div>
 				</div>
 				<div>
-					<h2>Mission and Program Service Accomplisments</h2>
+					<AboutMissionProgram reports={this.props.reports}/>
 				</div>
 			</div>
 		);

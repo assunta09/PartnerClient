@@ -43,3 +43,20 @@
 	float: right;
 	width: 40%;
 }
+
+.AboutSliderContainer {
+	width: 80%;
+	margin: 0 auto;
+	height: 40%;
+	min-height: 400px;
+}
+
+.AboutCard {
+	background-color: white;
+	width: 80%;
+	padding: 20px;
+	height: 300px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+}
