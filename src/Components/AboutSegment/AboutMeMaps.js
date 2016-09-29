@@ -7,21 +7,7 @@ import config from "./config.json";
 
 const { accessToken, style } = config;
 
-const obj = [{
-  id: ["1"],
-  installDate: ["1278947280000"],
-  installed: ["true"],
-  lat: ["37.7749"],
-  locked: ["false"],
-  long: ["-122.4194"],
-  name: ["River Street , Clerkenwell"],
-  nbBikes: ["14"],
-  nbDocks: ["19"],
-  nbEmptyDocks: ["5"],
-  removalDate: [""],
-  temporary: ["false"],
-  terminalName: ["001023"]
-}]
+
 
 const containerStyle = {
   height: "90vh",
@@ -67,29 +53,26 @@ export default class AboutMeMaps extends Component {
   };
 
 componentWillReceiveProps(nextProps) {
-    // console.log(nextProps)
-    // var data = nextProps.reports
+    console.log(nextProps.reports.reports.organisation)
+    var data = nextProps.reports.reports.organisation
+    var name = data.address
     // var reports = data.reports
-    this.setState({
-      obj: [{
-          id: ["1"],
-          installDate: ["1278947280000"],
-          installed: ["true"],
-          lat: ["37.7749"],
-          locked: ["false"],
-          long: ["-122.4194"],
-          name: ["River Street , Clerkenwell"],
-          nbBikes: ["14"],
-          nbDocks: ["19"],
-          nbEmptyDocks: ["5"],
-          removalDate: [""],
-          temporary: ["false"],
-          terminalName: ["001023"]
-        }]
-    });
-  };
+    const obj = [{
+      id: ["1"],
+      installDate: ["1278947280000"],
+      installed: ["true"],
+      lat: ["37.7749"],
+      locked: ["false"],
+      long: ["-122.4194"],
+      name: [name],
+      nbBikes: ["14"],
+      nbDocks: ["19"],
+      nbEmptyDocks: ["5"],
+      removalDate: [""],
+      temporary: ["false"],
+      terminalName: ["001023"]
+    }]
 
-  componentWillMount() {
     this.setState(({ stations }) => ({
         stations: stations.merge(obj.reduce((acc, station) => {
           return acc.set(station.id[0], new Map({
@@ -101,6 +84,7 @@ componentWillReceiveProps(nextProps) {
           }))
         }, new Map()))
     }));
+
   };
 
   _markerClick = (station, { feature }) => {
