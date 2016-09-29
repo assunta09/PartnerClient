@@ -2,8 +2,8 @@
 
 .BubbleSegment {
   width: 100%;
-  height: 100vh;
-  background-color: #F29885;
+  height: 100%;
+  background-color: #5E5FFF;
   border-bottom: solid 1px #5B5B5B;
 }
 
@@ -20,7 +20,8 @@
 }
 
 .DescriptionTitle {
-
+  width: 100%;
+  background-color: #FFCFA1;
 }
 
 .BubbleGraphContainer {
@@ -31,11 +32,12 @@
   margin-bottom: 1.5em;
   margin-right: 5%;
   margin-left: 5%;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
 }
 
 .GraphDescContainer {
   width: 100%;
+  height: 100vh;
 }
 
 

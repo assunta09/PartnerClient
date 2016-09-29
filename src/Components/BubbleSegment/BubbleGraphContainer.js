@@ -299,20 +299,22 @@ function bubbleChart() {
   function showDetail(d) {
     
     d3.select(this).attr('stroke', 'black');
+    // console.log(d3.select(this).attr('id', 'bub1'));
     // console.log('hit');
     // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
-    var content = React.createElement("div", {class: "name"}, d.name + " " + d.value + " " + d.group);
-
+    var content = React.createElement("div", {className: "name"}, d.name + " " + d.value + " " + d.group);
+    
+    ReactDOM.render(content, document.getElementById('bub1'))
     // var content = '<span class="name">Title: </span><span class="value">' +
     //               d.name +
     //               '</span><br/>' +
     //               '<span class="name">Amount: </span><span class="value">$' +
-    //               d.value +
+    //               d`.value +
     //               '</span><br/>' +
     //               '<span class="name">group: </span><span class="value">' +
     //               d.group +
     //               '</span>';
-    
+    console.log(d3.event)
    tooltip.showTooltip(content, d3.event);
 
   }
@@ -398,7 +400,7 @@ function parseData(theData) {
 
   for (var i = 0; i < expenseKeys.length; i++) {
     newData.push({
-    id: i,
+    id: `${i}bub`,
     total_amount: expenseValues[i],
     _title: expenseKeys[i], 
     group: "expenses", 
@@ -484,12 +486,13 @@ var GraphContainer = React.createClass({
 
   render () {
     return (
-      <div className='BubbleGraphContainer' >
-       <div id="toolbar">
-          <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
-          <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
-      </div>
-      </div>
+        <div className='BubbleGraphContainer' >
+           <div id="toolbar">
+              <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
+              <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
+              <div id="bub1"></div>
+          </div>
+        </div>
     );
   }
 });
