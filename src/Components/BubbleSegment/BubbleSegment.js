@@ -10,7 +10,6 @@ var BubbleSegment = React.createClass({
   render() {
     return (
       <div className='BubbleSegment'>
-        <h1>Welcome to the bubble segment</h1>
         <BubbleGraphDescContainer reports={this.props.reports}/>
       </div>
     );
