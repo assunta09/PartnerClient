@@ -3,7 +3,7 @@
 .RevenueSegment1 {
 	width: 100%;
 	height: 100vh;
-	background-color: #ACDFD2;
+	background-color: #E8E9E8;
 	text-align: left;
   border-bottom: solid 1px #E8E9E8;
 }
@@ -13,17 +13,32 @@
 }
 
 .DescriptionTitle1 {
-
+	width: 90%;
+	color: white;
+	font-size: 2em;
+	background: #5B5B5B;
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: -20px;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
 }
 
 .GraphContainer1 {
-	width: 27%;
-	padding-top: 1%;
-	background: #F1F1F1;
+	height: 85%;
+	width: 65%;
+	margin-top: 3%;
+	margin-left: 5%;
+}
+
+.CanvasContainer {
+	height: 68vh;
+	padding: 0;
+	background: #F9F9F9;
 	float: left;
 	margin-top: 8.5em;
-	margin-left: 15%;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
+	margin-left: 5%;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+	width: 50%;
 }
 
 .GraphDescContainer1 {
@@ -31,14 +46,18 @@
 }
 
 .DescTitleContainer1 {
+	color: #5B5B5B;
 	float: right;
 	width: 30%;
-	height: 55vh;
+	height: 68vh;
 	margin-right: 7%;
 	margin-top: 8.5em;
-  background: #F1F1F1;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
-  padding: 20px;
+  background: #FFCFA1;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+}
+
+.DescTitleContainer1 p {
+	padding: 20px;
 }
 
 ul {

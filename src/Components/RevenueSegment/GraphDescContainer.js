@@ -1,6 +1,6 @@
 import React from 'react'
 import DescTitle from './DescTitleContainer.js'
-import Graph from './RevenueGraphContainer.js'
+import CanvasContainer from './CanvasContainer.js'
 
 var GraphDescContainer = React.createClass({
 	componentDidMount: function () {
@@ -21,9 +21,8 @@ var GraphDescContainer = React.createClass({
       distance: '50px',
       scale: 1,
       easing: 'ease',
-      
     }
-    
+
     this.props.sr.reveal(this.refs.box1, config)
     this.props.sr.reveal(this.refs.box2, config2)
   },
@@ -34,7 +33,7 @@ var GraphDescContainer = React.createClass({
         	<DescTitle/>
         </div>
         <div ref='box2' className="scrollbox">
-        	<Graph reports={this.props.reports}/>
+					<CanvasContainer reports={this.props.reports}/>
         </div>
 			</div>
 		);
