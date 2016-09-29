@@ -127,7 +127,7 @@ function bubbleChart() {
   // Dividing by 8 scales down the charge to be
   // appropriate for the visualization dimensions.
   function charge(d) {
-    return -Math.pow(d.radius, 2.0) / 8;
+    return -Math.pow(d.radius, 2.0) / 9;
   }
 
   // Here we create a force layout and
