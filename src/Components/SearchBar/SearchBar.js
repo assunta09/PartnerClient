@@ -12,10 +12,6 @@ var SearchBar = React.createClass({
 		};
 	},
 
-	handleChange: function(event) {
-		this.setState({value: event.target.value});
-	},
-
 	handleSelection: function(event) {
 		this.setState({value: event})
 	},
@@ -52,7 +48,6 @@ var SearchBar = React.createClass({
 			    options={this.state.chartData}
 			    maxVisible={3}
 			    onOptionSelected={this.handleSelection}
-			    onChange={this.handleChange}
 			  />
 				<div className="SearchBtnContainer">
 					<button className="btn" onClick={this.handleClick}>Search</button>
