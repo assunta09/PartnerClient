@@ -39,7 +39,7 @@ function floatingTooltip(tooltipId, width) {
    * event is d3.event for positioning.
    */
   function showTooltip(content, event) {
-    console.log(tt);
+    // console.log(tt);
     tt.style('opacity', 1.0)
       .html(content);
 
@@ -345,7 +345,7 @@ function bubbleChart() {
    * details of a bubble in the tooltip.
    */
   function showDetail(d) {
-    console.log(this);
+    // console.log(this);
     d3.select(this).attr('stroke', 'black');
 
     var content = '<span class="name">Title: </span><span class="value">' +
@@ -357,7 +357,7 @@ function bubbleChart() {
                   '<span class="name">group: </span><span class="value">' +
                   d.group +
                   '</span>';
-    console.log(d3.event);
+    // console.log(d3.event);
    tooltip.showTooltip(content, d3.event);
   }
 
@@ -461,26 +461,24 @@ var GraphContainer = React.createClass({
 
 // Sample code for API call 
 
-  getInitialState: function() {
-    return {
-      data: {},
-      allRevenues: [], 
-      allExpenses: []
-    };
-  },
-
-  // componentWillMount: function() {
-  //   return fetch('https://partner-api.herokuapp.com/organisations/1')
-  //     .then((response) => response.json())
-  //     .then((Data) => {
-  //       var Revenue = (Data.allRevenues)
-  //       var Expenses = (Data.allExpenses)
-  //       this.setState({data: Data, allRevenues: Revenue, allExpenses: Expenses});
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
+  // getInitialState: function() {
+  //   return {
+  //     theData: []
+  //   };
   // },
+
+  componentWillMount: function() {
+    return fetch('https://partner-api.herokuapp.com/organisations/1')
+      .then((response) => response.json())
+      .then((Data) => {
+        var theData = [Data.allExpenses, Data.allRevenues]; 
+        // this.setState({theData: Data});
+        console.log(theData); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
 
   componentDidMount: function() {
      var el = ReactDOM.findDOMNode(this);

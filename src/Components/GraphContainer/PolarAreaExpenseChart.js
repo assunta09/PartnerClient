@@ -13,7 +13,7 @@ var PolarArea = React.createClass({
     return fetch('https://partner-api.herokuapp.com/organisations/2')
       .then((response) => response.json())
       .then((Data) => {
-        console.log(Data)
+        // console.log(Data)
         var expenses = (Data.generalExpensesOverview)
         this.setState({
           chartData: [
