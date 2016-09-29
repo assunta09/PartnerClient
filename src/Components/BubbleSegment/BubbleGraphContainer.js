@@ -7,15 +7,17 @@ import ReactDOM from 'react-dom';
 // Tooltip module 
 
 function floatingTooltip(tooltipId, width) {
-  // Local variable to hold tooltip div for
-  // manipulation in other functions.
+  
+  // var div = d3.select("body").append("div") 
+  //   .attr("class", "tooltip")       
+  //   .style("opacity", 0);
 
-  var tt = d3.select('div')
+
+  var tt = d3.select('svg')
     .append('div')
     .attr('class', 'tooltip')
     .attr('id', tooltipId)
     .style('pointer-events', 'none');
-
   // Set a width if it is provided.
   if (width) {
     tt.style('width', width);
@@ -27,10 +29,11 @@ function floatingTooltip(tooltipId, width) {
   // Tooltip module 
 
   function showTooltip(content, event) {
-    // console.log(tt);
+    // var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
+    console.log()
     tt.style('opacity', 1.0)
-      .html(content);
-
+      .append(content);
+  
     updatePosition(event);
   }
 
@@ -137,7 +140,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['low', 'medium', 'high'])
-    .range(['#beccae', '#d84b2a', '#7aa25c']);
+    .range(['#5E5FFF', '#5B5B5B', '#7aa25c']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
@@ -201,7 +204,6 @@ function bubbleChart() {
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
-
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
     bubbles.transition()
@@ -295,20 +297,24 @@ function bubbleChart() {
    * details of a bubble in the tooltip.
    */
   function showDetail(d) {
-    // console.log(this);
+    
     d3.select(this).attr('stroke', 'black');
+    console.log('hit');
+    // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
+    var content = React.createElement("div", {class: "name"}, d.name + " " + d.value + " " + d.group);
 
-    var content = '<span class="name">Title: </span><span class="value">' +
-                  d._title +
-                  '</span><br/>' +
-                  '<span class="name">Amount: </span><span class="value">$' +
-                  addCommas(d.total_amount) +
-                  '</span><br/>' +
-                  '<span class="name">group: </span><span class="value">' +
-                  d.group +
-                  '</span>';
-    // console.log(d3.event);
+    // var content = '<span class="name">Title: </span><span class="value">' +
+    //               d.name +
+    //               '</span><br/>' +
+    //               '<span class="name">Amount: </span><span class="value">$' +
+    //               d.value +
+    //               '</span><br/>' +
+    //               '<span class="name">group: </span><span class="value">' +
+    //               d.group +
+    //               '</span>';
+    
    tooltip.showTooltip(content, d3.event);
+
   }
 
   /*
@@ -358,7 +364,7 @@ function setupButtons() {
 
       // Toggle the bubble chart based on
       // the currently clicked button.
-      chart.toggleDisplay(buttonId);
+      toggleDisplay(buttonId);
     });
 }
 
@@ -366,24 +372,24 @@ function setupButtons() {
  * Helper function to convert a number into a string
  * and add commas to it to improve presentation.
  */
-function addCommas(nStr) {
-  nStr += '';
-  var x = nStr.split('.');
-  var x1 = x[0];
-  var x2 = x.length > 1 ? '.' + x[1] : '';
-  var rgx = /(\d+)(\d{3})/;
-  while (rgx.test(x1)) {
-    x1 = x1.replace(rgx, '$1' + ',' + '$2');
-  }
+// function addCommas(nStr) {
+//   nStr += '';
+//   var x = nStr.split('.');
+//   var x1 = x[0];
+//   var x2 = x.length > 1 ? '.' + x[1] : '';
+//   var rgx = /(\d+)(\d{3})/;
+//   while (rgx.test(x1)) {
+//     x1 = x1.replace(rgx, '$1' + ',' + '$2');
+//   }
 
-  return x1 + x2;
-}
+//   return x1 + x2;
+// }
 
 // Helper method for parsing the data from the API into a workable format 
 // for node creation 
 
 function parseData(theData) { 
-  console.log(theData);
+
   var newData = []; 
   var expenseKeys = Object.keys(theData[0]); 
   var revenueKeys = Object.keys(theData[1]);
@@ -450,17 +456,13 @@ var GraphContainer = React.createClass({
   componentWillReceiveProps: function(nextProps) {
 
     var data = nextProps.reports;
-    // console.log(data);
     var reports = data.reports;
-    console.log(reports);
     var el = ReactDOM.findDOMNode(this);
     var data2 = [reports.allExpenses, reports.allRevenues];
-    console.log(data2);
     var data3 = parseData(data2);
-    console.log(data3);
     var rawData = data3;
     theChart(el, rawData);
-    setupButtons();
+    // setupButtons();
   },
 
   handleClick: function(event) {
@@ -491,6 +493,5 @@ var GraphContainer = React.createClass({
     );
   }
 });
-
 
 export default GraphContainer;
