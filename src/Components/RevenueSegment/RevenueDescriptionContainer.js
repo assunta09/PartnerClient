@@ -1,5 +1,5 @@
 import React from 'react'
-import Description from '../DescriptionContainer/Description.js'
+import Description from './RevenueDescription.js'
 
 var RevenueDescriptionContainer = React.createClass({
 
@@ -12,7 +12,7 @@ var RevenueDescriptionContainer = React.createClass({
 
 		return (
 			<div className={'EDescription1'} style={divStyle}>
-				<Description content={this.props.content}/>
+				<Description reports={this.props.reports}/>
 			</div>
 		);
 	}

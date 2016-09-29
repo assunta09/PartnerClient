@@ -24,16 +24,32 @@
 }
 
 .GraphContainer1 {
-	height: 85%;
-	width: 65%;
+	height: 65%;
+	width: 45%;
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 80px;
+	position: relative;
+}
+
+.RGraphTitle {
+	float: left;
+	margin-left: -30px;
+	margin-bottom: 0;
+	width: 28%;
+	background: #5B5B5B;
+	position: relative;
+	display: block;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.8em;
+	color: white;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
 }
 
 .CanvasContainer {
 	height: 68vh;
 	padding: 0;
-	background: #F9F9F9;
+	background: #FFCFA1;
 	float: left;
 	margin-top: 8.5em;
 	margin-left: 5%;
@@ -63,22 +79,6 @@
 ul {
 	list-style-type: none;
 	line-height: 50px;
-}
-
-.li1 {
-	color: #ACDFD2;
-}
-.li2 {
-	color: #DCDA98;
-}
-.li3 {
-	color: #F29885;
-}
-.li4 {
-	color: #aba0ca;
-}
-.li5 {
-	color: #A4A8A4;
 }
 
 .Description {

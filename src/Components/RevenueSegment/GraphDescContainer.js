@@ -30,7 +30,7 @@ var GraphDescContainer = React.createClass({
 		return (
 			<div className='GraphDescContainer1'>
         <div ref='box1' className="scrollbox">
-        	<DescTitle/>
+        	<DescTitle reports={this.props.reports}/>
         </div>
         <div ref='box2' className="scrollbox">
 					<CanvasContainer reports={this.props.reports}/>
