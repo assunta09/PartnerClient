@@ -12,7 +12,6 @@ var PolarArea = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    console.log(nextProps)
     var data = nextProps.reports
     var reports = data.reports
     var expense = reports.generalExpensesAbsolutes
