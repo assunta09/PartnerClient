@@ -37,6 +37,10 @@
   text-align: center;
 }
 
+.BubbleTopContainer text {
+  font-size: 1.8em;
+}
+
 .BubbleGraphContainer {
   width: 90%;
   background: white;
