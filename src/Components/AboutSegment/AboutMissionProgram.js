@@ -85,6 +85,20 @@ var AboutMissionProgram = React.createClass({
 			}
 		})
 
+		for (var i = allCards.length; i < 3; i++) {
+			var emptyCard = (
+	        <div>
+	        	<div className="AboutCard">
+	        		<h1>Program Service Accomplishments Empty</h1>
+	        		<div>
+	        			<h3>This Non-Profit did not fill out this section of the 990 form</h3>
+	        		</div>
+	        	</div>
+	        </div>
+			)
+			allCards.push(emptyCard)
+		}	
+
 		return allCards
 	},
 
@@ -116,6 +130,7 @@ var AboutMissionProgram = React.createClass({
           </div>
 	  		</Slider>
 	  		{console.log(this.state.components)}
+
       </div>
     );
   }
