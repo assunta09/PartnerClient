@@ -17,7 +17,7 @@ var ExpenseSalaries = React.createClass ({
           <div className="SalariesContainer">
             <i className="material-icons group">person</i>
             <div className='EmployeeName'>{pep.name}</div>
-            <div className='Salarydiv'>{pep.salary}</div>
+            <div className='Salarydiv'>{'$' + pep.salary + '.00'}</div>
           </div>
           )
     	});

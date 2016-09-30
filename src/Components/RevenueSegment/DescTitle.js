@@ -6,7 +6,7 @@ var DescTitle = React.createClass({
 
 		return (
 			<div className='DescTitle1'>
-        <h2 className='DescriptionTitle1'>Reveune</h2>
+        <h2 className='DescriptionTitle1'>Revenue</h2>
 			</div>
 		);
 	}

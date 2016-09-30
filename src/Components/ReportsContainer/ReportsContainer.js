@@ -70,8 +70,7 @@ componentWillMount: function () {
 render() {
     return (
       <div>
-        {console.log(this.state.reports)}
-            <Loader loaded={this.state.loaded} options={options} className="spinner"/>  
+          <Loader loaded={this.state.loaded} options={options} className="spinner"/>  
             <StickyContainer>
             <Sticky>
               <NavBar sr={this.state.sr}/>

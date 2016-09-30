@@ -10,11 +10,13 @@ function floatingTooltip(tooltipId, width) {
   // var div = d3.select("body").append("div") 
   //   .attr("class", "tooltip")       
   //   .style("opacity", 0);
-  var tt = d3.select('svg')
+  var tt = d3.select('body')
     .append('div')
     .attr('class', 'tooltip')
-    .attr('id', tooltipId)
+    .attr('id', 'tooltipId')
     .style('pointer-events', 'none');
+
+  console.log(tt)  
   // Set a width if it is provided.
   if (width) {
     tt.style('width', width);
@@ -38,6 +40,7 @@ function floatingTooltip(tooltipId, width) {
    * Hide the tooltip div.
    */
   function hideTooltip() {
+    console.log(tt)
     tt.style('opacity', 0.0);
   }
 
@@ -83,7 +86,7 @@ function floatingTooltip(tooltipId, width) {
 }
 
 var w = window.innerWidth / 1.1;
-var h = window.innerHeight / 1.25;
+var h = window.innerHeight / 1.35;
 
 // Bubblechart
 function bubbleChart() {
@@ -102,13 +105,12 @@ function bubbleChart() {
   var groupCenters = {
     2: { x: width / 3, y: height / 2 },
     1: { x: 2 * width / 3, y: height / 2 }
-    // 3: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the group titles.
   var groupsTitleX = {
-    Revenues: 250,
-    Expenses: width - 250
+    Revenues: 260,
+    Expenses: width - 260
   };
 
   // Used when setting up force and
@@ -285,12 +287,12 @@ function bubbleChart() {
     var years = svg.selectAll('.group')
       .data(groupsData);
 
-    years.enter().append('text')
-      .attr('class', 'group')
-      .attr('x', function (d) { return groupsTitleX[d]; })
-      .attr('y', 40)
-      .attr('text-anchor', 'middle')
-      .text(function (d) { return d; });
+    // years.enter().append('text')
+    //   .attr('class', 'group')
+    //   .attr('x', function (d) { return groupsTitleX[d]; })
+    //   .attr('y', 40)
+    //   .attr('text-anchor', 'middle')
+    //   .text(function (d) { return d; });
   }
 
   /*
@@ -301,7 +303,7 @@ function bubbleChart() {
     
     d3.select(this).attr('stroke', 'black');
     // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
-    var content = React.createElement("div", {className: "name"}, d.name.toUpperCase() + " " + " " + d.group.toUpperCase() + ":  $"+ d.value + ".00");
+    var content = React.createElement("div", {className: "name", id: "bubbletool"}, d.name.toUpperCase() + " " + " " + d.group.toUpperCase() + ":  $"+ d.value + ".00");
     
     ReactDOM.render(content, document.getElementById('bub1'))
     
@@ -313,9 +315,14 @@ function bubbleChart() {
    * Hides tooltip
    */
   function hideDetail(d) {
-    // reset outline
+
     d3.select(this)
       .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+    
+    console.log(this)
+    console.log(tooltip)
+
+    ReactDOM.unmountComponentAtNode(document.getElementById('bub1'))
 
     tooltip.hideTooltip();
   }

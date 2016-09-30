@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles.css';
+import Loader from 'react-loader';
+
 var Typeahead = require('react-typeahead').Typeahead;
 
 var SearchBar = React.createClass({
@@ -33,7 +35,7 @@ var SearchBar = React.createClass({
 
 	render () {
 		return (
-			<div className='SearchContent'>
+			<div className='SearchContent'>  
 				<Typeahead className={'SearchBarContainer'}
 			    options={this.state.chartData}
 			    maxVisible={3}

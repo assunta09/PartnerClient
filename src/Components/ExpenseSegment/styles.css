@@ -9,7 +9,7 @@
 }
 
 .EDescription {
-	font-size: 1.2em;
+	font-size: 1.5em;
 }
 
 .DescriptionTitle {
@@ -134,6 +134,7 @@
 	padding-left: 30px;
 	width: 100%;
 	display: inline-block;
+	font-size: 1.2em;
 }
 .Salarydiv {
 	display: inline-block;

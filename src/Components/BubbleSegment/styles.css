@@ -29,12 +29,16 @@
 
 #theBubbles {
   width: 90%;
-  background-color: white;
+  background-color: #F9F9F9;
 }
 
 .BubbleTopContainer {
-  padding-top: 3%;
+  padding-top: 6.5%;
   text-align: center;
+}
+
+.BubbleTopContainer text {
+  font-size: 1.8em;
 }
 
 .BubbleGraphContainer {
@@ -48,7 +52,7 @@
 .BubbleButtons {
   position: absolute;
   width: 70%;
-  transform: translate(20%, 500px);
+  transform: translate(20%, 430px);
 }
 
 .BubbleDescTitle {
@@ -135,13 +139,18 @@
 
 
 .name {
-  font-size: 30px;
+  font-size: 25px;
+  color: #5B5B5B;
 }
 
 #bub1 {
+ position: absolute;
  padding-top: 10px;
  padding-bottom: 10px;
  font-size: 1.7em; 
+ width: 100vw;
+ transform: translateX(-60px);
+ color: #5B5B5B;
 }
 
 
@@ -167,3 +176,39 @@ text-shadow: #474747 3px 5px 2px;
 border: black;
 }
 */
+
+.RevAndExpBubSeg {
+  position: absolute;
+  width: 70vw;
+  transform: translate(22%, 140px);
+}
+
+.RevenueBubbleSeg {
+  width: 30px;
+  height: 15px;
+  background-color: #FFCFA1;
+  float: right;
+}
+
+.ExpenseBubbleSeg {
+  width: 30px;
+  height: 15px;
+  background-color: #5E5FFF;
+  float: left;
+}
+
+.RevenueBubbleSeg h2 {
+  transform: translateX(-22px);
+}
+
+.ExpenseBubbleSeg h2 {
+  transform: translateX(-22px);
+}
+
+.RevenueBubbleSeg h3 {
+  transform: translateX(-26px);
+}
+
+.ExpenseBubbleSeg h3 {
+  transform: translateX(-26px);
+}
