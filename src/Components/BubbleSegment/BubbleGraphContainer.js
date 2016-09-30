@@ -496,8 +496,8 @@ var GraphContainer = React.createClass({
             </div>
         </div>
         <div className='BubbleButtons'>
-          <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
-          <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
+          <button id="all" className="button active" onClick={this.otherClick} >Cumulative</button>
+          <button id="group" className="button" onClick={this.handleClick} >Separate</button>
         </div>
       </div>
     );
