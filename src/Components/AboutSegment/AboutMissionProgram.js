@@ -41,8 +41,6 @@ var AboutMissionProgram = React.createClass({
 		this.setState({
 			components:cardComponents
 		})
-		// var slider = document.getElementById('slider')
-		// slider.forceUpdate()
 	},
 
 	changeHandler: function(e) {
@@ -50,11 +48,11 @@ var AboutMissionProgram = React.createClass({
 	},
 
 	createCards: function(allC) {
-		
+		var i = -1;
 		var allCards = allC.map(function(card) {
 			if (card.description.type === 'mission') {
 				return (
-	        <div>
+	        <div data-index={`i`} className="slick-slide slick-active" tabindex={`i`}>
 	        	<div className="AboutCard">
 	        		<h1>Mission</h1>
 	        		<div>
@@ -65,7 +63,7 @@ var AboutMissionProgram = React.createClass({
 				)
 			} else {
 				return (
-	        <div>
+	        <div data-index={`i`} className="slick-slide" tabindex={`i`}>
 	        	<div className="AboutCard">
 	        		<h1>Program Service Accomplishments</h1>
 	        		<div>
@@ -86,6 +84,7 @@ var AboutMissionProgram = React.createClass({
 	        </div>
 				)
 			}
+			i++
 		})
 
 		return allCards
@@ -118,6 +117,7 @@ var AboutMissionProgram = React.createClass({
             { this.state.components[3]? <div>{this.state.components[3]}</div> : null }
           </div>
 	  		</Slider>
+	  		{console.log(this.state.components)}
       </div>
     );
   }
