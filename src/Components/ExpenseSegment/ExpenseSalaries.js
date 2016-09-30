@@ -13,12 +13,21 @@ var ExpenseSalaries = React.createClass ({
     	console.log(topSal)
     if (topSal.length > 0) {
     	allTop = topSal.map(function(pep) {
-    		return (<tr><td><i className="material-icons group">person</i><td className='EmployeeName'>{pep.name}</td><td className='SalaryTD'>{pep.salary}</td><td className='SalaryPos'>{pep.title}</td></td></tr>)
+    		return (
+          <div className="SalariesContainer">
+            <i className="material-icons group">person</i>
+            <div className='EmployeeName'>{pep.name}</div>
+            <div className='Salarydiv'>{pep.salary}</div>
+          </div>
+          )
     	});
     } else {
     	allTop = [(
-    		<tr><td><i className="material-icons group">person</i><td className='EmployeeName'>This section was not filled out</td></td></tr>
-    	)]
+          <div className="SalariesContainer">
+            <i className="material-icons group">person</i>
+            <div className='EmployeeName'>This section was not filled out</div>
+          </div>
+      )]
     }
     this.setState({
     	data: allTop
@@ -28,16 +37,11 @@ var ExpenseSalaries = React.createClass ({
 	render () {
 		return (
 			<div className="Description">
-				<table className='SalaryTable'>
-          <tbody>
-          	{console.log(this.state.data)}
-   					{
-   						this.state.data.map(function(pep) {
-   							return pep
-   						})
-   					}
-          </tbody>
-        </table>
+				{
+					this.state.data.map(function(pep) {
+						return pep
+					})
+				}
 			</div>
 		);
 	}
