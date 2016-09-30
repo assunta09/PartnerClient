@@ -206,9 +206,9 @@ border: black;
 }
 
 .RevenueBubbleSeg h3 {
-  transform: translateX(-26px);
+  transform: translateX(-20px);
 }
 
 .ExpenseBubbleSeg h3 {
-  transform: translateX(-26px);
+  transform: translateX(-20px);
 }
