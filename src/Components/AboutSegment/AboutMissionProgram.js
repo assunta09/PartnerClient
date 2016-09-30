@@ -24,6 +24,7 @@ var AboutMissionProgram = React.createClass({
 		}
  		if (program) {
 			program.forEach(function (card) {
+				console.log(card)
 				var programCard = {description: 
 									{
 										text: card.description, 
@@ -70,10 +71,10 @@ var AboutMissionProgram = React.createClass({
 	        		</div>
 	        		<div>
 	        			<div>
-	        				Expense Amount: {card.description.expense_amount}
+	        				Expense Amount: {card.description.expense}
 	        			</div>
 	        			<div>
-	        				Grant Amount: {card.description.grant_amount}
+	        				Grant Amount: {card.description.grant}
 	        			</div>
 	        			<div>
 	        				Revenue: {card.description.revenues} 

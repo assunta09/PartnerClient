@@ -9,12 +9,16 @@ var ExpenseSalaries = React.createClass ({
 	componentWillReceiveProps: function(nextProps) {
     var report = nextProps.reports
     var topSal = report.reports.topSalaries
-    console.log(topSal)
     var allTop
-    if (topSal) {
+    	console.log(topSal)
+    if (topSal.length > 0) {
     	allTop = topSal.map(function(pep) {
     		return (<tr><td><i className="material-icons group">person</i><td className='EmployeeName'>{pep.name}</td><td className='SalaryTD'>{pep.salary}</td><td className='SalaryPos'>{pep.title}</td></td></tr>)
     	});
+    } else {
+    	allTop = [(
+    		<tr><td><i className="material-icons group">person</i><td className='EmployeeName'>This section was not filled out</td></td></tr>
+    	)]
     }
     this.setState({
     	data: allTop
