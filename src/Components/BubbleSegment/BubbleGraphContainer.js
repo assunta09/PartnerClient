@@ -1,5 +1,5 @@
 import React from 'react';
-// import d3 from 'd3';
+import DescTitle from './DescTitle.js'
 import d3 from '../../../public/js/d3-min.js';
 import ReactDOM from 'react-dom';
 // var data = require('./gates_money.csv');
@@ -11,8 +11,6 @@ function floatingTooltip(tooltipId, width) {
   // var div = d3.select("body").append("div") 
   //   .attr("class", "tooltip")       
   //   .style("opacity", 0);
-
-
   var tt = d3.select('svg')
     .append('div')
     .attr('class', 'tooltip')
@@ -51,7 +49,7 @@ function floatingTooltip(tooltipId, width) {
   function updatePosition(event) {
     // console.log("update")
     var xOffset = 20;
-    var yOffset = 10;
+    var yOffset = 0;
 
     var ttw = tt.style('width');
     var tth = tt.style('height');
@@ -89,7 +87,7 @@ function floatingTooltip(tooltipId, width) {
 
 function bubbleChart() {
   // Constants for sizing
-  var width = 940;
+  var width = 1337;
   var height = 600;
 
   // tooltip for mouseover functionality
@@ -97,7 +95,7 @@ function bubbleChart() {
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: width / 2, y: height / 3 };
+  var center = { x: width / 2, y: height / 2 };
 
   var groupCenters = {
     2: { x: width / 3, y: height / 3 },
@@ -187,7 +185,8 @@ function bubbleChart() {
     svg = d3.select(selector)
       .append('svg')
       .attr('width', width)
-      .attr('height', height);
+      .attr('height', height)
+      .attr('id', 'theBubbles')
 
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
@@ -489,13 +488,17 @@ var GraphContainer = React.createClass({
 
   render () {
     return (
+      <div className="BubbleTopContainer">
+        <DescTitle reports={this.props.reports}/>
         <div className='BubbleGraphContainer' >
            <div id="toolbar">
               <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
               <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
-              <div id="bub1"></div>
-          </div>
+              <div id="bub1">
+              </div>
+            </div>
         </div>
+      </div>
     );
   }
 });

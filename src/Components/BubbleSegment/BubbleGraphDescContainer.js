@@ -9,7 +9,6 @@ var BubbleGraphDescContainer = React.createClass({
 
     return (
       <div className='GraphDescContainer'>
-        <DescTitle reports={this.props.reports}/>
         <GraphContainer reports={this.props.reports}/>
       </div>
     );
