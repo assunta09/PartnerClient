@@ -83,12 +83,16 @@ function floatingTooltip(tooltipId, width) {
   };
 }
 
-// Bubblechart
+var w = window.innerWidth;
+var h = window.innerHeight / 1.2;
 
+console.log(w)
+console.log(h)
+// Bubblechart
 function bubbleChart() {
   // Constants for sizing
-  var width = 1337;
-  var height = 600;
+  var width = w;
+  var height = h;
 
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('tooltip', 240);
