@@ -31,6 +31,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: #5E5FFF;
+  background: #5B5B5B;
   z-index: 9999;
+  background-image: url('../../../public/spinner.jpg');
+  background-size: cover;
+  background-size: cover;
+	background-repeat: no-repeat;
 }

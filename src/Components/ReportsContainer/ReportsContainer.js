@@ -40,7 +40,7 @@ const options = {
     zIndex: 2e9,
     top: '50%',
     left: '50%',
-    scale: 1.00
+    scale: 0.7
 };
 
 const ReportsContainer = React.createClass({
