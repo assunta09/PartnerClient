@@ -36,8 +36,9 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path='/' component={App}/>
-			<Route path='/organisations/:orgID' component={ReportsContainer}/>
-			<Route path='/test' component={ReportsContainer}/>
+			<Route path='/organisations' component={App}>
+				<Route path='/organisations/:orgID' component={ReportsContainer}/>
+			</Route>
 		</Router>
 	</Provider>,
 	document.getElementById('root')

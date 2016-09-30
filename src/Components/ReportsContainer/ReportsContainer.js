@@ -11,7 +11,6 @@ import BubbleSegment    from '../BubbleSegment/BubbleSegment.js';
 import Footer    from '../Footer/FooterSegment.js';
 // import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
 import AboutContainer  from '../AboutSegment/AboutContainer.js';
-import HeroSegment from '../HeroSegment/HeroSegment.js';
 import ScrollReveal from 'scrollreveal';
 
 
@@ -55,9 +54,6 @@ handleTap: function(event) {
 render() {
     return (
       <div>
-        <div className="App">
-         <HeroSegment />
-        </div>
       	<StickyContainer>
       	  <Sticky>
       	  	<NavBar sr={this.state.sr}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router'
+import { browserHistory, Router } from 'react-router'
 import './styles.css';
 var Typeahead = require('react-typeahead').Typeahead;
 
@@ -8,21 +8,22 @@ var SearchBar = React.createClass({
 		return {
 			value: '',
 			chartData: [1],
-			data: {}
+			data: {},
+			routeID: ''
 		};
 	},
 
 	handleSelection: function(event) {
-		this.setState({value: event})
+		this.setState({routeID: this.state.data[event]})
 	},
 
 	handleClick: function(event) {
 		var org = this.state.value
 		var data = this.state.data
 		var routeID = data[org]
-
 		if (routeID) {
-			browserHistory.push(`/organisations/${routeID}`);
+			// browserHistory.replace(`/organisations/${routeID}`);
+			// browserHistory.push(`/organisations/${routeID}`);
 		}
 	},
 
@@ -50,7 +51,7 @@ var SearchBar = React.createClass({
 			    onOptionSelected={this.handleSelection}
 			  />
 				<div className="SearchBtnContainer">
-					<button className="btn" onClick={this.handleClick}>Search</button>
+					<a href={`/organisations/${this.state.routeID}`}><button className="btn">Search</button></a>
 				</div>
 			</div>
 		);
