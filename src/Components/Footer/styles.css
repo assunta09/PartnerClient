@@ -1,0 +1,40 @@
+.FooterContainer {
+  width: 100%;
+  height: 80px;
+  background: #424242;
+}
+
+.License {
+  color: #c8c8c8;
+  position: absolute;
+  right: 40px;
+  margin-top: 30px;
+  letter-spacing: 2px;
+  font-size: 1.1em;
+}
+
+.Privacy {
+  color: #c8c8c8;
+  position: absolute;
+  left: 40px;
+  margin-top: 30px;
+  letter-spacing: 2px;
+  font-size: 1em;
+}
+
+.ContactBox {
+  width: 100%;
+  height: 200px;
+  background: #5B5B5B;
+}
+
+.FooterLogo {
+  height: 50px;
+  width: 140px;
+  margin-top: 15px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 46%;
+  background-size: contain;
+  background-image: url('../../../public/icon.png');
+}
