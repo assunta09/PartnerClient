@@ -184,23 +184,31 @@ border: black;
 }
 
 .RevenueBubbleSeg {
-  width: 20px;
-  height: 10px;
+  width: 30px;
+  height: 15px;
   background-color: #FFCFA1;
   float: right;
 }
 
 .ExpenseBubbleSeg {
-  width: 20px;
-  height: 10px;
+  width: 30px;
+  height: 15px;
   background-color: #5E5FFF;
   float: left;
 }
 
 .RevenueBubbleSeg h2 {
-  transform: translateX(-24px);
+  transform: translateX(-22px);
 }
 
 .ExpenseBubbleSeg h2 {
-  transform: translateX(-24px);
+  transform: translateX(-22px);
+}
+
+.RevenueBubbleSeg h3 {
+  transform: translateX(-26px);
+}
+
+.ExpenseBubbleSeg h3 {
+  transform: translateX(-26px);
 }
