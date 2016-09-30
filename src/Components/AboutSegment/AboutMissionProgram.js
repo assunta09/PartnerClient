@@ -11,7 +11,6 @@ var AboutMissionProgram = React.createClass({
 	},
 
 	componentWillReceiveProps: function(nextProps) {
-		// console.log(nextProps)
 		var report = nextProps.reports
 		var program = report.reports.programServiceAccomplishments
 		var mission
@@ -24,7 +23,6 @@ var AboutMissionProgram = React.createClass({
 		}
  		if (program) {
 			program.forEach(function (card) {
-				console.log(card)
 				var programCard = {description: 
 									{
 										text: card.description, 

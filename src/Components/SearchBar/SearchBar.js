@@ -1,5 +1,4 @@
 import React from 'react';
-import { browserHistory, Router } from 'react-router'
 import './styles.css';
 var Typeahead = require('react-typeahead').Typeahead;
 
@@ -15,16 +14,6 @@ var SearchBar = React.createClass({
 
 	handleSelection: function(event) {
 		this.setState({routeID: this.state.data[event]})
-	},
-
-	handleClick: function(event) {
-		var org = this.state.value
-		var data = this.state.data
-		var routeID = data[org]
-		if (routeID) {
-			// browserHistory.replace(`/organisations/${routeID}`);
-			// browserHistory.push(`/organisations/${routeID}`);
-		}
 	},
 
 	componentWillMount: function() {

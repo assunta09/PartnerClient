@@ -3,15 +3,9 @@ import './styles.css';
 import Scroll from 'react-scroll';
 
 var Link       = Scroll.Link;
-var DirectLink = Scroll.DirectLink;
-var Element    = Scroll.Element;
 var Events     = Scroll.Events;
 var scroll     = Scroll.animateScroll;
 var scrollSpy  = Scroll.scrollSpy;
-
-var durationFn = function(deltaTop) {
-    return deltaTop;
-};
 
 var NavTabBar = React.createClass({
 
@@ -43,7 +37,7 @@ var NavTabBar = React.createClass({
           <li><Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500}>About</Link></li>
           <li><Link activeClass="active" className="test2" to="test2" spy={true} smooth={true} duration={500}>Revenue</Link></li>
           <li><Link activeClass="active" className="test3" to="test3" spy={true} smooth={true} duration={500}>Expense</Link></li>
-          <li><Link activeClass="active" className="test4" to="test4" spy={true} smooth={true} duration={500}>Net</Link></li>
+          <li><Link activeClass="active" className="test4" to="test4" spy={true} smooth={true} duration={500}>Summary</Link></li>
         </ul>
       </div>
     );

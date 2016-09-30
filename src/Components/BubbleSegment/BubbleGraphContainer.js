@@ -85,8 +85,6 @@ function floatingTooltip(tooltipId, width) {
 var w = window.innerWidth / 1.1;
 var h = window.innerHeight / 1.25;
 
-console.log(w)
-console.log(h)
 // Bubblechart
 function bubbleChart() {
   // Constants for sizing

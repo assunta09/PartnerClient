@@ -10,7 +10,7 @@ var ExpenseSalaries = React.createClass ({
     var report = nextProps.reports
     var topSal = report.reports.topSalaries
     var allTop
-    	console.log(topSal)
+    	
     if (topSal.length > 0) {
     	allTop = topSal.map(function(pep) {
     		return (

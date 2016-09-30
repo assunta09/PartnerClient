@@ -12,7 +12,7 @@ import Footer    from '../Footer/FooterSegment.js';
 // import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
 import AboutContainer  from '../AboutSegment/AboutContainer.js';
 import ScrollReveal from 'scrollreveal';
-
+import Loader from 'react-loaders';
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -59,6 +59,7 @@ render() {
       	  	<NavBar sr={this.state.sr}/>
         	</Sticky>
           <Element name="test1" className="element">
+            <Loader type="ball-pulse" active="true" />
 	      		<AboutContainer reports={this.state.reports} sr={this.state.sr}/>
 	      	</Element>
         	<Element name="test2" className="element">

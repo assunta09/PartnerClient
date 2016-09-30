@@ -1,5 +1,4 @@
 import React from 'react';
-import DescTitle from './DescTitle.js';
 import GraphContainer from './BubbleGraphContainer.js';
 // var GraphContainer = require('./BubbleGraphContainer.js');
 
