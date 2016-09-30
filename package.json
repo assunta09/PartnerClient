@@ -13,6 +13,7 @@
     "grunt": "^1.0.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
+    "jest-cli": "^15.1.1",
     "react": "^15.3.2",
     "react-chartjs": "^0.8.0",
     "react-dom": "^15.3.2",
