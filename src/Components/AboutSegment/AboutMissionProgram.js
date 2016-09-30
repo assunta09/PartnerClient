@@ -85,7 +85,7 @@ var AboutMissionProgram = React.createClass({
 			}
 		})
 
-		for (var i = allCards.length; i < 3; i++) {
+		for (var i = allCards.length; i < 4; i++) {
 			var emptyCard = (
 	        <div>
 	        	<div className="AboutCard">
