@@ -492,11 +492,12 @@ var GraphContainer = React.createClass({
         <DescTitle reports={this.props.reports}/>
         <div className='BubbleGraphContainer' >
            <div id="toolbar">
-              <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
-              <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
-              <div id="bub1">
-              </div>
+              <div id="bub1"></div>
             </div>
+        </div>
+        <div className='BubbleButtons'>
+          <button id="all" className="button active" onClick={this.otherClick} >Cumulative View</button>
+          <button id="group" className="button" onClick={this.handleClick} >Separate View</button>
         </div>
       </div>
     );

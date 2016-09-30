@@ -44,6 +44,12 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.12);
 }
 
+.BubbleButtons {
+  position: absolute;
+  width: 70%;
+  transform: translate(20%, 500px);
+}
+
 .BubbleDescTitle {
   width: 90%;
   margin: 0 auto;
@@ -60,6 +66,14 @@
 
 .Description {
   letter-spacing: 3px;
+}
+
+#all{
+  float: left;
+}
+
+#group{
+  float: right;
 }
 
 /*.button.active {
