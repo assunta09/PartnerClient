@@ -48,26 +48,25 @@ var AboutMissionProgram = React.createClass({
 	},
 
 	createCards: function(allC) {
-		var i = -1;
 		var allCards = allC.map(function(card) {
 			if (card.description.type === 'mission') {
 				return (
-	        <div data-index={`i`} className="slick-slide slick-active" tabindex={`i`}>
+	        <div>
 	        	<div className="AboutCard">
 	        		<h1>Mission</h1>
 	        		<div>
-	        			<h3>{card.description.text}</h3>
+	        			<p>{card.description.text}</p>
 	        		</div>
 	        	</div>
 	        </div>
 				)
 			} else {
 				return (
-	        <div data-index={`i`} className="slick-slide" tabindex={`i`}>
+	        <div>
 	        	<div className="AboutCard">
 	        		<h1>Program Service Accomplishments</h1>
 	        		<div>
-	        			<h3>{card.description.text}</h3>
+	        			<p>{card.description.text}</p>
 	        		</div>
 	        		<div>
 	        			<div>
@@ -84,7 +83,6 @@ var AboutMissionProgram = React.createClass({
 	        </div>
 				)
 			}
-			i++
 		})
 
 		return allCards
@@ -104,7 +102,7 @@ var AboutMissionProgram = React.createClass({
     return (
     	<div className="AboutSliderContainer">
 	      <Slider {...settings} id="slider">
-	      	<div show={this.state.components[0]}>             
+	      	<div>             
             { this.state.components[0]? <div>{this.state.components[0]}</div> : null }
           </div>
           <div>             
