@@ -33,7 +33,7 @@
 
 .HeroContainer {
 	width: 45%;
-	min-width: 550px;
+	min-width: 600px;
 	color: #5B5B5B;
 	position: absolute;
 	top: 260px;
@@ -48,7 +48,7 @@
 
 .TitleContainer {
 	width: 45%;
-	min-width: 550px;
+	min-width: 600px;
 	min-height: 260px;
 	position: absolute;
 	top: 0;
