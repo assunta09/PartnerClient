@@ -20,20 +20,18 @@ Currently, Partner allows a user to search for organizations that fall under the
 
 ## About Partner
 
-Partner was built with a decoupled architecture, using the Ruby on Rails framework as a RESTful API for consumption by our frontend framework built with the React framework, which can be found at [Partner Client Repository](https://github.com/assunta09/PartnerClient).
-
-Form 990 was delivered in XML format. Data points were parsed by targeting tags common to each form.
-```
-officers_and_key_employee_salary_total = doc.search('ReturnData/IRS990/CompCurrentOfcrDirectorsGrp/TotalAmt').text
-```
+Partner has a decoupled architecture with a frontend built with React-Redux and a RESTful API built with Rails. Additional technologies included in the project were D3.js, Chart.js, and the MapBox API. The full list of libraries for the project can be found in the package.json file. If you would like to learn more about Partner's API, the repository can be found at [Partner API Repository](https://github.com/assunta09/partnerAPI). 
 
 
 ## Running the tests
 
-To run the tests, run
+[Jest](https://facebook.github.io/jest/) was used for testing Partner's client side, which mainly used the shallow rendering approach for each component. Additional testing tools include Partner's production team plans to write additional tests as the project is scaled. To run the tests, follow the node package manual instructions on the Jest website, configure the test script, and run:
 ```
-bundle exec rspec spec
+npm install 
+npm test
 ```
+Partner's team encourages feedback regarding test construction. 
+
 ## Contributors
 
 * Tedmund Chua <https://github.com/tchua93>
