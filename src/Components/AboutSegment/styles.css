@@ -13,7 +13,7 @@
 }
 
 .AboutDescriptionContainer {
-	background-color: #ffe2c6;
+	background-color: #FFCFA1;
 	width: 70%;
 	height: 100%;
 	float:right;
@@ -27,7 +27,12 @@
 	text-align: center;
 }
 
+.AboutInfoContainer h1 {
+	margin-top: 2%;
+}
+
 .YearAndWebsiteContainer {
+	margin-top: 5%;
 	width: 70%;
 	display: inline-block;
 }
