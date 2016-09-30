@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature, Popup, ZoomControl } from "react-mapbox-gl";
 
-import { parseString } from "xml2js";
 import { Map } from "immutable";
 import config from "./config.json";
 
@@ -53,15 +52,15 @@ export default class AboutMeMaps extends Component {
   };
 
 componentWillReceiveProps(nextProps) {
-    console.log(nextProps.reports.reports.organisation)
+    // console.log(nextProps.reports.reports.organisation)
     var data = nextProps.reports.reports.organisation
     var name = data.address
     var geo = data.geocoding
-    console.log(geo)
+    // console.log(geo)
     var lat = (geo[0].latitude)
     var lon = (geo[0].longitude)
-    console.log(lat)
-    console.log(lon)
+    // console.log(lat)
+    // console.log(lon)
     // var reports = data.reports
     const obj = [{
       id: ["1"],
