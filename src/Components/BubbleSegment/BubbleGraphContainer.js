@@ -10,11 +10,13 @@ function floatingTooltip(tooltipId, width) {
   // var div = d3.select("body").append("div") 
   //   .attr("class", "tooltip")       
   //   .style("opacity", 0);
-  var tt = d3.select('svg')
+  var tt = d3.select('body')
     .append('div')
     .attr('class', 'tooltip')
-    .attr('id', tooltipId)
+    .attr('id', 'tooltipId')
     .style('pointer-events', 'none');
+
+  console.log(tt)  
   // Set a width if it is provided.
   if (width) {
     tt.style('width', width);
@@ -38,6 +40,7 @@ function floatingTooltip(tooltipId, width) {
    * Hide the tooltip div.
    */
   function hideTooltip() {
+    console.log(tt)
     tt.style('opacity', 0.0);
   }
 
@@ -301,7 +304,7 @@ function bubbleChart() {
     
     d3.select(this).attr('stroke', 'black');
     // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
-    var content = React.createElement("div", {className: "name"}, d.name.toUpperCase() + " " + " " + d.group.toUpperCase() + ":  $"+ d.value + ".00");
+    var content = React.createElement("div", {className: "name", id: "bubbletool"}, d.name.toUpperCase() + " " + " " + d.group.toUpperCase() + ":  $"+ d.value + ".00");
     
     ReactDOM.render(content, document.getElementById('bub1'))
     
@@ -313,9 +316,14 @@ function bubbleChart() {
    * Hides tooltip
    */
   function hideDetail(d) {
-    // reset outline
+
     d3.select(this)
       .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+    
+    console.log(this)
+    console.log(tooltip)
+
+    ReactDOM.unmountComponentAtNode(document.getElementById('bub1'))
 
     tooltip.hideTooltip();
   }
