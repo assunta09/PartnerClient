@@ -25,16 +25,52 @@
 }
 
 .GraphContainer2 {
-	height: 85%;
-	width: 65%;
+	height: 65%;
+	width: 45%;
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 80px;
+	position: relative;
 }
 
-.CanvasContainer {
+.LabelContainer {
+	padding-top: 20px;
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+.LabelContainer p {
+	display: inline;
+	padding: 10px;
+	width: 25%;
+	margin: 0;
+}
+
+.LabelItem {
+	width: 40px;
+}
+
+.GraphTitle {
+	float: right;
+	margin-right: -30px;
+	margin-bottom: 0;
+	width: 28%;
+	background: #5B5B5B;
+	position: relative;
+	display: block;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.8em;
+	color: white;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+}
+
+.ECanvasContainer {
 	height: 68vh;
 	padding: 0;
-	background: #F9F9F9;
+	background: #FFCFA1;
 	float: right;
 	margin-top: 8.5em;
 	margin-right: 5%;
@@ -45,12 +81,39 @@
 .GraphDescContainer {
 	width: 100%;
 }
+@media (max-width: 1220px) {
+	.SalariesDescContainer {
+		display: none;
+	}
+	.DescTitleContainer {
+		height: 68vh;
+	}
+	.ExpenseTable td {
+		padding-left: 2px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 1.3em;
+	}
+}
+
+@media (min-width: 1220px) {
+	.DescTitleContainer {
+		height: 37vh;
+	}
+}
+
+@media (max-width: 1020px) {
+	.eAmount {
+		background: blue;
+		display: none;
+	}
+}
 
 .DescTitleContainer {
 	color: #5B5B5B;
 	float: left;
 	width: 30%;
-	height: 35vh;
+	min-height: 37vh;
 	margin-left: 7%;
 	margin-top: 8.5em;
   background: #FFCFA1;
@@ -99,20 +162,34 @@
 }
 
 .li1 {
-	color: #ACDFD2;
+	color: #9E9FFF;
 }
 .li2 {
-	color: #DCDA98;
+	color: #9B9B9B;
 }
 .li3 {
-	color: #F29885;
+	color: #5E5FFF;
 }
 .li4 {
-	color: #aba0ca;
+	color: #5B5B5B;
 }
 .li5 {
-	color: #A4A8A4;
+	color: #3C3CA3;
 }
+.li6 {
+	color: #FFCFA1;
+}
+
+.ExpTotal {
+	font-weight: 900;
+	border-top: 1px solid #5B5B5B;
+
+}
+
+.group {
+	color: #5E5FFF;
+}
+
 
 .Description {
 	letter-spacing: 3px;

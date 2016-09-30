@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles.css';
-var PolarAreaChart = require("react-chartjs").PolarArea;
+var PolarAreaChart = require("react-chartjs").Doughnut;
 
-var PolarAreaChartExpense = React.createClass({
+var PolarArea = React.createClass({
   getInitialState () {
     return {
       chartData: []
@@ -10,58 +10,55 @@ var PolarAreaChartExpense = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    console.log("yo")
     var data = nextProps.reports
     var reports = data.reports
-    var expense = reports.generalExpensesAbsolutes
-    var grants = expense.grants
-    var member = expense.member_benefits
-    var salaries = expense.salaries
-    var fundraising = expense.fundraising_fees
-    var other = expense.other_expenses
+    var exp = reports.generalExpensesAbsolutes
+    var grant = exp.grant
+    var member_benefits = exp.member_benefits
+    var salaries = exp.salaries
+    var fundraising = exp.fundraising_fees
+    var other = exp.other_expenses
     this.setState({
-      chartData: [
+      chartData: {
+        data: [
         {
-          color: "#ACDFD2",
-          highlight: "#ACDFD2",
+          color: "#9E9FFF",
+          highlight: "#9E9FFF",
           label: "Grants",
-          value: grants,
+          value: grant,
         },
         {
-          color: "#DCDA98",
-          highlight: "#DCDA98",
-          label: "Member Fees",
-          value: member,
+          color: "#9B9B9B",
+          highlight: "#9B9B9B",
+          label: "Member Benefits",
+          value: member_benefits,
         },
         {
-          color: "#F29885",
-          highlight: "#F29885",
+          color: "#5E5FFF",
+          highlight: "#5E5FFF",
           label: "Salaries",
           value: salaries,
         },
         {
-          color: "#F27A63",
-          highlight: "#F27A63",
+          color: "#5B5B5B",
+          highlight: "#5B5B5B",
           label: "Fundrasing",
           value: fundraising,
         },
         {
-          color: "#A4A8A4",
-          highlight: "#A4A8A4",
+          color: "#3C3CA3",
+          highlight: "#3C3CA3",
           label: "Other",
           value: other,
-        },
+        }
       ],
+        label: 'Expense Breakdown'
+      },
     });
   },
-
   render () {
-    return (
-      <div>
-        <PolarAreaChart className="PolarChart" width="600" height="450" data={this.state.chartData} />
-      </div>
-    )
+    return <PolarAreaChart className="PolarChart" width="200" height="200" data={this.state.chartData.data} options={{responsive: true}}/>
   }
 });
 
-export default PolarAreaChartExpense
+export default PolarArea

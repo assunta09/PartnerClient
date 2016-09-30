@@ -10,10 +10,7 @@ var DescTitle = React.createClass({
 		return (
 			<div className='DescTitleContainer1'>
         <Title />
-        <DescriptionContainer width={'100%'} content={
-          `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys
-           standard dummy text ever since the`
-        }/>
+        <DescriptionContainer reports={this.props.reports}/>
 			</div>
 		);
 	}

@@ -19,9 +19,11 @@
   font-size: 1.2em;
 }
 
-.DescriptionTitle {
+#BubbleDesc {
   width: 100%;
+  color: #5B5B5B;
   background-color: #FFCFA1;
+  margin-top: 0;
 }
 
 .BubbleGraphContainer {
@@ -76,7 +78,7 @@
 }
 
 
-button {
+/*button {
   display: inline-block;
   padding: 5px 10px 5px;
   margin: 2px;
@@ -88,13 +90,13 @@ button {
   color: black;
   background-color: #e2e2e2;
   border: none;
-  /*border-radius: 10px;*/
   box-shadow: 0 2px #999;
-}
+}*/
 
-.group { 
+/*.group { 
 color: green;
 background-color: red;
 text-shadow: #474747 3px 5px 2px;
 border: black;
 }
+*/

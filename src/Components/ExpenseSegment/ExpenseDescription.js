@@ -17,11 +17,12 @@ var Description = React.createClass ({
 		return (
 			<div className="Description">
 				<table className='ExpenseTable'>
-          <tr><i className="material-icons li1">network_cell</i><td>{`Grants`}</td><td>{`$${this.state.data.grants}`}</td></tr>
-          <tr><i className="material-icons li2">network_cell</i><td>{`Member Benefits`}</td><td>{`$${this.state.data.member_benefits}`}</td></tr>
-          <tr><i className="material-icons li3">network_cell</i><td>{`Salaries`}</td><td>{`$${this.state.data.salaries}`}</td></tr>
-          <tr><i className="material-icons li4">network_cell</i><td>{`Fundraising`}</td><td>{`$${this.state.data.fundraising_fees}`}</td></tr>
-          <tr><i className="material-icons li5">network_cell</i><td>{`Other`}</td><td>{`$${this.state.data.other}`}</td></tr>
+					<tr><i className="material-icons li2">label</i><td>{`Member Benefits`}</td><td className='eAmount'>{`$${this.state.data.member_benefits}`}</td></tr>
+					<tr><i className="material-icons li4">label</i><td>{`Fundraising`}</td><td className='eAmount'>{`$${this.state.data.fundraising_fees}`}</td></tr>
+				  <tr><i className="material-icons li1">label</i><td>{`Grants`}</td><td className='eAmount'>{`$${this.state.data.grant}`}</td></tr>
+          <tr><i className="material-icons li3">label</i><td>{`Salaries`}</td><td className='eAmount'>{`$${this.state.data.salaries}`}</td></tr>
+          <tr><i className="material-icons li5">label</i><td>{`Other`}</td><td className='eAmount'>{`$${this.state.data.other_expenses}`}</td></tr>
+          <tr><i className="material-icons li6">label</i><td className='ExpTotal'>{`Total`}</td><td className='ExpTotal eAmount'>{`$${this.state.data.total}`}</td></tr>
         </table>
 			</div>
 		);

@@ -17,9 +17,9 @@ var ExpenseSalaries = React.createClass ({
 		return (
 			<div className="Description">
 				<table className='SalaryTable'>
-          <tr><i className="material-icons ">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.grants}`}</td></tr>
-          <tr><i className="material-icons ">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.member_benefits}`}</td></tr>
-          <tr><i className="material-icons ">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.salaries}`}</td></tr>
+          <tr><i className="material-icons group">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.grants}`}</td></tr>
+          <tr><i className="material-icons group">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.member_benefits}`}</td></tr>
+          <tr><i className="material-icons group">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.salaries}`}</td></tr>
         </table>
 			</div>
 		);

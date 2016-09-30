@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-var PolarAreaChart = require("react-chartjs").PolarArea;
+var PolarAreaChart = require("react-chartjs").Doughnut;
 
 var PolarArea = React.createClass({
   getInitialState () {

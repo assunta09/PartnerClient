@@ -6,7 +6,7 @@ var DescTitle = React.createClass({
 
     return (
       <div className='BubbleDescTitle'>
-        <h2 className='DescriptionTitle'>Combined Revenue and Expenses Breakdown</h2>
+        <h2 className='DescriptionTitle' id="BubbleDesc">Combined Revenue and Expenses Breakdown</h2>
       </div>
     );
   }

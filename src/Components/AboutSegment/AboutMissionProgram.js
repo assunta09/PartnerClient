@@ -11,6 +11,7 @@ var AboutMissionProgram = React.createClass({
 	},
 
 	componentWillReceiveProps: function(nextProps) {
+		console.log(nextProps)
 		var report = nextProps.reports
 		var program = report.reports.programServiceAccomplishments
 		var mission
@@ -40,6 +41,8 @@ var AboutMissionProgram = React.createClass({
 		this.setState({
 			components:cardComponents
 		})
+		var slider = document.getElementById('slider')
+		slider.forceUpdate()
 	},
 
 	changeHandler: function(e) {
@@ -88,6 +91,7 @@ var AboutMissionProgram = React.createClass({
 		return allCards
 	},
 
+
 	render: function () {
 		var settings = {
       dots: true,
@@ -95,23 +99,24 @@ var AboutMissionProgram = React.createClass({
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      lazyLoad: true
     };
 
     return (
     	<div className="AboutSliderContainer">
-	      <Slider {...settings}>
-		     	<div>
-		     		{this.state.components[0]}
-		     	</div>
-		     	<div>
-		     		{this.state.components[1]}
-		     	</div>
-		     	<div>
-		     		{this.state.components[2]}
-		     	</div>
-		     	<div>
-		     		{this.state.components[3]}
-		     	</div>
+	      <Slider {...settings} id="slider">
+	      	<div show={this.state.components[0]}>             
+            { this.state.components[0]? <div>{this.state.components[0]}</div> : null }
+          </div>
+          <div>             
+            { this.state.components[1]? <div>{this.state.components[1]}</div> : null }
+          </div>
+          <div>             
+            { this.state.components[2]? <div>{this.state.components[2]}</div> : null }
+          </div>
+          <div>             
+            { this.state.components[3]? <div>{this.state.components[3]}</div> : null }
+          </div>
 	  		</Slider>
       </div>
     );
