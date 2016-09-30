@@ -38,3 +38,9 @@
   background-size: contain;
   background-image: url('../../../public/icon.png');
 }
+
+.FooterTop {
+  position: absolute;
+  width: 100vw;
+  transform: translate(50%,-20px);
+}

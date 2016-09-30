@@ -82,12 +82,17 @@ function floatingTooltip(tooltipId, width) {
   };
 }
 
-// Bubblechart
+var w = window.innerWidth / 1.1;
+var h = window.innerHeight / 1.25;
 
+console.log(w)
+console.log(h)
+// Bubblechart
 function bubbleChart() {
   // Constants for sizing
-  var width = 1200;
-  var height = 600;
+  var width = w;
+  var height = h;
+
 
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('tooltip', 240);
@@ -137,7 +142,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['low', 'medium', 'high'])
-    .range(['#5E5FFF', '#5B5B5B', '#7aa25c']);
+    .range(['#5E5FFF', '#FFCFA1', '#7aa25c']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
