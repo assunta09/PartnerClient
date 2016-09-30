@@ -2,7 +2,6 @@ import React from 'react';
 import DescTitle from './DescTitle.js'
 import d3 from '../../../public/js/d3-min.js';
 import ReactDOM from 'react-dom';
-// var data = require('./gates_money.csv');
 
 // Tooltip module 
 
@@ -298,23 +297,12 @@ function bubbleChart() {
   function showDetail(d) {
     
     d3.select(this).attr('stroke', 'black');
-    // console.log(d3.select(this).attr('id', 'bub1'));
-    // console.log('hit');
     // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
     var content = React.createElement("div", {className: "name"}, d.name.toUpperCase() + " " + " " + d.group.toUpperCase() + ":  $"+ d.value + ".00");
     
     ReactDOM.render(content, document.getElementById('bub1'))
-    // var content = '<span class="name">Title: </span><span class="value">' +
-    //               d.name +
-    //               '</span><br/>' +
-    //               '<span class="name">Amount: </span><span class="value">$' +
-    //               d`.value +
-    //               '</span><br/>' +
-    //               '<span class="name">group: </span><span class="value">' +
-    //               d.group +
-    //               '</span>';
-    // console.log(d3.event)
-   tooltip.showTooltip(content, d3.event);
+    
+    tooltip.showTooltip(content, d3.event);
 
   }
 
@@ -346,48 +334,6 @@ function bubbleChart() {
 }
 
 //Setup functions for rendering the buttons  
-
-// We may not need this function 
-
-
-// function setupButtons() {
-//   var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
-//   d3.select(node)
-//     .selectAll('.button')
-//     .on('click', function () {
-//       // Remove active class from all buttons
-//       d3.selectAll('.button').classed('active', false);
-//       // Find the button just clicked
-//       var button = d3.select(this);
-
-//       // Set it as the active button
-//       button.classed('active', true);
-
-//       // Get the id of the button
-//       var buttonId = button.attr('id');
-
-//       // Toggle the bubble chart based on
-//       // the currently clicked button.
-//       toggleDisplay(buttonId);
-//     });
-// }
-
-/*
- * Helper function to convert a number into a string
- * and add commas to it to improve presentation.
- */
-// function addCommas(nStr) {
-//   nStr += '';
-//   var x = nStr.split('.');
-//   var x1 = x[0];
-//   var x2 = x.length > 1 ? '.' + x[1] : '';
-//   var rgx = /(\d+)(\d{3})/;
-//   while (rgx.test(x1)) {
-//     x1 = x1.replace(rgx, '$1' + ',' + '$2');
-//   }
-
-//   return x1 + x2;
-// }
 
 // Helper method for parsing the data from the API into a workable format 
 // for node creation 
@@ -425,29 +371,6 @@ function parseData(theData) {
 
   return newData;
 };
-
-
-// Sample data 
-
-//  var rawData = [ 
-//    {id: 1, total_amount: 5000, _title: "Hey", group: "somegroup", group_coef: 1 },
-//    {id: 2, total_amount: 20000, _title: "A", group: "secondgroup", group_coef: 2 },
-//    {id: 3, total_amount: 50000, _title: "B", group: "thirdgroup", group_coef: 3},
-//    {id: 4, total_amount: 500000, _title: "C", group: "somegroup", group_coef: 1},
-//    {id: 5, total_amount: 500, _title: "C", group: "secondgroup", group_coef: 1},
-//    {id: 6, total_amount: 3000, _title: "C", group: "thirdgroup", group_coef: 3 },
-//    {id: 7, total_amount: 800000, _title: "C", group: "somegroup", group_coef: 2 },
-//    {id: 8, total_amount: 200000, _title: "C", group: "secondgroup", group_coef: 1 },
-//    {id: 9, total_amount: 34353, _title: "C", group: "thirdgroup", group_coef: 3},
-//    {id: 10, total_amount: 24545, _title: "C", group: "somegroup", group_coef: 3},
-//    {id: 11, total_amount: 2003240, _title: "C", group: "secondgroup", group_coef: 2},
-//    {id: 12, total_amount: 200234, _title: "C", group: "thirdgroup", group_coef: 3 },
-//    {id: 13, total_amount: 2002342, _title: "C", group: "somegroup", group_coef: 2},
-//    {id: 14, total_amount: 20, _title: "C", group: "secondgroup", group_coef: 3 },
-//    {id: 15, total_amount: 59098, _title: "C", group: "thirdgroup", group_coef: 1},
-//    {id: 16, total_amount: 207889, _title: "C", group: "somegroup", group_coef: 2 },
-//    {id: 17, total_amount: 206776, _title: "C", group: "secondgroup", group_coef: 3 },
-// ];
 
 // Creation of chart instance 
 
