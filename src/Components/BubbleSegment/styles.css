@@ -133,6 +133,11 @@
   transform: translateY(4px);
 }
 
+
+.name {
+  font-size: 30px;
+}
+
 #bub1 {
  padding-top: 10px;
  padding-bottom: 10px;
