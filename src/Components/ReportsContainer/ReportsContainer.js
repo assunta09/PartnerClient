@@ -9,10 +9,9 @@ import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
 import BubbleSegment    from '../BubbleSegment/BubbleSegment.js';
 import Footer    from '../Footer/FooterSegment.js';
-// import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
+import Loader from 'react-loader';
 import AboutContainer  from '../AboutSegment/AboutContainer.js';
 import ScrollReveal from 'scrollreveal';
-import Loader from 'react-loaders';
 
 const mapStateToProps = ({ reports }) => ({
 	reports
@@ -25,13 +24,33 @@ const mapDispatchToProps = dispatch => ({
 
 const Element = Scroll.Element;
 
+const options = {
+    lines: 13,
+    length: 20,
+    width: 10,
+    radius: 30,
+    corners: 1,
+    rotate: 0,
+    direction: 1,
+    color: 'white',
+    speed: 1,
+    trail: 60,
+    shadow: false,
+    hwaccel: false,
+    zIndex: 2e9,
+    top: '50%',
+    left: '50%',
+    scale: 1.00
+};
+
 const ReportsContainer = React.createClass({
 
 getInitialState () {
   return {
     reports: this.props.reports,
     activeTab: '',
-    sr: ScrollReveal()
+    sr: ScrollReveal(),
+    loaded: false
   }
 },
 
@@ -41,40 +60,38 @@ componentWillMount: function () {
 		.then((response) =>
 			that.setState(
 			  {
-					reports: response
+					reports: response,
+          loaded: true
 				}
 			)
 		)
 },
 
-handleTap: function(event) {
-  this.setState({activeTab: event.target.id});
-},
-
 render() {
     return (
       <div>
-      	<StickyContainer>
-      	  <Sticky>
-      	  	<NavBar sr={this.state.sr}/>
-        	</Sticky>
-          <Element name="test1" className="element">
-            <Loader type="ball-pulse" active="true" />
-	      		<AboutContainer reports={this.state.reports} sr={this.state.sr}/>
-	      	</Element>
-        	<Element name="test2" className="element">
-	      		<RevenueContainer reports={this.state.reports} sr={this.state.sr}/>
-	      	</Element>
-	      	<Element name="test3" className="element">
-	      		<ExpenseContainer reports={this.state.reports} sr={this.state.sr}/>
-	      	</Element>
-          <Element name="test4" className="element">
-            <BubbleSegment reports={this.state.reports} sr={this.state.sr}/>
-          </Element>
-          <Element name="test5" className="element">
-            <Footer reports={this.state.reports} sr={this.state.sr}/>
-          </Element>
-      	</StickyContainer>
+        {console.log(this.state.reports)}
+            <Loader loaded={this.state.loaded} options={options} className="spinner"/>  
+            <StickyContainer>
+            <Sticky>
+              <NavBar sr={this.state.sr}/>
+            </Sticky>
+            <Element name="test1" className="element">
+              <AboutContainer reports={this.state.reports} sr={this.state.sr}/>
+            </Element>
+            <Element name="test2" className="element">
+              <RevenueContainer reports={this.state.reports} sr={this.state.sr}/>
+            </Element>
+            <Element name="test3" className="element">
+              <ExpenseContainer reports={this.state.reports} sr={this.state.sr}/>
+            </Element>
+            <Element name="test4" className="element">
+              <BubbleSegment reports={this.state.reports} sr={this.state.sr}/>
+            </Element>
+            <Element name="test5" className="element">
+              <Footer reports={this.state.reports} sr={this.state.sr}/>
+            </Element>
+          </StickyContainer>
       </div>
     );
   }
