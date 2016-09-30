@@ -33,7 +33,6 @@
 
 .BubbleTopContainer {
   text-align: center;
-  min-width: 1337px;
 }
 
 .BubbleGraphContainer {
@@ -120,6 +119,10 @@
   transform: translateY(4px);
 }
 
+.name {
+  font-size: 30px;
+
+}
 
 /*button {
   display: inline-block;

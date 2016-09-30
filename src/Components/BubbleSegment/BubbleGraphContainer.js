@@ -87,7 +87,7 @@ function floatingTooltip(tooltipId, width) {
 
 function bubbleChart() {
   // Constants for sizing
-  var width = 1337;
+  var width = 1200;
   var height = 600;
 
   // tooltip for mouseover functionality
@@ -98,8 +98,8 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var groupCenters = {
-    2: { x: width / 3, y: height / 3 },
-    1: { x: 2 * width / 3, y: height / 3 }
+    2: { x: width / 3, y: height / 2 },
+    1: { x: 2 * width / 3, y: height / 2 }
     // 3: { x: 2 * width / 3, y: height / 2 }
   };
 
@@ -301,7 +301,7 @@ function bubbleChart() {
     // console.log(d3.select(this).attr('id', 'bub1'));
     // console.log('hit');
     // React.createElement("div", { "class": "tooltip", id: "gates_tooltip", style: "pointer-events: none; opacity: 0; top: 624px; left: 689px;" });
-    var content = React.createElement("div", {className: "name"}, d.name + " " + d.value + " " + d.group);
+    var content = React.createElement("div", {className: "name"}, d.name.toUpperCase() + " " + " " + d.group.toUpperCase() + ":  $"+ d.value + ".00");
     
     ReactDOM.render(content, document.getElementById('bub1'))
     // var content = '<span class="name">Title: </span><span class="value">' +
