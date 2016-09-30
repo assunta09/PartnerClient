@@ -18,7 +18,6 @@ var NavTabBar = React.createClass({
   },
 
   componentDidMount: function() {
-
     Events.scrollEvent.register('begin', function() {
       console.log("begin", arguments);
     });
@@ -29,6 +28,10 @@ var NavTabBar = React.createClass({
 
     scrollSpy.update();
 
+  },
+  
+  handleSetActive: function(to) {
+    console.log(to);
   },
 
   scrollToTop: function() {
@@ -48,7 +51,6 @@ var NavTabBar = React.createClass({
           <li><Link activeClass="active" className={(this.state.activeTab === 'tab2') ? 'test2 active' : 'test2'} id="tab2" to="test2" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Expense</Link></li>
           <li><Link activeClass="active" className={(this.state.activeTab === 'tab3') ? 'test3 active' : 'test3'} id="tab3" to="test3" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Revenue</Link></li>
           <li><Link activeClass="active" className={(this.state.activeTab === 'tab4') ? 'test4 active' : 'test4'} id="tab4" to="test4" spy={true} smooth={true} duration={500} onClick={this.handleTap}>Net</Link></li>
-          
         </ul>
       </div>
     );
