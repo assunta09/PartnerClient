@@ -196,3 +196,11 @@ border: black;
   background-color: #5E5FFF;
   float: left;
 }
+
+.RevenueBubbleSeg h2 {
+  transform: translateX(-24px);
+}
+
+.ExpenseBubbleSeg h2 {
+  transform: translateX(-24px);
+}

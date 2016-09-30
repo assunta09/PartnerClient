@@ -287,12 +287,12 @@ function bubbleChart() {
     var years = svg.selectAll('.group')
       .data(groupsData);
 
-    years.enter().append('text')
-      .attr('class', 'group')
-      .attr('x', function (d) { return groupsTitleX[d]; })
-      .attr('y', 40)
-      .attr('text-anchor', 'middle')
-      .text(function (d) { return d; });
+    // years.enter().append('text')
+    //   .attr('class', 'group')
+    //   .attr('x', function (d) { return groupsTitleX[d]; })
+    //   .attr('y', 40)
+    //   .attr('text-anchor', 'middle')
+    //   .text(function (d) { return d; });
   }
 
   /*

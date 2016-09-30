@@ -9,8 +9,14 @@ var BubbleSegment = React.createClass({
       <div className='BubbleSegment'>
       	<div className="RevAndExpBubSeg">
 	      	<div className="RevenueBubbleSeg">
+	      		<div className="RevsLabel">
+	      			<h2>Revenue</h2>
+	      		</div>
 	      	</div>
 	      	<div className="ExpenseBubbleSeg">
+	      	  <div className="ExpsLabel">
+	      			<h2>Expense</h2>
+	      		</div>
 	      	</div>
       	</div>
         <BubbleGraphDescContainer reports={this.props.reports}/>
