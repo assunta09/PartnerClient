@@ -154,11 +154,12 @@
 }
 
 .SalaryTable td {
-	font-size: 1.3em;
+	display: inline-block;
+	font-size: 1.2em;
 }
 
 .SalaryTD {
-	padding-left: 36%;
+	padding-left: 15%;
 }
 
 .EmployeeName {

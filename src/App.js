@@ -7,7 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <HeroSegment />
-        {this.props.children}
       </div>
     );
   }
