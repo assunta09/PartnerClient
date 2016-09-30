@@ -176,3 +176,23 @@ text-shadow: #474747 3px 5px 2px;
 border: black;
 }
 */
+
+.RevAndExpBubSeg {
+  position: absolute;
+  width: 70vw;
+  transform: translate(22%, 140px);
+}
+
+.RevenueBubbleSeg {
+  width: 20px;
+  height: 10px;
+  background-color: #FFCFA1;
+  float: right;
+}
+
+.ExpenseBubbleSeg {
+  width: 20px;
+  height: 10px;
+  background-color: #5E5FFF;
+  float: left;
+}
