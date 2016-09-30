@@ -134,7 +134,7 @@ function bubbleChart() {
     .size([width, height])
     .charge(charge)
     .gravity(-0.01)
-    .friction(.95);
+    .friction(0.95);
 
 
   // Nice looking colors - no reason to buck the trend
@@ -236,8 +236,8 @@ function bubbleChart() {
 
   function moveToCenter(alpha) {
     return function (d) {
-      d.x = d.x + (center.x - d.x) * damper * alpha;
-      d.y = d.y + (center.y - d.y) * damper * alpha;
+      d.x += (center.x - d.x) * damper * alpha;
+      d.y += (center.y - d.y) * damper * alpha;
     };
   }
 
@@ -262,8 +262,8 @@ function bubbleChart() {
   function moveToGroups(alpha) {
     return function (d) {     
       var target = groupCenters[d.group_coef];
-      d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
-      d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
+      d.x += (target.x - d.x) * damper * alpha * 1.1;
+      d.y += (target.y - d.y) * damper * alpha * 1.1;
     };
   }
 
@@ -314,7 +314,7 @@ function bubbleChart() {
     //               '<span class="name">group: </span><span class="value">' +
     //               d.group +
     //               '</span>';
-    console.log(d3.event)
+    // console.log(d3.event)
    tooltip.showTooltip(content, d3.event);
 
   }
@@ -348,27 +348,30 @@ function bubbleChart() {
 
 //Setup functions for rendering the buttons  
 
-function setupButtons() {
-  var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
-  d3.select(node)
-    .selectAll('.button')
-    .on('click', function () {
-      // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
-      // Find the button just clicked
-      var button = d3.select(this);
+// We may not need this function 
 
-      // Set it as the active button
-      button.classed('active', true);
 
-      // Get the id of the button
-      var buttonId = button.attr('id');
+// function setupButtons() {
+//   var node = ReactDOM.findDOMNode('.BubbleGraphContainer');
+//   d3.select(node)
+//     .selectAll('.button')
+//     .on('click', function () {
+//       // Remove active class from all buttons
+//       d3.selectAll('.button').classed('active', false);
+//       // Find the button just clicked
+//       var button = d3.select(this);
 
-      // Toggle the bubble chart based on
-      // the currently clicked button.
-      toggleDisplay(buttonId);
-    });
-}
+//       // Set it as the active button
+//       button.classed('active', true);
+
+//       // Get the id of the button
+//       var buttonId = button.attr('id');
+
+//       // Toggle the bubble chart based on
+//       // the currently clicked button.
+//       toggleDisplay(buttonId);
+//     });
+// }
 
 /*
  * Helper function to convert a number into a string
@@ -476,7 +479,7 @@ var GraphContainer = React.createClass({
   },
 
   onMouseEnterHandler: function() {
-    console.log('hover');
+    // console.log('hover');
     theChart.showDetail('.bubble');
   },
 

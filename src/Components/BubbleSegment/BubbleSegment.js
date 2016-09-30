@@ -1,9 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { StickyContainer, Sticky } from 'react-sticky';
-import BubbleContainer from '../BubbleSegment/BubbleContainer.js'
 import BubbleGraphDescContainer from './BubbleGraphDescContainer.js';
-import NavBar from '../NavBar/NavBar.js'
 
 var BubbleSegment = React.createClass({
 

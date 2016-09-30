@@ -14,11 +14,11 @@ var PolarArea = React.createClass({
     var reports = data.reports
     var rev = reports.generalRevenueAbsolutes
     var service_rev = rev.service_revenue
-    console.log(service_rev)
+    // console.log(service_rev)
     var contribution = rev.contribution
     var investments = rev.investments
     var other = rev.other
-    console.log(other)
+    // console.log(other)
     this.setState({
       chartData: {
         data: [

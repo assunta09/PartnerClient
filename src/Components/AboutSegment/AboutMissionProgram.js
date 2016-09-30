@@ -11,7 +11,7 @@ var AboutMissionProgram = React.createClass({
 	},
 
 	componentWillReceiveProps: function(nextProps) {
-		console.log(nextProps)
+		// console.log(nextProps)
 		var report = nextProps.reports
 		var program = report.reports.programServiceAccomplishments
 		var mission
@@ -129,7 +129,7 @@ var AboutMissionProgram = React.createClass({
             { this.state.components[3]? <div>{this.state.components[3]}</div> : null }
           </div>
 	  		</Slider>
-	  		{console.log(this.state.components)}
+	  		
 
       </div>
     );
