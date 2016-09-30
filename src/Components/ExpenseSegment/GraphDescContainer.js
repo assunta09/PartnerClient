@@ -8,8 +8,8 @@ var GraphDescContainer = React.createClass({
 	componentDidMount: function () {
     const config = {
       origin: 'right',
-      duration: 700,
-      delay: 200,
+      duration: 1000,
+      delay: 300,
       distance: '50px',
       scale: 1,
       easing: 'ease',
@@ -17,12 +17,13 @@ var GraphDescContainer = React.createClass({
 
     const config2 = {
       origin: 'left',
-      duration: 700,
-      delay: 200,
+      duration: 1000,
+      delay: 300,
       distance: '50px',
       scale: 1,
       easing: 'ease',
     }
+
     this.props.sr.reveal(this.refs.box4, config)
     this.props.sr.reveal(this.refs.box3, config2)
   },

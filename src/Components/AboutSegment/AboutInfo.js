@@ -26,7 +26,7 @@ var AboutInfo = React.createClass ({
 						<h3>Year Formed: {this.state.report.year_formed}</h3>
 					</div>
 					<div className="AboutWebsiteContainer">
-						<h3>Website: {this.state.report.domain}</h3> 
+						<h3>Website: <a href={`https://${this.state.report.domain}`}>{this.state.report.domain}</a></h3>
 					</div>
 				</div>
 				<div>

@@ -49,6 +49,22 @@
 	width: 40%;
 }
 
+.AboutWebsiteContainer a {
+	text-decoration: none;
+}
+
+.AboutWebsiteContainer a:hover {
+	
+}
+
+.AboutWebsiteContainer a:link {
+	color: #5E5FFF
+}
+
+.AboutWebsiteContainer a:visted {
+	color: #5E5FFF
+}
+
 .AboutSliderContainer {
 	width: 80%;
 	margin: 0 auto;

@@ -41,8 +41,8 @@ var NavTabBar = React.createClass({
       <div className='TabBarContainer'>
         <ul className='navTab'>
           <li><Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500}>About</Link></li>
-          <li><Link activeClass="active" className="test2" to="test2" spy={true} smooth={true} duration={500}>Expense</Link></li>
-          <li><Link activeClass="active" className="test3" to="test3" spy={true} smooth={true} duration={500}>Revenue</Link></li>
+          <li><Link activeClass="active" className="test2" to="test2" spy={true} smooth={true} duration={500}>Revenue</Link></li>
+          <li><Link activeClass="active" className="test3" to="test3" spy={true} smooth={true} duration={500}>Expense</Link></li>
           <li><Link activeClass="active" className="test4" to="test4" spy={true} smooth={true} duration={500}>Net</Link></li>
         </ul>
       </div>

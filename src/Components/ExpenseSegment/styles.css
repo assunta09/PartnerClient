@@ -71,6 +71,7 @@
 
 .ECanvasContainer {
 	height: 68vh;
+	min-height: 460px;
 	padding: 0;
 	background: #FFCFA1;
 	float: right;

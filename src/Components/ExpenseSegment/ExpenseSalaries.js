@@ -3,14 +3,22 @@ import './styles.css'
 
 var ExpenseSalaries = React.createClass ({
 	getInitialState: function() {
-		return {data: {}}
+		return {data: []}
 	},
 
 	componentWillReceiveProps: function(nextProps) {
     var report = nextProps.reports
-    if (nextProps) {
-    	this.setState({data: report.reports.generalExpensesAbsolutes});
+    var topSal = report.reports.topSalaries
+    console.log(topSal)
+    var allTop
+    if (topSal) {
+    	allTop = topSal.map(function(pep) {
+    		return (<tr><td><i className="material-icons group">person</i><td className='EmployeeName'>{pep.name}</td><td className='SalaryTD'>{pep.salary}</td><td className='SalaryPos'>{pep.title}</td></td></tr>)
+    	});
     }
+    this.setState({
+    	data: allTop
+    });
   },
 
 	render () {
@@ -18,9 +26,12 @@ var ExpenseSalaries = React.createClass ({
 			<div className="Description">
 				<table className='SalaryTable'>
           <tbody>
-            <tr><td><i className="material-icons group">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.grants}`}</td></td></tr>
-            <tr><td><i className="material-icons group">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.member_benefits}`}</td></td></tr>
-            <tr><td><i className="material-icons group">person</i><td className='EmployeeName'>{`Salary`}</td><td className='SalaryTD'>{`$${this.state.data.salaries}`}</td></td></tr>
+          	{console.log(this.state.data)}
+   					{
+   						this.state.data.map(function(pep) {
+   							return pep
+   						})
+   					}
           </tbody>
         </table>
 			</div>
