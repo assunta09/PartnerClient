@@ -41,8 +41,8 @@ var AboutMissionProgram = React.createClass({
 		this.setState({
 			components:cardComponents
 		})
-		var slider = document.getElementById('slider')
-		slider.forceUpdate()
+		// var slider = document.getElementById('slider')
+		// slider.forceUpdate()
 	},
 
 	changeHandler: function(e) {
