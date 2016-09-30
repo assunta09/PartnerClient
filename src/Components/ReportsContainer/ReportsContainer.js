@@ -8,6 +8,7 @@ import NavBar from '../NavBar/NavBar.js'
 import ExpenseContainer from '../ExpenseSegment/ExpenseContainer.js';
 import RevenueContainer from '../RevenueSegment/RevenueContainer.js';
 import BubbleSegment    from '../BubbleSegment/BubbleSegment.js';
+import Footer    from '../Footer/FooterSegment.js';
 // import BubbleSegment  from '../BubbleSegment/BubbleSegment.js';
 import AboutContainer  from '../AboutSegment/AboutContainer.js';
 import ScrollReveal from 'scrollreveal';
@@ -69,6 +70,9 @@ render() {
 	      	</Element>
           <Element name="test4" className="element">
             <BubbleSegment reports={this.state.reports} sr={this.state.sr}/>
+          </Element>
+          <Element name="test5" className="element">
+            <Footer reports={this.state.reports} sr={this.state.sr}/>
           </Element>
       	</StickyContainer>
       </div>
