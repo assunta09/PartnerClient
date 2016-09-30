@@ -2,5 +2,61 @@
 	width: 100%;
 	height: 100vh;
 	text-align: left;
-	border-bottom: solid 1px #5B5B5B;
+	border-bottom: solid 2px #5B5B5B;
+	display: inline-block;
+}
+
+.MapBoxContainer {
+	margin: 0;
+	width: 30%;
+	float: left;
+}
+
+.AboutDescriptionContainer {
+	background-color: #ffe2c6;
+	width: 70%;
+	height: 100%;
+	float:right;
+}
+
+.mapboxgl-map {
+	margin: 0;
+}
+
+.AboutInfoContainer {
+	text-align: center;
+}
+
+.YearAndWebsiteContainer {
+	width: 70%;
+	display: inline-block;
+}
+
+.AboutYearContainer {
+	margin: 0;
+	float: left;
+	width: 40%;
+}
+
+.AboutWebsiteContainer {
+	margin: 0;
+	float: right;
+	width: 40%;
+}
+
+.AboutSliderContainer {
+	width: 80%;
+	margin: 0 auto;
+	height: 40%;
+	min-height: 400px;
+}
+
+.AboutCard {
+	background-color: white;
+	width: 80%;
+	padding: 20px;
+	height: 300px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
 }

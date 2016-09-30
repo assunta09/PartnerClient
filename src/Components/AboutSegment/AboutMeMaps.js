@@ -10,8 +10,8 @@ const { accessToken, style } = config;
 
 
 const containerStyle = {
-  height: "90vh",
-  width: "70vh"
+  height: "100vh",
+  width: "102%"
 };
 
 const styles = {
@@ -45,7 +45,7 @@ const styles = {
 export default class AboutMeMaps extends Component {
 
   state = {
-    center: [-122.4194, 37.7749],
+    center: [-86.40937079999999, 35.8293468],
     zoom: [11],
     skip: 0,
     stations: new Map(),
@@ -53,7 +53,7 @@ export default class AboutMeMaps extends Component {
   };
 
 componentWillReceiveProps(nextProps) {
-    console.log(nextProps.reports.reports.organisation)
+    // console.log(nextProps.reports.reports.organisation)
     var data = nextProps.reports.reports.organisation
     var name = data.address
     // var reports = data.reports
@@ -84,7 +84,6 @@ componentWillReceiveProps(nextProps) {
           }))
         }, new Map()))
     }));
-
   };
 
   _markerClick = (station, { feature }) => {
@@ -125,7 +124,7 @@ componentWillReceiveProps(nextProps) {
     const { stations, station, skip, end, popupShowLabel, obj } = this.state;
 
     return (
-      <div>
+      <div className="MapBoxContainer">
         <ReactMapboxGl
           style={style}
           center={this.state.center}
@@ -141,8 +140,8 @@ componentWillReceiveProps(nextProps) {
 
           <ZoomControl
             zoomDiff={1}
-            onControlClick={this._onControlClick}/>
-
+            onControlClick={this._onControlClick}
+            />
           <Layer
             type="symbol"
             id="marker"
@@ -180,16 +179,6 @@ componentWillReceiveProps(nextProps) {
             )
           }
         </ReactMapboxGl>
-
-        {
-          station && end && (
-            <div style={styles.stationDescription}>
-              {console.log(this.state.obj)}
-              <p>{ station.get("name") }</p>
-              <p>{ station.get("bikes") } bikes / { station.get("slots") } slots</p>
-            </div>
-          )
-        }
       </div>
     )
   }
