@@ -52,7 +52,7 @@
 .BubbleButtons {
   position: absolute;
   width: 70%;
-  transform: translate(20%, 500px);
+  transform: translate(20%, 430px);
 }
 
 .BubbleDescTitle {
@@ -139,7 +139,7 @@
 
 
 .name {
-  font-size: 30px;
+  font-size: 25px;
   color: #5B5B5B;
 }
 

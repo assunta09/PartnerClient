@@ -105,13 +105,12 @@ function bubbleChart() {
   var groupCenters = {
     2: { x: width / 3, y: height / 2 },
     1: { x: 2 * width / 3, y: height / 2 }
-    // 3: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the group titles.
   var groupsTitleX = {
-    Revenues: 250,
-    Expenses: width - 250
+    Revenues: 260,
+    Expenses: width - 260
   };
 
   // Used when setting up force and
