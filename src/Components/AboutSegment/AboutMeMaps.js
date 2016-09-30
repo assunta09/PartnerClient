@@ -53,17 +53,23 @@ export default class AboutMeMaps extends Component {
   };
 
 componentWillReceiveProps(nextProps) {
-    // console.log(nextProps.reports.reports.organisation)
+    console.log(nextProps.reports.reports.organisation)
     var data = nextProps.reports.reports.organisation
     var name = data.address
+    var geo = data.geocoding
+    console.log(geo)
+    var lat = (geo[0].latitude)
+    var lon = (geo[0].longitude)
+    console.log(lat)
+    console.log(lon)
     // var reports = data.reports
     const obj = [{
       id: ["1"],
       installDate: ["1278947280000"],
       installed: ["true"],
-      lat: ["37.7749"],
+      lat: [lat],
       locked: ["false"],
-      long: ["-122.4194"],
+      long: [lon],
       name: [name],
       nbBikes: ["14"],
       nbDocks: ["19"],
@@ -72,6 +78,10 @@ componentWillReceiveProps(nextProps) {
       temporary: ["false"],
       terminalName: ["001023"]
     }]
+
+    this.setState({
+      center: [lon, lat]
+    })
 
     this.setState(({ stations }) => ({
         stations: stations.merge(obj.reduce((acc, station) => {
