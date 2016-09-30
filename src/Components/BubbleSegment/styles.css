@@ -29,11 +29,11 @@
 
 #theBubbles {
   width: 90%;
-  background-color: white;
+  background-color: #F9F9F9;
 }
 
 .BubbleTopContainer {
-  padding-top: 3%;
+  padding-top: 6.5%;
   text-align: center;
 }
 
@@ -140,12 +140,17 @@
 
 .name {
   font-size: 30px;
+  color: #5B5B5B;
 }
 
 #bub1 {
+ position: absolute;
  padding-top: 10px;
  padding-bottom: 10px;
  font-size: 1.7em; 
+ width: 100vw;
+ transform: translateX(-60px);
+ color: #5B5B5B;
 }
 
 

@@ -83,7 +83,7 @@ function floatingTooltip(tooltipId, width) {
 }
 
 var w = window.innerWidth / 1.1;
-var h = window.innerHeight / 1.25;
+var h = window.innerHeight / 1.35;
 
 // Bubblechart
 function bubbleChart() {
