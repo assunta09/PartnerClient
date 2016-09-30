@@ -10,6 +10,7 @@
     "chart.js": "^1.1.1",
     "d3": "^4.2.6",
     "es6-promise": "^3.3.1",
+    "grunt": "^1.0.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.3.2",
