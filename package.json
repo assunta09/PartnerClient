@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "axios": "^0.14.0",
+    "babel-jest": "^15.0.0",
     "chart.js": "^1.1.1",
     "d3": "^4.2.6",
     "es6-promise": "^3.3.1",
@@ -37,7 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
   }
 }
