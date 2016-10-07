@@ -42,6 +42,10 @@ bundle exec rspec spec
 * Connor Ray <https://github.com/cray9503>
 * Blake Wills <https://github.com/Baw25>
 
+
+##Screenshot
+![partner](partner.png "The Partner Screenshot")
+
 ## Acknowledgments
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
