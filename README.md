@@ -44,7 +44,7 @@ bundle exec rspec spec
 
 
 ##Screenshot
-![partner](partner.png "The Partner Screenshot")
+![partner](partner.jpg "The Partner Screenshot")
 
 ## Acknowledgments
 
